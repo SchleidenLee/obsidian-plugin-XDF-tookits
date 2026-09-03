@@ -2,6 +2,11 @@ import type { App } from "obsidian";
 import type { XdfToolkitsSettings } from "../settings";
 import { createXdfDb, dateOnly, jsonList, type XdfDb } from "./db";
 import {
+  DAILY_FEEDBACK_SYSTEM_PROMPT,
+  buildDailyFeedbackUserPrompt,
+  buildToneBlock,
+} from "./feedbackPrompt";
+import {
   ensureStudentBlock,
   extractAiBlock,
   findHeadingRange,
@@ -337,7 +342,7 @@ export const TOOL_DEFS: ToolDef[] = [
   },
   {
     name: "generate_daily_feedback",
-    description: "日常反馈：读 raw → 调 LLM → 写 AI_GENERATED。结班测不在此工具。",
+    description: "日常反馈：按设置拼授课内容/此前原始记录 + 锁死去AI味提示，写 AI_GENERATED。",
     inputSchema: {
       type: "object",
       properties: {
@@ -387,7 +392,11 @@ export const TOOL_DEFS: ToolDef[] = [
   },
 ];
 
-async function chatComplete(settings: XdfToolkitsSettings, prompt: string): Promise<string> {
+async function chatComplete(
+  settings: XdfToolkitsSettings,
+  prompt: string,
+  system = DAILY_FEEDBACK_SYSTEM_PROMPT,
+): Promise<string> {
   if (!settings.llmBaseUrl || !settings.llmApiKey) {
     throw new Error("未配置模型 Base URL / API Key");
   }
@@ -401,11 +410,7 @@ async function chatComplete(settings: XdfToolkitsSettings, prompt: string): Prom
     body: JSON.stringify({
       model: settings.llmModel || "qwen-plus",
       messages: [
-        {
-          role: "system",
-          content:
-            "你是新东方雅思老师助理。根据课堂原始记录写给学生/家长看的中文反馈，具体、克制、不要编造没出现的分数。",
-        },
+        { role: "system", content: system },
         { role: "user", content: prompt },
       ],
       temperature: 0.4,
@@ -1093,15 +1098,48 @@ tags:
               ),
             ];
         const written: unknown[] = [];
+        let teaching = "";
+        if (ctx.settings.useTeachingContent) {
+          const secs = db.query(
+            "SELECT body FROM sections WHERE lesson_id = ? AND (title LIKE ? OR heading_path LIKE ?)",
+            [lessonRow.id, "%授课%", "%授课%"],
+          );
+          teaching = secs.map((s) => String(s.body ?? "")).join("\n");
+        }
+        const prevCount = Math.max(1, Math.min(8, ctx.settings.previousRawLessons || 2));
+        const prevLessons = ctx.settings.usePreviousRaw
+          ? db.query(
+              "SELECT id, lesson_number FROM lessons WHERE archive_id = ? AND lesson_number < ? ORDER BY lesson_number DESC LIMIT ?",
+              [archive.id, Number(lessonRow.lesson_number), prevCount],
+            )
+          : [];
         for (const nameStu of names.length ? names : student ? [student] : []) {
           const raw = targets
             .filter((s) => String(s.heading_path).includes(nameStu))
             .map((s) => String(s.body ?? ""))
             .join("\n");
-          const text = await chatComplete(
-            ctx.settings,
-            `班级/档案: ${target}\n课次: ${lessonRow.lesson_number}\n学员: ${nameStu}\n原始记录:\n${raw || "（记录不足，请根据课型写简短可核对的课堂反馈，不要编造分数）"}`,
-          );
+          const previousRaw: { lesson: number; text: string }[] = [];
+          for (const pl of prevLessons) {
+            const secs = db.query(
+              "SELECT heading_path, title, body FROM sections WHERE lesson_id = ? AND (heading_path LIKE '%原始%' OR title LIKE '%原始%' OR heading_path LIKE '%出勤%')",
+              [pl.id],
+            );
+            const text = secs
+              .filter((s) => String(s.heading_path).includes(nameStu))
+              .map((s) => String(s.body ?? ""))
+              .join("\n");
+            previousRaw.push({ lesson: Number(pl.lesson_number), text });
+          }
+          const prompt = buildDailyFeedbackUserPrompt({
+            target,
+            lesson: Number(lessonRow.lesson_number),
+            student: nameStu,
+            raw,
+            teaching: ctx.settings.useTeachingContent ? teaching : undefined,
+            previousRaw: ctx.settings.usePreviousRaw ? previousRaw : undefined,
+            tone: buildToneBlock(ctx.settings),
+          });
+          const text = await chatComplete(ctx.settings, prompt);
           const inner = await callTool(ctx, "write_feedback", {
             target,
             lesson: Number(lessonRow.lesson_number),
