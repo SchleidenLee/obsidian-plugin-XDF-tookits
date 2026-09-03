@@ -16,12 +16,21 @@ import {
   ensureStudentBlock,
   extractAiBlock,
   findHeadingRange,
+  findStudentBlock,
   parseLessonRange,
   readFile,
   setCheckbox,
   upsertAiBlock,
   writeFile,
 } from "./markdown";
+import {
+  INDEX_HEADER,
+  buildIndexLink,
+  appendLinkBeforeDivider,
+  appendCourseTypeLine,
+  insertNewCourseTypeBlock,
+  updateArchiveTimestamps,
+} from "./templates";
 
 export interface ToolDef {
   name: string;
@@ -463,37 +472,58 @@ export async function callTool(
           "SELECT * FROM archives WHERE kind = 'vip' AND status = 'active' ORDER BY name",
         );
         return ok({
-          students: archives.map((a) => ({
-            name: a.name,
-            course_type: jsonList(a.course_types).join(", "),
-            schedule_type: a.schedule_type ?? "",
-          })),
+          students: archives.map((a) => {
+            const lessons = db.query(
+              "SELECT * FROM lessons WHERE archive_id = ? ORDER BY lesson_number",
+              [a.id],
+            );
+            const vaultPath = String(a.vault_path || `Current Class/${a.name}/${a.name}.md`);
+            const folderPath = vaultPath.replace(/\/[^/]+\.md$/, "");
+            const lastDate = dateOnly(a.last_date) || (lessons.length ? dateOnly(lessons[lessons.length - 1].date) : "");
+            return {
+              name: a.name,
+              path: folderPath,
+              lesson_count: lessons.length,
+              course_type: jsonList(a.course_types).join(", "),
+              schedule_type: a.schedule_type ?? "",
+              status: a.status ?? "",
+              total_lessons: Number(a.total_lessons) || 0,
+              last_lesson_date: lastDate ?? "",
+            };
+          }),
+          count: archives.length,
         });
       }
       case "list_all_students": {
-        const roster = db.query(
-          `SELECT r.student_name as name, a.name as parent, a.kind as kind, a.course_types as course_types
-           FROM class_roster r JOIN archives a ON a.id = r.archive_id
-           WHERE a.status = 'active'`,
+        const allArchives = db.query(
+          "SELECT * FROM archives WHERE status = 'active'",
         );
-        const vips = db.query(
-          "SELECT name, course_types FROM archives WHERE kind = 'vip' AND status = 'active'",
-        );
-        const data = [
-          ...roster.map((r) => ({
-            name: r.name,
-            type: "班课",
-            parent: r.parent,
-            course_type: jsonList(r.course_types).join(", "),
-          })),
-          ...vips.map((r) => ({
-            name: r.name,
-            type: "一对一",
-            parent: r.name,
-            course_type: jsonList(r.course_types).join(", "),
-          })),
-        ];
-        return ok(data);
+        const studentMap = new Map<string, { sources: { type: string; target: string }[]; lessonCount: number; lastDate: string }>();
+        for (const a of allArchives) {
+          const isClass = a.kind === "class";
+          const members = isClass
+            ? db.query("SELECT student_name FROM class_roster WHERE archive_id = ? ORDER BY row_order", [a.id]).map((r) => String(r.student_name))
+            : [String(a.name)];
+          const source = { type: isClass ? "class" : "one_on_one", target: String(a.name) };
+          const lessons = db.query("SELECT date FROM lessons WHERE archive_id = ? ORDER BY date", [a.id]);
+          for (const name of members) {
+            let entry = studentMap.get(name);
+            if (!entry) { entry = { sources: [], lessonCount: 0, lastDate: "" }; studentMap.set(name, entry); }
+            entry.sources.push(source);
+            entry.lessonCount += lessons.length;
+            const last = lessons.length ? dateOnly(lessons[lessons.length - 1].date) : "";
+            if (last && last > entry.lastDate) entry.lastDate = last;
+          }
+        }
+        const students = [...studentMap.entries()]
+          .sort(([a], [b]) => a.localeCompare(b))
+          .map(([name, e]) => ({
+            name,
+            sources: e.sources,
+            lesson_count: e.lessonCount,
+            last_lesson_date: e.lastDate || null,
+          }));
+        return ok({ students, count: students.length });
       }
       case "list_lessons": {
         const target = requireTarget(args);
@@ -507,15 +537,34 @@ export async function callTool(
           target,
           target_type: archive.kind === "class" ? "class" : "one_on_one",
           count: lessons.length,
-          lessons: lessons.map((l) => ({
-            lesson_num: l.lesson_number,
-            date: dateOnly(l.date),
-            path: l.folder_path,
-            nav_path: l.nav_path,
-            feedback_path: `${String(l.folder_path || "").replace(/\/$/, "")}/Feedback ${l.lesson_number}.md`,
-            need_send_feedback: l.need_send_feedback,
-            feedback_sent: l.feedback_sent,
-          })),
+          lessons: lessons.map((l) => {
+            const folderPath = String(l.folder_path || "").replace(/\/$/, "");
+            const feedbackPath = `${folderPath}/Feedback ${l.lesson_number}.md`;
+            const fbSections = db.query(
+              `SELECT heading_path, body FROM sections
+               WHERE lesson_id = ? AND heading_path LIKE ?`,
+              [l.id, `%👤%`],
+            );
+            const totalStudents = fbSections.length;
+            let withFeedback = 0;
+            for (const s of fbSections) {
+              if (extractAiBlock(String(s.body ?? ""))) withFeedback++;
+            }
+            return {
+              lesson_num: l.lesson_number,
+              date: dateOnly(l.date),
+              path: folderPath,
+              nav_path: l.nav_path,
+              feedback_path: feedbackPath,
+              need_send_feedback: l.need_send_feedback,
+              feedback_sent: l.feedback_sent,
+              feedback_status: {
+                student_feedback_count: totalStudents,
+                students_with_feedback: withFeedback,
+                students_pending: totalStudents - withFeedback,
+              },
+            };
+          }),
         });
       }
       case "list_lessons_by_date": {
@@ -532,10 +581,12 @@ export async function callTool(
           date,
           lessons: lessons.map((l) => ({
             target: l.archive_name,
-            kind: l.archive_kind,
+            target_type: l.archive_kind === "class" ? "class" : "one_on_one",
             lesson_num: l.lesson_number,
             date: dateOnly(l.date),
+            path: l.folder_path,
             nav_path: l.nav_path,
+            feedback_path: `${String(l.folder_path || "").replace(/\/$/, "")}/Feedback ${l.lesson_number}.md`,
             need_send_feedback: l.need_send_feedback,
             feedback_sent: l.feedback_sent,
           })),
@@ -545,7 +596,7 @@ export async function callTool(
         const student = String(args.student ?? "").trim();
         if (!student) return err("student 必填");
         const lessons = db.query(
-          `SELECT l.*, a.name as class_name
+          `SELECT l.*, a.name as target_name, a.kind as archive_kind
            FROM lessons l
            JOIN archives a ON a.id = l.archive_id
            JOIN class_roster r ON r.archive_id = a.id
@@ -554,22 +605,34 @@ export async function callTool(
           [student],
         );
         const vip = db.query(
-          `SELECT l.*, a.name as class_name
+          `SELECT l.*, a.name as target_name, a.kind as archive_kind
            FROM lessons l JOIN archives a ON a.id = l.archive_id
            WHERE a.kind = 'vip' AND a.name = ?
            ORDER BY l.date`,
           [student],
         );
         const merged = [...lessons, ...vip];
-        return ok(
-          merged.map((l) => ({
-            class_name: l.class_name,
-            lesson_num: l.lesson_number,
-            date: dateOnly(l.date),
-            nav_path: l.nav_path,
-            need_send_feedback: l.need_send_feedback,
-          })),
-        );
+        return ok({
+          student,
+          lessons: merged.map((l) => {
+            const folderPath = String(l.folder_path || "").replace(/\/$/, "");
+            const feedbackPath = `${folderPath}/Feedback ${l.lesson_number}.md`;
+            const hasFeedback = db.query(
+              `SELECT COUNT(*) as c FROM sections
+               WHERE lesson_id = ? AND heading_path LIKE ?`,
+              [l.id, `%${student}%`],
+            );
+            return {
+              type: l.archive_kind === "class" ? "class" : "one_on_one",
+              target_name: l.target_name,
+              lesson_num: l.lesson_number,
+              date: dateOnly(l.date),
+              path: folderPath,
+              has_feedback_file: Number(hasFeedback[0]?.c) > 0,
+            };
+          }),
+          count: merged.length,
+        });
       }
       case "find_lessons": {
         const target = requireTarget(args);
@@ -600,7 +663,7 @@ export async function callTool(
         const lesson = lessons[0];
         if (!lesson) return err("课次不存在");
         const sections = db.query(
-          "SELECT heading_path, title, substr(body, 1, 800) as body FROM sections WHERE lesson_id = ? ORDER BY order_index",
+          "SELECT heading_path, title, body FROM sections WHERE lesson_id = ? ORDER BY order_index",
           [lesson.id],
         );
         return ok({ target, lesson, sections });
@@ -772,21 +835,23 @@ export async function callTool(
         let cur = (await readFile(app, path)) ?? `# Feedback ${lessonNum}\n`;
         cur = ensureStudentBlock(cur, student, lessonNum, dateOnly(lessons[0]?.date));
         const line = `${field}：${content}`;
-        if (cur.includes(`${field}：`)) {
-          cur = cur.replace(new RegExp(`${escapeReg(field)}：.*`), line);
+        const studentRange = findStudentBlock(cur, student);
+        const scopeStart = studentRange ? studentRange.start : 0;
+        const scopeEnd = studentRange ? studentRange.end : cur.length;
+        const scopeText = cur.slice(scopeStart, scopeEnd);
+        const fieldRe = new RegExp(`^${escapeReg(field)}[：:].*$`, "m");
+        if (fieldRe.test(scopeText)) {
+          const updatedScope = scopeText.replace(fieldRe, line);
+          cur = cur.slice(0, scopeStart) + updatedScope + cur.slice(scopeEnd);
         } else {
-          const marker = `## 👤 ${student}`;
-          const idx = cur.indexOf(marker);
-          if (idx >= 0) {
-            const insertAt = cur.indexOf("### 原始记录", idx);
-            if (insertAt >= 0) {
-              const nl = cur.indexOf("\n", insertAt);
-              cur = cur.slice(0, nl + 1) + line + "\n" + cur.slice(nl + 1);
-            } else {
-              cur += `\n${line}\n`;
-            }
+          const rawIdx = scopeText.indexOf("### 原始记录");
+          if (rawIdx >= 0) {
+            const absRaw = scopeStart + rawIdx;
+            const nl = cur.indexOf("\n", absRaw);
+            const insertAt = nl >= 0 ? nl + 1 : absRaw + rawIdx + "### 原始记录".length + 1;
+            cur = cur.slice(0, insertAt) + line + "\n" + cur.slice(insertAt);
           } else {
-            cur += `\n${line}\n`;
+            cur = cur.slice(0, scopeEnd) + line + "\n" + cur.slice(scopeEnd);
           }
         }
         await writeFile(app, path, cur);
@@ -825,34 +890,59 @@ export async function callTool(
         if (!archive) return err(`目标 '${target}' 不存在`);
         const path = String(archive.vault_path || `Current Class/${target}/${target}.md`);
         let cur = (await readFile(app, path)) ?? "";
+        if (!cur) return err("档案文件为空");
+        const kind = archive.kind === "vip" ? "vip" : "class";
         const lessons = db.query(
           "SELECT lesson_number, date, nav_path FROM lessons WHERE archive_id = ? ORDER BY lesson_number",
           [archive.id],
         );
-        const lines = lessons.map((l) => {
-          const link = String(l.nav_path || "").replace(/\.md$/, "");
-          return `- [[${link}|Lesson ${l.lesson_number}]] ${dateOnly(l.date) ?? ""}`.trim();
-        });
-        if (/课程记录索引/.test(cur)) {
-          cur = cur.replace(
-            /(## .*课程记录索引[\s\S]*?)(?=\n## |\s*$)/,
-            (m) => `${m.split("\n")[0]}\n\n${lines.join("\n")}\n`,
-          );
-        } else {
-          cur += `\n\n## 课程记录索引\n\n${lines.join("\n")}\n`;
+        const added: number[] = [];
+        for (const l of lessons) {
+          const n = Number(l.lesson_number);
+          const dateStr = dateOnly(l.date) ?? "";
+          const folderName = String(l.nav_path || "")
+            .replace(/\.md$/, "")
+            .split("/")
+            .pop() || `${target} Lesson ${n}`;
+          const link = buildIndexLink(kind as "class" | "vip", folderName, n, dateStr);
+          if (cur.includes(link)) continue;
+          if (kind === "vip") {
+            const courseTypes = jsonList(archive.course_types);
+            const ct = courseTypes[courseTypes.length - 1] || "";
+            const header = `### 🏷️ ${ct}`;
+            if (cur.includes(header)) {
+              cur = appendLinkBeforeDivider(cur, header, link);
+            } else {
+              cur = appendCourseTypeLine(cur, ct);
+              cur = insertNewCourseTypeBlock(cur, ct, link);
+            }
+          } else {
+            cur = appendLinkBeforeDivider(cur, INDEX_HEADER, link);
+          }
+          if (cur.includes(link)) added.push(n);
+        }
+        const total = Math.max(
+          ...lessons.map((l) => Number(l.lesson_number)),
+          0,
+        );
+        const lastDate = dateOnly(lessons[lessons.length - 1]?.date) ?? "";
+        if (added.length) {
+          cur = updateArchiveTimestamps(cur, total, lastDate);
         }
         await writeFile(app, path, cur);
-        return ok({ file: path, lessons: lessons.length });
+        return ok({ file: path, added, total_lessons: total, last_date: lastDate });
       }
       case "write_checkbox": {
         const target = requireTarget(args);
-        const item = String(args.item ?? "");
+        const item = String(args.item ?? "").trim();
+        if (!item) return err("item 必填");
         const checked = String(args.state ?? "checked") !== "unchecked";
         const section = args.section ? String(args.section) : null;
         const archive = archiveByName(db, target);
         if (!archive) return err(`目标 '${target}' 不存在`);
         const nums = parseLessonRange(String(args.lessons ?? ""));
         const updated: string[] = [];
+        const errors: { lesson: number; error: string }[] = [];
         for (const n of nums) {
           const lessons = db.query(
             "SELECT * FROM lessons WHERE archive_id = ? AND lesson_number = ?",
@@ -864,24 +954,41 @@ export async function callTool(
           const cur = await readFile(app, path);
           if (cur == null) continue;
           const lines = cur.split(/\n/);
-          let scope = { start: 0, end: lines.length };
+          const cbRe = new RegExp(`(\\[ \\]|\\[x\\]|- \\[[ xX]\\]).*${escapeReg(item)}`, "i");
           if (section) {
             const found = findHeadingRange(lines, 2, section) ?? findHeadingRange(lines, 3, section);
-            if (found) scope = found;
-          }
-          let hit = false;
-          for (let i = scope.start; i < scope.end; i++) {
-            if (lines[i].includes(item) && /(\[ \]|\[x\]|- \[[ xX]\])/i.test(lines[i])) {
-              lines[i] = setCheckbox(lines[i], checked);
-              hit = true;
+            if (!found) { errors.push({ lesson: n, error: `区块 '${section}' 不存在` }); continue; }
+            let hit = false;
+            for (let i = found.start; i < found.end; i++) {
+              if (cbRe.test(lines[i])) { lines[i] = setCheckbox(lines[i], checked); hit = true; }
             }
-          }
-          if (hit) {
+            if (hit) { await writeFile(app, path, lines.join("\n")); updated.push(path); }
+          } else {
+            const matches: number[] = [];
+            for (let i = 0; i < lines.length; i++) {
+              if (cbRe.test(lines[i])) matches.push(i);
+            }
+            if (matches.length === 0) continue;
+            if (matches.length > 1) {
+              const sections = new Set<string>();
+              for (const mi of matches) {
+                for (let j = mi; j >= 0; j--) {
+                  const m = lines[j].match(/^(#{1,6})\s+(.+)/);
+                  if (m) { sections.add(m[2].trim()); break; }
+                }
+              }
+              errors.push({
+                lesson: n,
+                error: `checkbox '${item}' 匹配到 ${matches.length} 处，请用 section 参数限定：${[...sections].join(" / ")}`,
+              });
+              continue;
+            }
+            lines[matches[0]] = setCheckbox(lines[matches[0]], checked);
             await writeFile(app, path, lines.join("\n"));
             updated.push(path);
           }
         }
-        return ok({ updated, item, state: checked ? "checked" : "unchecked" });
+        return ok({ updated, errors, item, state: checked ? "checked" : "unchecked" });
       }
       case "create_class": {
         const className = String(args.class_name ?? "").trim();
