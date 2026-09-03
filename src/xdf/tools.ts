@@ -7,6 +7,12 @@ import {
   buildToneBlock,
 } from "./feedbackPrompt";
 import {
+  createClassArchive,
+  createLessons,
+  createTestFeedbackPage,
+  createVipArchive,
+} from "./archiveCreate";
+import {
   ensureStudentBlock,
   extractAiBlock,
   findHeadingRange,
@@ -271,6 +277,7 @@ export const TOOL_DEFS: ToolDef[] = [
         schedule_type: { type: "string" },
         students: { type: "string" },
         first_class_time: { type: "string" },
+        subject: { type: "string" },
       },
       required: ["class_name", "first_class_date", "course_type", "schedule_type", "students"],
     },
@@ -286,6 +293,7 @@ export const TOOL_DEFS: ToolDef[] = [
         course_type: { type: "string" },
         schedule_type: { type: "string" },
         first_class_time: { type: "string" },
+        subject: { type: "string" },
       },
       required: ["student_name", "first_class_date", "course_type", "schedule_type"],
     },
@@ -300,6 +308,7 @@ export const TOOL_DEFS: ToolDef[] = [
         dates: { type: "string" },
         time_slots: { type: "array", items: { type: "number" } },
         course_type: { type: "string" },
+        subject: { type: "string" },
       },
       required: ["target", "dates"],
     },
@@ -314,6 +323,7 @@ export const TOOL_DEFS: ToolDef[] = [
         dates: { type: "string" },
         time_slots: { type: "array", items: { type: "number" } },
         course_type: { type: "string" },
+        subject: { type: "string" },
       },
       required: ["target", "dates"],
     },
@@ -879,165 +889,61 @@ export async function callTool(
           .split(/[,，]/)
           .map((s) => s.trim())
           .filter(Boolean);
-        const date = String(args.first_class_date ?? "");
-        const course = String(args.course_type ?? "");
-        const schedule = String(args.schedule_type ?? "weekend");
-        const folder = `Current Class/${className}`;
-        const path = `${folder}/${className}.md`;
-        if (app.vault.getAbstractFileByPath(path)) {
-          return ok({ class_name: className, action: "skipped", archive_path: path });
-        }
-        const roster = students.map((s, i) => `| ${i + 1} | ${s} |`).join("\n");
-        const md = `---
-kind: class
-tags:
-  - 档案
-  - class
-starting_date: ${date}
-schedule_type: ${schedule}
-course_type: ${course}
-subject: Reading
-student_count: ${students.length}
-status: active
----
-
-# ${className}
-
-## 学员信息
-
-| # | 姓名 |
-| --- | --- |
-${roster}
-
-## 课程记录索引
-
-## 测试反馈
-`;
-        await writeFile(app, path, md);
-        return ok({ class_name: className, action: "created", archive_path: path, students });
+        if (!className) return err("class_name 必填");
+        if (!students.length) return err("学员名单不能为空");
+        const data = await createClassArchive(app, {
+          class_name: className,
+          first_class_date: String(args.first_class_date ?? ""),
+          schedule_type: String(args.schedule_type ?? "weekend"),
+          course_type: String(args.course_type ?? ""),
+          students,
+          subject: args.subject ? String(args.subject) : null,
+        });
+        return ok(data);
       }
       case "create_one_on_one": {
-        const name = String(args.student_name ?? "").trim();
-        const date = String(args.first_class_date ?? "");
-        const course = String(args.course_type ?? "");
-        const schedule = String(args.schedule_type ?? "weekend");
-        const folder = `Current Class/${name}`;
-        const path = `${folder}/${name}.md`;
-        if (app.vault.getAbstractFileByPath(path)) {
-          return ok({ student_name: name, action: "skipped", archive_path: path });
-        }
-        const md = `---
-kind: vip
-tags:
-  - 档案
-  - vip
-starting_date: ${date}
-schedule_type: ${schedule}
-course_type: ${course}
-subject: Reading
-status: active
----
-
-# ${name}
-
-## 课程记录索引
-
-## 测试反馈
-`;
-        await writeFile(app, path, md);
-        return ok({ student_name: name, action: "created", archive_path: path });
+        const name = String(args.student_name ?? args.student ?? "").trim();
+        if (!name) return err("student_name 必填");
+        const data = await createVipArchive(app, {
+          student: name,
+          first_class_date: String(args.first_class_date ?? ""),
+          schedule_type: String(args.schedule_type ?? "full-time"),
+          course_type: String(args.course_type ?? ""),
+          subject: args.subject ? String(args.subject) : null,
+        });
+        return ok(data);
       }
-      case "create_class_lesson":
+      case "create_class_lesson": {
+        const target = requireTarget(args);
+        const data = await createLessons(app, db, {
+          target,
+          kind: "class",
+          dates: args.dates,
+          time_slots: args.time_slots,
+          course_type: args.course_type ? String(args.course_type) : null,
+          subject: args.subject ? String(args.subject) : null,
+        });
+        return ok(data);
+      }
       case "create_one_on_one_lesson": {
         const target = requireTarget(args);
-        const dates = String(args.dates ?? "")
-          .split(",")
-          .map((d) => d.trim())
-          .filter(Boolean);
-        const slots = Array.isArray(args.time_slots)
-          ? (args.time_slots as unknown[]).map(Number)
-          : [];
-        const slotMap: Record<number, string> = {
-          1: "10:00",
-          2: "12:20",
-          3: "15:30",
-          4: "17:50",
-          5: "20:10",
-        };
-        const archive = archiveByName(db, target);
-        const existing = archive
-          ? db.query(
-              "SELECT max(lesson_number) as m FROM lessons WHERE archive_id = ?",
-              [archive.id],
-            )
-          : [];
-        let nextNum = Number(existing[0]?.m ?? 0) + 1;
-        const created: string[] = [];
-        for (let i = 0; i < dates.length; i++) {
-          const n = nextNum++;
-          const date = dates[i];
-          const time = slotMap[slots[i]] ?? "10:00";
-          const folder = `Current Class/${target}/${target} Lesson ${n}`;
-          const need =
-            String(archive?.schedule_type ?? "") === "weekend" || n % 2 === 0;
-          const nav = `${folder}/${target} Lesson ${n}.md`;
-          const fb = `${folder}/Feedback ${n}.md`;
-          const navMd = `---
-lesson_number: ${n}
-date: ${date}T${time}:00+08:00
-need_send_feedback: ${need}
-tags:
-  - 课程记录
----
-
-# ${target} Lesson ${n}
-
-## 📝 课堂反馈
-
-- [ ] 提交反馈
-- [ ] 发送作业到家长群
-
-### 反馈总结
-<!-- AI_GENERATED_START -->
-待生成
-<!-- AI_GENERATED_END -->
-`;
-          const fbMd = `# Feedback ${n}\n`;
-          await writeFile(app, nav, navMd);
-          await writeFile(app, fb, fbMd);
-          created.push(nav);
-        }
-        return ok({ target, created });
+        const data = await createLessons(app, db, {
+          target,
+          kind: "vip",
+          dates: args.dates,
+          time_slots: args.time_slots,
+          course_type: args.course_type ? String(args.course_type) : null,
+          subject: args.subject ? String(args.subject) : null,
+        });
+        return ok(data);
       }
       case "create_test_feedback": {
-        const target = requireTarget(args);
-        const testName = String(args.test_name ?? "");
-        const date = String(args.date ?? "");
-        const archive = archiveByName(db, target);
-        const roster = archive
-          ? db.query(
-              "SELECT student_name FROM class_roster WHERE archive_id = ? ORDER BY row_order",
-              [archive.id],
-            )
-          : [];
-        const names =
-          roster.length > 0
-            ? roster.map((r) => String(r.student_name))
-            : archive?.kind === "vip"
-              ? [target]
-              : [];
-        const path = `Current Class/${target}/测试反馈/${testName}.md`;
-        const body = names
-          .map(
-            (s) => `## 👤 ${s}\n\n- [ ] 已完成\n\n### 反馈总结\n<!-- AI_GENERATED_START -->\n待生成\n<!-- AI_GENERATED_END -->\n`,
-          )
-          .join("\n");
-        await writeFile(
-          app,
-          path,
-          `---\ntest_name: ${testName}\ndate: ${date}\n---\n\n# ${testName}\n\n${body}`,
-        );
-        return ok({ file: path, students: names });
+        const data = await createTestFeedbackPage(app, db, {
+          target: requireTarget(args),
+          test_name: String(args.test_name ?? ""),
+          date: String(args.date ?? ""),
+        });
+        return ok(data);
       }
       case "generate_student_summary": {
         const student = String(args.student ?? "").trim();

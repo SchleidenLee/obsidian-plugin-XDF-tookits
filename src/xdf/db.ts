@@ -8,10 +8,31 @@ export interface XdfDb {
   source(): string;
 }
 
-interface XdfBaseApi {
-  db?: {
-    query: (sql: string, params?: unknown[]) => unknown;
-  };
+type QueryFn = (sql: string, params?: unknown[]) => unknown;
+
+interface LoosePlugin {
+  api?: { db?: { query?: QueryFn } };
+  _xdfBase?: { getDBApi?: () => { query?: QueryFn } };
+}
+
+function getXdfBasePlugin(app: App): LoosePlugin | null {
+  const plugins = (app as unknown as { plugins: { plugins: Record<string, LoosePlugin> } })
+    .plugins?.plugins;
+  return plugins?.["xdf-base"] ?? null;
+}
+
+/** xdf-base 把查询口挂在 _xdfBase.getDBApi()，文档里的 api.db 目前没接上。 */
+function resolveQuery(app: App): { query: QueryFn; source: string } | null {
+  const plugin = getXdfBasePlugin(app);
+  if (!plugin) return null;
+  const viaExt = plugin._xdfBase?.getDBApi?.();
+  if (viaExt && typeof viaExt.query === "function") {
+    return { query: viaExt.query.bind(viaExt), source: "xdf-base:_xdfBase" };
+  }
+  if (typeof plugin.api?.db?.query === "function") {
+    return { query: plugin.api.db.query.bind(plugin.api.db), source: "xdf-base:api.db" };
+  }
+  return null;
 }
 
 function bindParams(sql: string, params: unknown[]): string {
@@ -24,12 +45,6 @@ function bindParams(sql: string, params: unknown[]): string {
     if (typeof v === "boolean") return v ? "1" : "0";
     return `'${String(v).replace(/'/g, "''")}'`;
   });
-}
-
-function getBaseApi(app: App): XdfBaseApi | null {
-  const plugins = (app as unknown as { plugins: { plugins: Record<string, { api?: XdfBaseApi }> } })
-    .plugins?.plugins;
-  return plugins?.["xdf-base"]?.api ?? null;
 }
 
 function normalizeRows(raw: unknown): SqlRow[] {
@@ -47,21 +62,20 @@ function normalizeRows(raw: unknown): SqlRow[] {
 export function createXdfDb(app: App): XdfDb {
   return {
     available() {
-      return !!getBaseApi(app)?.db?.query;
+      return !!resolveQuery(app);
     },
     source() {
-      return this.available() ? "xdf-base" : "none";
+      return resolveQuery(app)?.source ?? "none";
     },
     query(sql: string, params: unknown[] = []) {
-      const api = getBaseApi(app);
-      if (!api?.db?.query) {
-        throw new Error("未找到 xdf-base 数据库。请启用 XDF-Base 插件并等待 .xdf/xdf.db 同步。");
+      const resolved = resolveQuery(app);
+      if (!resolved) {
+        throw new Error("未找到 xdf-base 数据库。请启用 XDF-Base 并等待初始化完成。");
       }
-      const bound = bindParams(sql, params);
       try {
-        return normalizeRows(api.db.query(bound));
+        return normalizeRows(resolved.query(sql, params));
       } catch {
-        return normalizeRows(api.db.query(sql, params));
+        return normalizeRows(resolved.query(bindParams(sql, params)));
       }
     },
   };
