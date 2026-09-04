@@ -3,7 +3,7 @@
   "name": "XDF Toolkits",
   "version": "0.1.5",
   "minAppVersion": "1.6.0",
-  "description": "新东方教学档案 MCP 服务端。Obsidian 打开后在本机提供 HTTP MCP，供 Agent 查询课次、写反馈、建档。",
+  "description": "XDF 教学档案 MCP 服务端：为本机 Agent 提供 HTTP 接口，支持查询课次、写反馈、建档",
   "author": "Schleiden",
   "authorUrl": "https://github.com/SchleidenLee",
   "isDesktopOnly": true
