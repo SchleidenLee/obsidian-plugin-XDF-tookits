@@ -343,7 +343,9 @@ async function appendNextLink(app: App, parent: string, archiveName: string, n: 
   const prevNav = `${parent}/${prevFolder}/${getLessonFileNames(archiveName, n - 1).nav}.md`;
   const content = await readFile(app, prevNav);
   if (content == null) return;
-  const nextLink = "[[" + buildLessonFolderName(archiveName, n) + "|" + LINK_NEXT + "]]";
+  const nextFolderName = buildLessonFolderName(archiveName, n);
+  const nextNavName = getLessonFileNames(archiveName, n).nav;
+  const nextLink = "[[" + "../" + nextFolderName + "/" + nextNavName + "|" + LINK_NEXT + "]]";
   if (content.includes(nextLink)) return;
   await writeFile(app, prevNav, appendLinkListEntry(content, "links", nextLink));
 }
@@ -498,7 +500,7 @@ ${studentBlocks}
 `;
   const fileAction = await writeOrUpdate(app, path, testContent);
   const archive = (await readFile(app, info.archive_path)) ?? "";
-  const linkLine = `- [[${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
+  const linkLine = `- [[./${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
   let archiveAction = "skipped";
   if (!archive.includes(linkLine)) {
     await writeFile(app, info.archive_path, appendTestFeedbackLink(archive, linkLine));

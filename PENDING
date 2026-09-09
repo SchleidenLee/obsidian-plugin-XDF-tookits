@@ -1,0 +1,76 @@
+# PENDING: 课程链接改为相对路径
+
+## 问题
+当前脚本生成的 wiki 链接使用裸名（如 `[[Wordlist 1| 词汇表]]`），Obsidian 会自动解析为绝对路径。
+当 vault 中存在同名文件时可能指向错误目标，且移动档案文件夹后链接可能失效。
+
+## 目标
+将所有链接改为以文件位置为基准的相对路径格式，确保：
+1. 移动档案文件夹后链接不失效
+2. 同名文件不会互相干扰
+3. 不依赖 Obsidian "始终更新内部链接" 设置
+
+## 修改文件
+
+### 文件 1: `src/xdf/templates.ts`
+
+#### 1.1 `buildLessonNavFrontmatter` — 上一课/档案首页链接（第 134、136 行）
+当前：
+```typescript
+links.push("[[" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
+links.push("[[" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
+```
+改为：
+```typescript
+links.push("[[" + "../" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
+links.push("[[" + "../" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
+```
+
+#### 1.2 `buildLessonNav` — 课次内文件列表（第 232-236 行）
+当前：`"- [[" + names.note + "| 课堂笔记]]"`
+改为：`"- [[" + "./" + names.note + "| 课堂笔记]]"`
+
+涉及：课堂笔记、词汇表、语法笔记、课后作业、下节课入门测
+
+#### 1.3 `buildLessonNav` — 反馈链接（第 244 行、第 283 行）
+当前：`"- [[" + names.feedback + "| 课堂反馈]]"`
+改为：`"- [[" + "./" + names.feedback + "|💬 课堂反馈]]"`
+
+#### 1.4 `buildIndexLink` — 档案页课程索引（第 354 行）
+当前：`return "- [[" + folderName + "|" + label + "]]"`
+改为：`return "- [[" + "./" + folderName + "|" + label + "]]"`
+
+### 文件 2: `src/xdf/archiveCreate.ts`
+
+#### 2.1 `appendNextLink` — 下一课链接（第 346 行）
+当前：
+```typescript
+const nextLink = "[[" + buildLessonFolderName(archiveName, n) + "|" + LINK_NEXT + "]]";
+```
+改为：
+```typescript
+const nextLink = "[[" + "../" + buildLessonFolderName(archiveName, n) + "|" + LINK_NEXT + "]]";
+```
+
+#### 2.2 `createTestFeedbackPage` — 测试反馈页链接（第 501 行）
+当前：
+```typescript
+const linkLine = `- [[${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
+```
+改为：
+```typescript
+const linkLine = `- [[./${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
+```
+
+### 文件 3: `src/xdf/tools.ts`
+
+#### 3.1 `update_archive_index` 工具（第 907 行）
+调用 `buildIndexLink`，该函数已在 templates.ts 中修改，此处无需额外改动。
+但需确认调用结果与创建时生成的格式一致。
+
+## 注意事项
+- 课次 nav 文件位于 `{档案文件夹}/{课次文件夹}/Nav.md`
+- 课次内文件（note/wordlist 等）与 nav 同级，用 `./`
+- 档案首页和兄弟课次在父目录，用 `../`
+- 档案页在档案文件夹根目录，课次子文件夹用 `./`
+- 测试反馈页链接从档案页出发，用 `./`

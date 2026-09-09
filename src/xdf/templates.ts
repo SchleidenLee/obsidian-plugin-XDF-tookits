@@ -131,9 +131,9 @@ export function buildLessonNavFrontmatter(opts: {
   const kindTag = opts.kind === "class" ? TAGS.CLASS : TAGS.VIP;
   const links: string[] = [];
   if (opts.prev_lesson_folder_name) {
-    links.push("[[" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
+    links.push("[[" + "../" + opts.prev_lesson_folder_name + "/" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
   }
-  links.push("[[" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
+  links.push("[[" + "../" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
   const fields: Record<string, unknown> = {
     Date: opts.iso_date,
     lesson_number: opts.lesson_number,
@@ -229,11 +229,11 @@ export function buildNav(opts: {
 
   const fileList = [
     "## 📂本节课文件",
-    "- [[" + names.note + "|📝 课堂笔记]]",
-    "- [[" + names.wordlist + "|📚 词汇表]]",
-    "- [[" + names.grammar + "|📖 语法笔记]]",
-    "- [[" + names.homework + "|✍️ 课后作业]]",
-    "- [[" + names.quiz + "|📋 下节课入门测]]",
+    "- [[" + "./" + names.note + "|📝 课堂笔记]]",
+    "- [[" + "./" + names.wordlist + "|📚 词汇表]]",
+    "- [[" + "./" + names.grammar + "|📖 语法笔记]]",
+    "- [[" + "./" + names.homework + "|✍️ 课后作业]]",
+    "- [[" + "./" + names.quiz + "|📋 下节课入门测]]",
     "---",
   ].join("\n");
 
@@ -241,7 +241,7 @@ export function buildNav(opts: {
     ? [
         "## 📝 课堂反馈",
         "- [ ] 提交反馈",
-        "- [[" + names.feedback + "|💬 课堂反馈]]",
+        "- [[" + "./" + names.feedback + "|💬 课堂反馈]]",
         "",
         "### 授课内容",
         "",
@@ -280,7 +280,7 @@ export function buildNav(opts: {
     : [
         "## 📝 课堂反馈",
         "- [ ] 提交反馈",
-        "- [[" + names.feedback + "|💬 课堂反馈]]",
+        "- [[" + "./" + names.feedback + "|💬 课堂反馈]]",
         "### 授课内容",
         "",
         "---",
@@ -351,7 +351,7 @@ export function buildIndexLink(
     kind === "class"
       ? "📖 Lesson " + lessonNumber + " - " + dateStr
       : "第 " + lessonNumber + " 课 - " + dateStr;
-  return "- [[" + folderName + "|" + label + "]]";
+  return "- [[" + "./" + folderName + "|" + label + "]]";
 }
 
 export function updateArchiveTimestamps(content: string, total: number, dateStr: string): string {
