@@ -282,11 +282,19 @@ export const TOOL_DEFS: ToolDef[] = [
       properties: {
         class_name: { type: "string" },
         first_class_date: { type: "string" },
-        course_type: { type: "string" },
-        schedule_type: { type: "string" },
+        course_type: {
+          type: "string",
+          enum: ["Foundation Grammar", "L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"],
+        },
+        schedule_type: { type: "string", enum: ["weekend", "full-time"] },
         students: { type: "string" },
         first_class_time: { type: "string" },
-        subject: { type: "string" },
+        subject: {
+          type: "string",
+          enum: ["Listening", "Speaking", "Reading", "Writing"],
+          description: "雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必填",
+        },
+        folder: { type: "string", description: "存放文件夹，默认 Current Class" },
       },
       required: ["class_name", "first_class_date", "course_type", "schedule_type", "students"],
     },
@@ -299,10 +307,18 @@ export const TOOL_DEFS: ToolDef[] = [
       properties: {
         student_name: { type: "string" },
         first_class_date: { type: "string" },
-        course_type: { type: "string" },
-        schedule_type: { type: "string" },
+        course_type: {
+          type: "string",
+          enum: ["Foundation Grammar", "L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"],
+        },
+        schedule_type: { type: "string", enum: ["weekend", "full-time"] },
         first_class_time: { type: "string" },
-        subject: { type: "string" },
+        subject: {
+          type: "string",
+          enum: ["Listening", "Speaking", "Reading", "Writing"],
+          description: "雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必填",
+        },
+        folder: { type: "string", description: "存放文件夹，默认 Current Class" },
       },
       required: ["student_name", "first_class_date", "course_type", "schedule_type"],
     },
@@ -998,25 +1014,41 @@ export async function callTool(
           .filter(Boolean);
         if (!className) return err("class_name 必填");
         if (!students.length) return err("学员名单不能为空");
+        const courseType = String(args.course_type ?? "");
+        const subject = args.subject ? String(args.subject) : null;
+        // 雅思课程必须有 subject
+        const ieltsCourseTypes = ["L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"];
+        if (ieltsCourseTypes.includes(courseType) && !subject) {
+          return err("雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必须指定 subject");
+        }
         const data = await createClassArchive(app, {
           class_name: className,
           first_class_date: String(args.first_class_date ?? ""),
           schedule_type: String(args.schedule_type ?? "weekend"),
-          course_type: String(args.course_type ?? ""),
+          course_type: courseType,
           students,
-          subject: args.subject ? String(args.subject) : null,
+          subject,
+          folder: args.folder ? String(args.folder) : undefined,
         });
         return ok(data);
       }
       case "create_one_on_one": {
         const name = String(args.student_name ?? args.student ?? "").trim();
         if (!name) return err("student_name 必填");
+        const courseType = String(args.course_type ?? "");
+        const subject = args.subject ? String(args.subject) : null;
+        // 雅思课程必须有 subject
+        const ieltsCourseTypes = ["L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"];
+        if (ieltsCourseTypes.includes(courseType) && !subject) {
+          return err("雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必须指定 subject");
+        }
         const data = await createVipArchive(app, {
           student: name,
           first_class_date: String(args.first_class_date ?? ""),
           schedule_type: String(args.schedule_type ?? "full-time"),
-          course_type: String(args.course_type ?? ""),
-          subject: args.subject ? String(args.subject) : null,
+          course_type: courseType,
+          subject,
+          folder: args.folder ? String(args.folder) : undefined,
         });
         return ok(data);
       }

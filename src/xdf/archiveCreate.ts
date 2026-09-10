@@ -221,9 +221,11 @@ export async function createClassArchive(
     course_type: string;
     students: string[];
     subject?: string | null;
+    folder?: string;
   },
 ) {
-  const folder = `Current Class/${opts.class_name}`;
+  const baseFolder = opts.folder || "Current Class";
+  const folder = `${baseFolder}/${opts.class_name}`;
   const path = `${folder}/${opts.class_name}.md`;
   const md =
     buildFrontmatter(
@@ -248,9 +250,11 @@ export async function createVipArchive(
     schedule_type: string;
     course_type: string;
     subject?: string | null;
+    folder?: string;
   },
 ) {
-  const folder = `Current Class/${opts.student}`;
+  const baseFolder = opts.folder || "Current Class";
+  const folder = `${baseFolder}/${opts.student}`;
   const path = `${folder}/${opts.student}.md`;
   const md =
     buildFrontmatter(
