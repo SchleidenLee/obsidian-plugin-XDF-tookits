@@ -1,0 +1,65 @@
+{
+  "_comment": "迁移中间数据 - 从原始档案解析后生成，确认后调用 MCP 写入",
+  "_source_files": ["原始档案1.md", "原始档案2.md"],
+
+  "archives": [
+    {
+      "type": "class",
+      "class_name": "",
+      "first_class_date": "YYYY-MM-DD",
+      "course_type": "初级教材|初级讲义|中级教材|中级讲义|L1教材|L1讲义|L2教材|L2讲义",
+      "schedule_type": "weekend|full-time",
+      "students": "学生1,学生2",
+      "first_class_time": "HH:MM",
+      "subject": "阅读|写作|听力|口语"
+    },
+    {
+      "type": "one_on_one",
+      "student_name": "",
+      "first_class_date": "YYYY-MM-DD",
+      "course_type": "",
+      "schedule_type": "weekend|full-time",
+      "first_class_time": "HH:MM",
+      "subject": ""
+    }
+  ],
+
+  "lessons": [
+    {
+      "type": "class|one_on_one",
+      "target": "档案名",
+      "dates": "2026-01-01,2026-01-08,...",
+      "time_slots": [1],
+      "course_type": "",
+      "subject": ""
+    }
+  ],
+
+  "raw_records": [
+    {
+      "target": "档案名",
+      "lesson": 1,
+      "student": "学生名",
+      "field": "出勤|作业情况|入门测情况|课堂表现|掌握情况|需要加强",
+      "content": "具体内容"
+    }
+  ],
+
+  "teaching_contents": [
+    {
+      "target": "档案名",
+      "lesson": 1,
+      "content": "授课内容 markdown"
+    }
+  ],
+
+  "feedbacks": [
+    {
+      "target": "档案名",
+      "lesson": 1,
+      "student": "学生名",
+      "feedback_type": "student_feedback|class_feedback",
+      "content": "反馈内容"
+    }
+  ]
+}
