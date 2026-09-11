@@ -1,4 +1,4 @@
-import { App, Notice, PluginSettingTab, Setting } from "obsidian";
+import { App, Notice, PluginSettingTab, Setting, requestUrl } from "obsidian";
 import type XdfToolkitsPlugin from "./main";
 import { TONE_EXTRACT_SYSTEM } from "./xdf/feedbackPrompt";
 
@@ -53,7 +53,8 @@ async function chatJson(
     throw new Error("未配置模型");
   }
   const url = settings.llmBaseUrl.replace(/\/$/, "") + "/chat/completions";
-  const res = await fetch(url, {
+  const res = await requestUrl({
+    url,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -67,9 +68,10 @@ async function chatJson(
       ],
       temperature: 0.2,
     }),
+    throw: false,
   });
-  if (!res.ok) throw new Error(`LLM HTTP ${res.status}`);
-  const json = (await res.json()) as { choices?: { message?: { content?: string } }[] };
+  if (res.status >= 400) throw new Error(`LLM HTTP ${res.status}: ${res.text.slice(0, 200)}`);
+  const json = res.json as { choices?: { message?: { content?: string } }[] };
   const text = json.choices?.[0]?.message?.content?.trim();
   if (!text) throw new Error("LLM 无输出");
   return text;

@@ -1,4 +1,5 @@
 import type { App } from "obsidian";
+import { requestUrl } from "obsidian";
 import type { XdfToolkitsSettings } from "../settings";
 import { createXdfDb, dateOnly, jsonList, type XdfDb } from "./db";
 import {
@@ -436,7 +437,8 @@ async function chatComplete(
     throw new Error("未配置模型 Base URL / API Key");
   }
   const url = settings.llmBaseUrl.replace(/\/$/, "") + "/chat/completions";
-  const res = await fetch(url, {
+  const res = await requestUrl({
+    url,
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -450,9 +452,10 @@ async function chatComplete(
       ],
       temperature: 0.4,
     }),
+    throw: false,
   });
-  if (!res.ok) throw new Error(`LLM HTTP ${res.status}: ${await res.text()}`);
-  const json = (await res.json()) as {
+  if (res.status >= 400) throw new Error(`LLM HTTP ${res.status}: ${res.text.slice(0, 200)}`);
+  const json = res.json as {
     choices?: { message?: { content?: string } }[];
   };
   const text = json.choices?.[0]?.message?.content?.trim();
