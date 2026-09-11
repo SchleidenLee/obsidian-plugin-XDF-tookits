@@ -8,6 +8,7 @@ export const DAILY_FEEDBACK_SYSTEM_PROMPT = `你是新东方一线雅思{subject
 - 排比、空夸奖、正确的废话
 - 编造分数、排名、未在记录里出现的题目或错误
 - markdown 标题、emoji、编号大作文
+- 第二人称（你/你们），必须用第三人称（该学员/学员/孩子）
 
 要求：
 - 只根据提供的原始记录（以及可选的本课授课内容、此前几节原始记录）写
@@ -20,9 +21,20 @@ export const DAILY_FEEDBACK_SYSTEM_PROMPT = `你是新东方一线雅思{subject
 
 export function buildToneBlock(settings: XdfToolkitsSettings): string {
   const t = settings.tone;
-  const lines = [
-    `称呼：${t.address || "（未填）"}`,
-  ];
+  const lines = [];
+
+  if (t.address === "学员") {
+    lines.push(`称呼：学员（仅用"学员"称呼，禁止出现学员姓名）`);
+  } else if (t.address === "孩子") {
+    lines.push(`称呼：孩子（仅用"孩子"称呼）`);
+  } else if (t.address === "姓名（后两字）") {
+    lines.push(`称呼：${t.address || "（未填）"}（用名字后两字称呼）`);
+  } else if (t.address === "姓名") {
+    lines.push(`称呼：${t.address || "（未填）"}（用全名称呼）`);
+  } else {
+    lines.push(`称呼：${t.address || "（未填）"}`);
+  }
+
   if (t.avoid) lines.push(`违禁词：${t.avoid}`);
   const styleParts = [t.style, t.notes].filter(Boolean);
   lines.push(`风格偏好：${styleParts.join("；") || "（未填）"}`);
@@ -60,5 +72,5 @@ export function buildDailyFeedbackUserPrompt(input: {
 
 export const TONE_EXTRACT_SYSTEM = `根据老师粘贴的历史反馈，提炼可执行的语气配置。只输出 JSON，不要 markdown。
 字段：
-{"address":"怎么称呼学生","avoid":"违禁词","style":"风格偏好（语气、句式、补充习惯合并）"}
+{"address":"怎么称呼学生（学员/孩子/姓名）","avoid":"违禁词","style":"风格偏好（语气、句式、补充习惯合并）"}
 短句，不要评价老师。`;
