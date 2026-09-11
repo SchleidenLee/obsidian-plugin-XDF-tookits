@@ -2,12 +2,22 @@ import { App, Notice, PluginSettingTab, Setting, requestUrl } from "obsidian";
 import type XdfToolkitsPlugin from "./main";
 import { TONE_EXTRACT_SYSTEM } from "./xdf/feedbackPrompt";
 
+export interface TonePreset {
+  name: string;
+  address: string;
+  avoid: string;
+  style: string;
+}
+
 export interface ToneConfig {
   address: string;
   audience: string;
   style: string;
   avoid: string;
   notes: string;
+  presets: TonePreset[];
+  activePreset: string;
+  custom?: TonePreset;
 }
 
 export interface XdfToolkitsSettings {
@@ -36,11 +46,26 @@ export const DEFAULT_SETTINGS: XdfToolkitsSettings = {
   usePreviousRaw: true,
   previousRawLessons: 2,
   tone: {
-    address: "",
-    audience: "家长",
+    address: "学员",
+    audience: "",
     style: "",
-    avoid: "",
+    avoid: "四字成语",
     notes: "",
+    presets: [
+      {
+        name: "TS严格版",
+        address: "学员",
+        avoid: "四字成语",
+        style: "短句、先说问题再说作业、不客套",
+      },
+      {
+        name: "Python客观版",
+        address: "学员",
+        avoid: "",
+        style: "客观中立、100字以上、完整段落、不分条列点、不使用冒号",
+      },
+    ],
+    activePreset: "TS严格版",
   },
 };
 
@@ -225,54 +250,115 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
     containerEl.createEl("h3", { text: "语气" });
 
     const tone = this.plugin.settings.tone;
+    const isPresetMode = tone.presets.some((p) => p.name === tone.activePreset);
+    const currentPreset = tone.presets.find((p) => p.name === tone.activePreset);
+
+    // 预设选择器
+    new Setting(containerEl)
+      .setName("语气预设")
+      .setDesc("选择预设后下方字段为只读，可微调后保存为自定义")
+      .addDropdown((d) => {
+        tone.presets.forEach((p) => d.addOption(p.name, p.name));
+        d.addOption("custom", "自定义");
+        d.setValue(tone.activePreset === "custom" ? "custom" : tone.activePreset);
+        d.onChange(async (v) => {
+          if (v === "custom") {
+            this.plugin.settings.tone.activePreset = "custom";
+          } else {
+            const preset = tone.presets.find((p) => p.name === v);
+            if (preset) {
+              this.plugin.settings.tone.address = preset.address;
+              this.plugin.settings.tone.avoid = preset.avoid;
+              this.plugin.settings.tone.style = preset.style;
+              this.plugin.settings.tone.activePreset = v;
+            }
+          }
+          await this.plugin.saveSettings();
+          this.display();
+        });
+      });
+
+    // 保存为自定义按钮
+    if (isPresetMode) {
+      new Setting(containerEl).addButton((b) =>
+        b.setButtonText("保存为自定义配置").onClick(async () => {
+          this.plugin.settings.tone.custom = {
+            name: "自定义",
+            address: this.plugin.settings.tone.address,
+            avoid: this.plugin.settings.tone.avoid,
+            style: this.plugin.settings.tone.style,
+          };
+          this.plugin.settings.tone.activePreset = "custom";
+          await this.plugin.saveSettings();
+          new Notice("已保存为自定义配置");
+          this.display();
+        }),
+      );
+    }
+
+    const isReadOnly = isPresetMode && !tone.custom;
 
     // 称呼：下拉 + 条件显示自定义输入框
-    const addressType = tone.address === "孩子" || tone.address === "学员" || tone.address === "姓名（后两字）"
+    const addressType = tone.address === "孩子" || tone.address === "学员" || tone.address === "姓名（后两字）" || tone.address === "姓名"
       ? tone.address
       : "学员";
-    const customName = addressType === "姓名（后两字）" ? tone.address : "";
+    const customName = addressType === "姓名（后两字）" || addressType === "姓名" ? tone.address : "";
 
-    new Setting(containerEl)
+    const addressSetting = new Setting(containerEl)
       .setName("称呼")
       .addDropdown((d) =>
         d.addOption("孩子", "孩子")
           .addOption("学员", "学员")
           .addOption("姓名（后两字）", "姓名（后两字）")
+          .addOption("姓名", "姓名")
           .setValue(addressType)
           .onChange(async (v) => {
-            this.plugin.settings.tone.address = v === "姓名（后两字）" ? "" : v;
+            if (v === "姓名（后两字）" || v === "姓名") {
+              this.plugin.settings.tone.address = "";
+            } else {
+              this.plugin.settings.tone.address = v;
+            }
+            this.plugin.settings.tone.activePreset = "custom";
             await this.plugin.saveSettings();
             this.display();
           }),
       );
+    if (isReadOnly) addressSetting.setDisabled(true);
 
-    if (addressType === "姓名（后两字）") {
+    if ((addressType === "姓名（后两字）" || addressType === "姓名") && !isReadOnly) {
+      const isFullName = addressType === "姓名";
       new Setting(containerEl)
-        .setName("自定义名字")
-        .setDesc("输入全名，自动取后两字。如：曹子轩 → 子轩")
+        .setName(isFullName ? "全名" : "自定义名字")
+        .setDesc(isFullName ? "输入全名，直接使用" : "输入全名，自动取后两字。如：曹子轩 → 子轩")
         .addText((t) =>
           t.setValue(customName).onChange(async (v) => {
             const trimmed = v.trim();
-            const displayName = trimmed.length > 2 ? trimmed.slice(-2) : trimmed;
+            let displayName = trimmed;
+            if (addressType === "姓名（后两字）") {
+              displayName = trimmed.length > 2 ? trimmed.slice(-2) : trimmed;
+            }
             this.plugin.settings.tone.address = displayName;
+            this.plugin.settings.tone.activePreset = "custom";
             await this.plugin.saveSettings();
           }),
         );
     }
 
     // 违禁词
-    new Setting(containerEl)
+    const avoidSetting = new Setting(containerEl)
       .setName("违禁词")
       .setDesc("不要出现的说法")
       .addText((t) =>
         t.setValue(tone.avoid).setPlaceholder('四字成语、客套话、"非常棒"').onChange(async (v) => {
           this.plugin.settings.tone.avoid = v;
+          this.plugin.settings.tone.activePreset = "custom";
           await this.plugin.saveSettings();
         }),
       );
+    if (isReadOnly) avoidSetting.setDisabled(true);
 
     // 风格偏好（合并原"语气与句式"和"补充"）
-    new Setting(containerEl)
+    const styleSetting = new Setting(containerEl)
       .setName("风格偏好")
       .setDesc("语气、句式、补充习惯")
       .addTextArea((t) => {
@@ -283,9 +369,11 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
         t.onChange(async (v) => {
           this.plugin.settings.tone.style = v;
           this.plugin.settings.tone.notes = "";
+          this.plugin.settings.tone.activePreset = "custom";
           await this.plugin.saveSettings();
         });
       });
+    if (isReadOnly) styleSetting.setDisabled(true);
 
     containerEl.createEl("h4", { text: "从自己的反馈提取语气" });
     new Setting(containerEl)
@@ -314,11 +402,13 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
           if (!match) throw new Error("未解析到 JSON");
           const parsed = JSON.parse(match[0]) as Partial<ToneConfig>;
           this.plugin.settings.tone = {
+            ...this.plugin.settings.tone,
             address: String(parsed.address ?? tone.address),
             audience: "",
             style: String(parsed.style ?? tone.style),
             avoid: String(parsed.avoid ?? tone.avoid),
             notes: "",
+            activePreset: "custom",
           };
           await this.plugin.saveSettings();
           new Notice("已写入语气配置，可再改");

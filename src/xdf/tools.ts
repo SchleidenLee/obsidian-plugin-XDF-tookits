@@ -1187,7 +1187,9 @@ export async function callTool(
             previousRaw: ctx.settings.usePreviousRaw ? previousRaw : undefined,
             tone: buildToneBlock(ctx.settings),
           });
-          const text = await chatComplete(ctx.settings, prompt);
+          const subjectLabel = lessonRow.subject ? `（${lessonRow.subject}）` : "";
+          const systemPrompt = DAILY_FEEDBACK_SYSTEM_PROMPT.replace("{subject}", subjectLabel);
+          const text = await chatComplete(ctx.settings, prompt, systemPrompt);
           const inner = await callTool(ctx, "write_feedback", {
             target,
             lesson: Number(lessonRow.lesson_number),

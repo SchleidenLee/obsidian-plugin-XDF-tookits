@@ -60,7 +60,12 @@ export default class XdfToolkitsPlugin extends Plugin {
   async loadSettings() {
     const loaded = (await this.loadData()) as Partial<XdfToolkitsSettings> | null;
     this.settings = Object.assign({}, DEFAULT_SETTINGS, loaded, {
-      tone: { ...DEFAULT_SETTINGS.tone, ...(loaded?.tone ?? {}) },
+      tone: {
+        ...DEFAULT_SETTINGS.tone,
+        ...(loaded?.tone ?? {}),
+        presets: loaded?.tone?.presets ?? DEFAULT_SETTINGS.tone.presets,
+        activePreset: loaded?.tone?.activePreset ?? DEFAULT_SETTINGS.tone.activePreset,
+      },
     });
   }
 
