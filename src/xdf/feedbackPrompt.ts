@@ -22,11 +22,10 @@ export function buildToneBlock(settings: XdfToolkitsSettings): string {
   const t = settings.tone;
   const lines = [
     `称呼：${t.address || "（未填）"}`,
-    `对象：${t.audience || "（未填）"}`,
-    `语气：${t.style || "（未填）"}`,
   ];
-  if (t.avoid) lines.push(`避免：${t.avoid}`);
-  if (t.notes) lines.push(`补充：${t.notes}`);
+  if (t.avoid) lines.push(`违禁词：${t.avoid}`);
+  const styleParts = [t.style, t.notes].filter(Boolean);
+  lines.push(`风格偏好：${styleParts.join("；") || "（未填）"}`);
   return lines.join("\n");
 }
 
@@ -61,5 +60,5 @@ export function buildDailyFeedbackUserPrompt(input: {
 
 export const TONE_EXTRACT_SYSTEM = `根据老师粘贴的历史反馈，提炼可执行的语气配置。只输出 JSON，不要 markdown。
 字段：
-{"address":"怎么称呼学生","audience":"写给谁","style":"语气与句式","avoid":"不要出现的说法","notes":"其它稳定习惯"}
+{"address":"怎么称呼学生","avoid":"违禁词","style":"风格偏好（语气、句式、补充习惯合并）"}
 短句，不要评价老师。`;

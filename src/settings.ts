@@ -167,11 +167,27 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
         }),
       );
 
+    new Setting(containerEl)
+      .setName("测试连接")
+      .setDesc("验证 Base URL、API Key、模型名是否可用")
+      .addButton((b) =>
+        b.setButtonText("测试").onClick(async () => {
+          b.setDisabled(true);
+          b.setButtonText("测试中...");
+          try {
+            await chatJson(this.plugin.settings, "回复OK", "ping");
+            new Notice("连接成功");
+          } catch (e) {
+            const msg = e instanceof Error ? e.message : String(e);
+            new Notice(`连接失败：${msg}`);
+          } finally {
+            b.setDisabled(false);
+            b.setButtonText("测试");
+          }
+        }),
+      );
+
     containerEl.createEl("h3", { text: "日常反馈生成" });
-    containerEl.createEl("p", {
-      text: "去 AI 味的系统提示已锁死，不在此修改。",
-      cls: "setting-item-description",
-    });
 
     new Setting(containerEl)
       .setName("参考本课授课内容")
@@ -207,22 +223,67 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
     containerEl.createEl("h3", { text: "语气" });
 
     const tone = this.plugin.settings.tone;
-    const bind = (key: keyof ToneConfig, name: string, desc: string) => {
+
+    // 称呼：下拉 + 条件显示自定义输入框
+    const addressType = tone.address === "孩子" || tone.address === "学员" || tone.address === "姓名（后两字）"
+      ? tone.address
+      : "学员";
+    const customName = addressType === "姓名（后两字）" ? tone.address : "";
+
+    new Setting(containerEl)
+      .setName("称呼")
+      .addDropdown((d) =>
+        d.addOption("孩子", "孩子")
+          .addOption("学员", "学员")
+          .addOption("姓名（后两字）", "姓名（后两字）")
+          .setValue(addressType)
+          .onChange(async (v) => {
+            this.plugin.settings.tone.address = v === "姓名（后两字）" ? "" : v;
+            await this.plugin.saveSettings();
+            this.display();
+          }),
+      );
+
+    if (addressType === "姓名（后两字）") {
       new Setting(containerEl)
-        .setName(name)
-        .setDesc(desc)
+        .setName("自定义名字")
+        .setDesc("输入全名，自动取后两字。如：曹子轩 → 子轩")
         .addText((t) =>
-          t.setValue(tone[key]).onChange(async (v) => {
-            this.plugin.settings.tone[key] = v;
+          t.setValue(customName).onChange(async (v) => {
+            const trimmed = v.trim();
+            const displayName = trimmed.length > 2 ? trimmed.slice(-2) : trimmed;
+            this.plugin.settings.tone.address = displayName;
             await this.plugin.saveSettings();
           }),
         );
-    };
-    bind("address", "称呼", "如：孩子 / 小名 / 同学");
-    bind("audience", "写给谁", "家长 / 学生 / 两者");
-    bind("style", "语气与句式", "如：短句、先问题后作业、不客套");
-    bind("avoid", "避免", "不要出现的说法");
-    bind("notes", "补充", "其它稳定习惯");
+    }
+
+    // 违禁词
+    new Setting(containerEl)
+      .setName("违禁词")
+      .setDesc("不要出现的说法")
+      .addText((t) =>
+        t.setValue(tone.avoid).setPlaceholder('四字成语、客套话、"非常棒"').onChange(async (v) => {
+          this.plugin.settings.tone.avoid = v;
+          await this.plugin.saveSettings();
+        }),
+      );
+
+    // 风格偏好（合并原"语气与句式"和"补充"）
+    new Setting(containerEl)
+      .setName("风格偏好")
+      .setDesc("语气、句式、补充习惯")
+      .addTextArea((t) => {
+        const merged = [tone.style, tone.notes].filter(Boolean).join("\n");
+        t.setValue(merged).setPlaceholder("短句、先说问题再说作业、不客套");
+        t.inputEl.rows = 3;
+        t.inputEl.style.width = "100%";
+        t.onChange(async (v) => {
+          this.plugin.settings.tone.style = v;
+          this.plugin.settings.tone.notes = "";
+          await this.plugin.saveSettings();
+        });
+      });
 
     containerEl.createEl("h4", { text: "从自己的反馈提取语气" });
     new Setting(containerEl)
@@ -238,7 +299,7 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
       });
 
     new Setting(containerEl).addButton((b) =>
-      b.setButtonText("提取语气配置").onClick(async () => {
+      b.setButtonText("提取语气").onClick(async () => {
         const sample = this.extractSample.trim();
         if (!sample) {
           new Notice("先粘贴反馈");
@@ -252,10 +313,10 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
           const parsed = JSON.parse(match[0]) as Partial<ToneConfig>;
           this.plugin.settings.tone = {
             address: String(parsed.address ?? tone.address),
-            audience: String(parsed.audience ?? tone.audience),
+            audience: "",
             style: String(parsed.style ?? tone.style),
             avoid: String(parsed.avoid ?? tone.avoid),
-            notes: String(parsed.notes ?? tone.notes),
+            notes: "",
           };
           await this.plugin.saveSettings();
           new Notice("已写入语气配置，可再改");

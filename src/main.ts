@@ -105,8 +105,13 @@ export default class XdfToolkitsPlugin extends Plugin {
         return;
       }
       await this.mcp.start();
-      this.statusEl?.setText(`XDF MCP :${this.settings.port}`);
-      new Notice(`XDF MCP 已启动 ${this.mcp.url}`);
+      const actualPort = this.mcp.port;
+      this.statusEl?.setText(`XDF MCP :${actualPort}`);
+      if (actualPort !== this.settings.port) {
+        new Notice(`XDF MCP 已启动 ${this.mcp.url}（端口已自动调整）`);
+      } else {
+        new Notice(`XDF MCP 已启动 ${this.mcp.url}`);
+      }
     } catch (e) {
       this.statusEl?.setText("XDF MCP 失败");
       new Notice(`XDF MCP 启动失败：${e instanceof Error ? e.message : String(e)}`);

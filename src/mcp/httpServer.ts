@@ -14,6 +14,7 @@ interface JsonRpc {
 
 export class McpHttpServer {
   private server: http.Server | null = null;
+  private actualPort: number | null = null;
   running = false;
 
   constructor(
@@ -25,21 +26,55 @@ export class McpHttpServer {
     return this.getSettings().bindLan ? "0.0.0.0" : "127.0.0.1";
   }
 
+  get port(): number {
+    return this.actualPort ?? this.getSettings().port;
+  }
+
   get url(): string {
-    return `http://127.0.0.1:${this.getSettings().port}/mcp`;
+    return `http://127.0.0.1:${this.port}/mcp`;
+  }
+
+  private tryListen(port: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const srv = http.createServer((req, res) => {
+        void this.handle(req, res);
+      });
+      srv.once("error", (err) => {
+        srv.close();
+        reject(err);
+      });
+      srv.listen(port, this.listenHost, () => {
+        this.server = srv;
+        this.actualPort = port;
+        resolve();
+      });
+    });
   }
 
   async start(): Promise<void> {
     await this.stop();
     const settings = this.getSettings();
-    this.server = http.createServer((req, res) => {
-      void this.handle(req, res);
-    });
-    await new Promise<void>((resolve, reject) => {
-      this.server!.once("error", reject);
-      this.server!.listen(settings.port, this.listenHost, () => resolve());
-    });
-    this.running = true;
+    const basePort = settings.port;
+    const maxOffset = 50;
+
+    // Try base port first, then alternate +1, -1, +2, -2, ...
+    for (let offset = 0; offset <= maxOffset; offset++) {
+      const ports = offset === 0 ? [basePort] : [basePort + offset, basePort - offset];
+      for (const port of ports) {
+        if (port < 1 || port > 65535) continue;
+        try {
+          await this.tryListen(port);
+          this.running = true;
+          return;
+        } catch (e) {
+          const err = e as NodeJS.ErrnoException;
+          if (err.code !== "EADDRINUSE") throw e;
+          // Port in use, try next
+        }
+      }
+    }
+
+    throw new Error(`端口 ${basePort} 及 ±${maxOffset} 范围内均被占用，请手动设置端口`);
   }
 
   async stop(): Promise<void> {
