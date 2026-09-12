@@ -418,9 +418,15 @@ export function insertNewCourseTypeBlock(content: string, courseType: string, li
   const section = content.slice(indexPos, sectionEnd);
   const lastDiv = section.lastIndexOf("---");
   if (lastDiv === -1) return content;
-  const insertPos = indexPos + lastDiv + 3;
-  const block = "\n\n### 🏷️ " + courseType + "\n" + link + "\n";
-  return content.slice(0, insertPos) + block + content.slice(insertPos);
+  
+  // 删除原有的 --- 并清理多余空行
+  const beforeDiv = content.slice(0, indexPos + lastDiv);
+  const afterDiv = content.slice(indexPos + lastDiv + 3);
+  const cleanedBefore = beforeDiv.replace(/\n\s*\n$/, '\n');
+  
+  // 插入新课型块（带 ---）
+  const block = "\n\n### 🏷️ " + courseType + "\n" + link + "\n\n---\n";
+  return cleanedBefore + block + afterDiv;
 }
 
 export function appendTestFeedbackLink(content: string, linkLine: string): string {
