@@ -5,8 +5,9 @@
 - 档案页 frontmatter：提供首课时间、schedule_type、学员名单
 
 ## 所需字段
-- **班课**: class_name, first_class_date, course_type, schedule_type, students, dates, time_slots
-- **一对一**: student_name, first_class_date, course_type, schedule_type, dates, time_slots
+- **班课**: class_name, first_class_date, course_type, schedule_type, students, subject, dates, time_slots
+- **一对一**: student_name, first_class_date, course_type, schedule_type, subject, dates, time_slots
+- **subject**: 全部为 Reading
 
 ---
 
@@ -15,7 +16,8 @@
 ### 3238
 - 来源：待迁移.md
 - ✅ class_name: 3238
-- ✅ course_type: 初级教材
+- ✅ course_type: L1教材
+- ✅ subject: Reading
 - ✅ students: 张思佳 周津安 图玛丽斯 胡月 耿一博 刘亚萱 乌拉尔·哈山（7人）
 - ✅ first_class_date: 2026-01-27
 - ✅ schedule_type: full-time
@@ -35,7 +37,8 @@
 ### 3285
 - 来源：待迁移.md + 档案页
 - ✅ class_name: 3285
-- ✅ course_type: 中级教材 / L2教材（待确认用哪个）
+- ✅ course_type: L2教材
+- ✅ subject: Reading
 - ✅ students: 廖梓凯 李嘉葉 鲁君飞扬 马子涵 张景然 迪丽那孜·木合台江（6人）
 - ✅ first_class_date: 2026-02-04
 - ✅ schedule_type: full-time
@@ -55,7 +58,8 @@
 ### 3327
 - 来源：待迁移.md
 - ✅ class_name: 3327
-- ✅ course_type: 初级讲义
+- ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ students: 唐昊岩 张琪凯 钟正意 杨燕楠 于米提 周元丰 安紫莹 吴若晨 济文静（9人）
 - ✅ first_class_date: 2026-01-16
 - ✅ schedule_type: full-time
@@ -76,7 +80,8 @@
 ### 3374
 - 来源：待迁移.md
 - ✅ class_name: 3374
-- ✅ course_type: 初级讲义
+- ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ students: 张梓彤 程熙喆 黄涵昱 童孖玥 惠嘉怡 祖木拉提 田淇心 张佳怡（8人）
 - ✅ first_class_date: 2026-02-02
 - ✅ schedule_type: full-time
@@ -97,7 +102,8 @@
 ### 3376
 - 来源：待迁移.md + 档案页
 - ✅ class_name: 3376
-- ✅ course_type: 初级讲义
+- ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ students: 侯洁 王曦悦 沃伦 姚奕杉 刘宇翔 丁箫然 伊丽咪努尔 付麒元 丁奕雯（9人）
 - ✅ first_class_date: 2026-03-16
 - ✅ schedule_type: full-time
@@ -119,6 +125,7 @@
 - 来源：档案页 + 待迁移.md
 - ✅ class_name: 3320
 - ✅ course_type: L1教材
+- ✅ subject: Reading
 - ✅ students: 阿丽米热 拉来 韩依汎 阿依江 达那 白安 曹铠铄 刘明桦（8人）
 - ✅ first_class_date: 2026-03-23
 - ✅ schedule_type: full-time
@@ -139,6 +146,7 @@
 - 来源：档案页 + 待迁移.md
 - ✅ class_name: 3356
 - ✅ course_type: L1教材
+- ✅ subject: Reading
 - ✅ students: 凯利比努尔 肖淇文 哈力木拉提 张硕涵 莱孜娜 王博宇 艾则孜江（7人）
 - ✅ first_class_date: 2026-05-13
 - ✅ schedule_type: full-time
@@ -159,6 +167,7 @@
 - 来源：档案页 + 待迁移.md
 - ✅ class_name: 3375
 - ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ students: 武怡文 曹铠铄 拉来 冯昕逾 阿依江 阿丽米热 姚奕杉 达那（8人）
 - ✅ first_class_date: 2026-04-16
 - ✅ schedule_type: full-time
@@ -184,6 +193,7 @@
 - 来源：待迁移.md
 - ✅ student_name: 黄心悦
 - ✅ course_type: L2讲义
+- ✅ subject: Reading
 - ✅ first_class_date: 2026-01-02
 - ✅ schedule_type: full-time
 - ✅ 课次（9）：
@@ -204,6 +214,7 @@
 - 来源：待迁移.md
 - ✅ student_name: 刘奥萱
 - ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ first_class_date: 2026-01-26
 - ✅ schedule_type: full-time
 - ✅ 课次（10）：
@@ -224,31 +235,36 @@
 ### 柳涵宇
 - 来源：档案页 + 待迁移.md
 - ✅ student_name: 柳涵宇
-- ✅ course_type: L1教材, L1讲义（混合）
+- ✅ course_type: L1教材 → L1讲义（混合，需分两批创建）
+- ✅ subject: Reading
 - ✅ first_class_date: 2025-07-06
 - ✅ schedule_type: full-time
+- ⚠️ 分两批创建：
+  - 批次1: Lesson 1-7, course_type=L1教材
+  - 批次2: Lesson 8-13, course_type=L1讲义
 - ✅ 课次（13）：
 
-| 课次 | 日期 | 时段 |
-|------|------|------|
-| 1 | 2025-07-06 | 4 |
-| 2 | 2025-07-28 | 4 |
-| 3 | 2025-08-08 | 4 |
-| 4 | 2025-08-23 | 3 |
-| 5 | 2025-11-15 | 5 |
-| 6 | 2025-12-13 | 5 |
-| 7 | 2025-12-20 | 5 |
-| 8 | 2026-01-10 | 5 |
-| 9 | 2026-03-07 | 5 |
-| 10 | 2026-04-06 | 1 |
-| 11 | 2026-04-16 | 1 |
-| 12 | 2026-04-20 | 1 |
-| 13 | 2026-05-24 | 3 |
+| 课次 | 日期 | 时段 | 批次 |
+|------|------|------|------|
+| 1 | 2025-07-06 | 4 | L1教材 |
+| 2 | 2025-07-28 | 4 | L1教材 |
+| 3 | 2025-08-08 | 4 | L1教材 |
+| 4 | 2025-08-23 | 3 | L1教材 |
+| 5 | 2025-11-15 | 5 | L1教材 |
+| 6 | 2025-12-13 | 5 | L1教材 |
+| 7 | 2025-12-20 | 5 | L1教材 |
+| 8 | 2026-01-10 | 5 | L1讲义 |
+| 9 | 2026-03-07 | 5 | L1讲义 |
+| 10 | 2026-04-06 | 1 | L1讲义 |
+| 11 | 2026-04-16 | 1 | L1讲义 |
+| 12 | 2026-04-20 | 1 | L1讲义 |
+| 13 | 2026-05-24 | 3 | L1讲义 |
 
 ### 毛子侨
 - 来源：档案页 + 待迁移.md
 - ✅ student_name: 毛子侨
 - ✅ course_type: L1教材
+- ✅ subject: Reading
 - ✅ first_class_date: 2026-04-06
 - ✅ schedule_type: full-time
 - ✅ 课次（8）：
@@ -268,6 +284,7 @@
 - 来源：待迁移.md
 - ✅ student_name: 赛力曼
 - ✅ course_type: L1讲义
+- ✅ subject: Reading
 - ✅ first_class_date: 2026-02-13
 - ✅ schedule_type: full-time
 - ✅ 课次（13）：
@@ -295,7 +312,7 @@
 | 档案 | 状态 | 备注 |
 |------|------|------|
 | 3238 | ✅ 数据齐全 | |
-| 3285 | ✅ 数据齐全 | course_type 待确认 |
+| 3285 | ✅ 数据齐全 | |
 | 3327 | ✅ 数据齐全 | |
 | 3374 | ✅ 数据齐全 | |
 | 3376 | ✅ 数据齐全 | |
@@ -304,6 +321,6 @@
 | 3375 | ✅ 数据齐全 | |
 | 黄心悦 | ✅ 数据齐全 | |
 | 刘奥萱 | ✅ 数据齐全 | |
-| 柳涵宇 | ✅ 数据齐全 | |
+| 柳涵宇 | ✅ 数据齐全 | 需分两批创建（L1教材+L1讲义） |
 | 毛子侨 | ✅ 数据齐全 | |
 | 赛力曼 | ✅ 数据齐全 | |

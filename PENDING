@@ -1,76 +1,168 @@
-# PENDING: 课程链接改为相对路径
+# PENDING: 语气预设组 + Subject 注入
 
-## 问题
-当前脚本生成的 wiki 链接使用裸名（如 `[[Wordlist 1| 词汇表]]`），Obsidian 会自动解析为绝对路径。
-当 vault 中存在同名文件时可能指向错误目标，且移动档案文件夹后链接可能失效。
+## 背景
 
-## 目标
-将所有链接改为以文件位置为基准的相对路径格式，确保：
-1. 移动档案文件夹后链接不失效
-2. 同名文件不会互相干扰
-3. 不依赖 Obsidian "始终更新内部链接" 设置
+Python MCP 的反馈 prompt 有一套不错的语气风格（客观中立、100字以上、完整段落），可以作为预设之一。当前 TS 版本的系统提示词更严格（禁止模型腔、2-6句），作为另一个预设。用户可以在预设基础上微调，保存为自定义配置。
 
-## 修改文件
+---
 
-### 文件 1: `src/xdf/templates.ts`
+## 任务 1: 数据结构调整
 
-#### 1.1 `buildLessonNavFrontmatter` — 上一课/档案首页链接（第 134、136 行）
-当前：
+### 修改文件: `src/settings.ts`
+
+**新增接口:**
 ```typescript
-links.push("[[" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
-links.push("[[" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
-```
-改为：
-```typescript
-links.push("[[" + "../" + opts.prev_lesson_folder_name + "|" + LINK_PREV + "]]");
-links.push("[[" + "../" + opts.archive_name + "|" + LINK_ARCHIVE + "]]");
+export interface TonePreset {
+  name: string;
+  address: string;
+  avoid: string;
+  style: string;
+}
 ```
 
-#### 1.2 `buildLessonNav` — 课次内文件列表（第 232-236 行）
-当前：`"- [[" + names.note + "| 课堂笔记]]"`
-改为：`"- [[" + "./" + names.note + "| 课堂笔记]]"`
-
-涉及：课堂笔记、词汇表、语法笔记、课后作业、下节课入门测
-
-#### 1.3 `buildLessonNav` — 反馈链接（第 244 行、第 283 行）
-当前：`"- [[" + names.feedback + "| 课堂反馈]]"`
-改为：`"- [[" + "./" + names.feedback + "|💬 课堂反馈]]"`
-
-#### 1.4 `buildIndexLink` — 档案页课程索引（第 354 行）
-当前：`return "- [[" + folderName + "|" + label + "]]"`
-改为：`return "- [[" + "./" + folderName + "|" + label + "]]"`
-
-### 文件 2: `src/xdf/archiveCreate.ts`
-
-#### 2.1 `appendNextLink` — 下一课链接（第 346 行）
-当前：
+**修改 `ToneConfig` 接口:**
 ```typescript
-const nextLink = "[[" + buildLessonFolderName(archiveName, n) + "|" + LINK_NEXT + "]]";
-```
-改为：
-```typescript
-const nextLink = "[[" + "../" + buildLessonFolderName(archiveName, n) + "|" + LINK_NEXT + "]]";
+export interface ToneConfig {
+  // 当前生效值（UI 编辑的是这里）
+  address: string;
+  avoid: string;
+  style: string;
+  notes: string;  // 保留兼容
+  audience: string;  // 保留兼容
+  
+  // 预设系统
+  presets: TonePreset[];  // 预设列表（只读，不可覆盖）
+  activePreset: string;   // 当前选中的预设名，或 "custom"
+  custom?: TonePreset;    // 用户自定义配置
+}
 ```
 
-#### 2.2 `createTestFeedbackPage` — 测试反馈页链接（第 501 行）
-当前：
+**修改 `DEFAULT_SETTINGS`:**
 ```typescript
-const linkLine = `- [[${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
+tone: {
+  address: "学员",
+  audience: "",
+  style: "",
+  avoid: "",
+  notes: "",
+  presets: [
+    {
+      name: "TS严格版",
+      address: "学员",
+      avoid: "四字成语",
+      style: "短句、先说问题再说作业、不客套",
+    },
+    {
+      name: "Python客观版",
+      address: "学员",
+      avoid: "",
+      style: "客观中立、100字以上、完整段落、不分条列点",
+    },
+  ],
+  activePreset: "TS严格版",
+}
 ```
-改为：
+
+---
+
+## 任务 2: UI 重构
+
+### 修改文件: `src/settings.ts`
+
+**2a. 称呼下拉加「姓名」选项**
+- 选项: `孩子 / 学员 / 姓名（后两字）/ 姓名`
+- 选"姓名"时提示改为"输入全名，直接使用"
+
+**2b. 预设选择器**
+- 位置: "语气"标题下方，三个字段上方
+- 下拉菜单显示所有预设名 + "自定义"
+- 选择预设后自动填充下方三个字段（只读模式）
+- 选择"自定义"后可编辑字段
+
+**2c. 字段编辑区**
+- 三个字段: 称呼、违禁词、风格偏好
+- 如果当前选中预设，字段显示为只读（灰色背景）
+- 如果选中"自定义"或用户修改了预设值，字段可编辑
+
+**2d. 保存按钮**
+- 位置: 字段下方
+- 文案: "保存为自定义配置"
+- 点击后将当前字段值保存到 `custom` 字段，`activePreset` 设为 "custom"
+- 如果 `custom` 已存在，提示"覆盖现有自定义配置？"
+
+**2e. 提取语气按钮**
+- 保留现有功能
+- 提取后自动设为"自定义"模式
+
+---
+
+## 任务 3: Subject 注入系统提示词
+
+### 修改文件: `src/xdf/feedbackPrompt.ts`
+
+**修改 `DAILY_FEEDBACK_SYSTEM_PROMPT`:**
 ```typescript
-const linkLine = `- [[./${opts.test_name}/${opts.test_name}|📝 ${opts.test_name}]]`;
+export const DAILY_FEEDBACK_SYSTEM_PROMPT = `你是新东方一线雅思{subject}老师，在写给学生或家长看的课后反馈。
+...`;
 ```
 
-### 文件 3: `src/xdf/tools.ts`
+**修改 `buildDailyFeedbackUserPrompt` 调用处 (`src/xdf/tools.ts` 第 1190 行):**
+```typescript
+// 当前
+const text = await chatComplete(ctx.settings, prompt);
 
-#### 3.1 `update_archive_index` 工具（第 907 行）
-调用 `buildIndexLink`，该函数已在 templates.ts 中修改，此处无需额外改动。
-但需确认调用结果与创建时生成的格式一致。
+// 改为
+const subjectLabel = lessonRow.subject ? `（${lessonRow.subject}）` : "";
+const systemPrompt = DAILY_FEEDBACK_SYSTEM_PROMPT.replace("{subject}", subjectLabel);
+const text = await chatComplete(ctx.settings, prompt, systemPrompt);
+```
 
-## 注意事项
-- 课次 nav 文件位于 `{档案文件夹}/{课次文件夹}/Nav.md`
-- 课次内文件（note/wordlist 等）与 nav 同级，用 `./`
-- 档案首页和兄弟课次在父目录，用 `../`
-- 档案页在档案文件夹根目录，课次子文件夹用 `./`
-- 测试反馈页链接从档案页出发，用 `./`
+---
+
+## 任务 4: 预设语气数据
+
+### Python MCP 的语气风格（作为预设）
+
+从 `references/MCP-XDF-Assistant/scripts/workflows/daily_feedback_generator.py` 第 682-696 行提取:
+
+**System Prompt:**
+```
+你是一位资深雅思教师，负责给学员写反馈。
+```
+
+**User Prompt 中的语气要求:**
+```
+1. 语气客观中立，称呼学员为 "学员"，禁止称呼学员姓名
+2. 每个学员 100字以上，上不封顶
+3. 需要包含原始记录中的全部信息，禁止遗漏信息
+4. 需要生成完整的一段内容，禁止包含任何格式和分级标题，禁止分条列点，禁止使用冒号
+```
+
+**转换为预设配置:**
+```typescript
+{
+  name: "Python客观版",
+  address: "学员",
+  avoid: "",
+  style: "客观中立、100字以上、完整段落、不分条列点、不使用冒号",
+}
+```
+
+---
+
+## 修改文件清单
+
+| 文件 | 改动 |
+|------|------|
+| `src/settings.ts` | 新增 `TonePreset` 接口，修改 `ToneConfig`，修改 `DEFAULT_SETTINGS`，重构 UI（预设选择器 + 保存按钮 + 称呼加姓名） |
+| `src/xdf/feedbackPrompt.ts` | `DAILY_FEEDBACK_SYSTEM_PROMPT` 加 `{subject}` 占位符 |
+| `src/xdf/tools.ts` | `generate_daily_feedback` 工具中注入 subject 到 system prompt |
+
+---
+
+## 实施顺序
+
+1. 数据结构调整（settings.ts）
+2. UI 重构（settings.ts）
+3. Subject 注入（feedbackPrompt.ts + tools.ts）
+4. 测试

@@ -351,7 +351,7 @@ export function buildIndexLink(
     kind === "class"
       ? "📖 Lesson " + lessonNumber + " - " + dateStr
       : "第 " + lessonNumber + " 课 - " + dateStr;
-  return "- [[" + "./" + folderName + "|" + label + "]]";
+  return "- [[" + "./" + folderName + "/" + folderName + "|" + label + "]]";
 }
 
 export function updateArchiveTimestamps(content: string, total: number, dateStr: string): string {
