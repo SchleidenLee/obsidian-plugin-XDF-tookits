@@ -347,10 +347,7 @@ export function buildIndexLink(
   lessonNumber: number,
   dateStr: string,
 ): string {
-  const label =
-    kind === "class"
-      ? "📖 Lesson " + lessonNumber + " - " + dateStr
-      : "第 " + lessonNumber + " 课 - " + dateStr;
+  const label = " Lesson " + lessonNumber + " - " + dateStr;
   return "- [[" + "./" + folderName + "/" + folderName + "|" + label + "]]";
 }
 
@@ -422,7 +419,7 @@ export function insertNewCourseTypeBlock(content: string, courseType: string, li
   const lastDiv = section.lastIndexOf("---");
   if (lastDiv === -1) return content;
   const insertPos = indexPos + lastDiv + 3;
-  const block = "\n\n### 🏷️ " + courseType + "\n" + link + "\n\n---\n";
+  const block = "\n\n### 🏷️ " + courseType + "\n" + link + "\n";
   return content.slice(0, insertPos) + block + content.slice(insertPos);
 }
 

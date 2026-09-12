@@ -1,0 +1,1492 @@
+{
+  "class_name": "3428",
+  "course_type": "初级讲义",
+  "students": [
+    "郑涵中",
+    "迪露孜",
+    "周郁唯",
+    "张育杰",
+    "吴来桐",
+    "伊纳德",
+    "李嘉森",
+    "孙雅楠",
+    "曹天易"
+  ],
+  "answer_sheets": {
+    "吴来桐": "D:\\Schleiden\\Desktop\\3428初级讲义\\吴来桐.jpg",
+    "李嘉森": "D:\\Schleiden\\Desktop\\3428初级讲义\\李嘉森.jpg",
+    "迪露孜": "D:\\Schleiden\\Desktop\\3428初级讲义\\迪露孜.jpg"
+  },
+  "config": {
+    "course_type": "初级讲义",
+    "course_info": {
+      "target_students": "英语基础相对良好，自身水平在4.5分左右的学员",
+      "course_goal": "达到雅思A类阅读5分左右水平",
+      "material": "Complete IELTS初级课本选篇，难度低于剑雅真题",
+      "test_info": "剑雅真题A类阅读，共3篇，40题，包含所有题型"
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "The Importance of Children's Play",
+        "question_groups": [
+          {
+            "type": "fill_blank",
+            "type_name": "笔记填空",
+            "range": "1-8",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "creativity"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "rules"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "cities"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "traffic",
+                  "crime"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "crime",
+                  "traffic"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "competition"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "evidence"
+                ]
+              },
+              {
+                "id": 8,
+                "answers": [
+                  "life"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "true_false_not_given",
+            "type_name": "TF判断",
+            "range": "9-13",
+            "questions": [
+              {
+                "id": 9,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "TRUE"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "A Chronicle of Timekeeping",
+        "question_groups": [
+          {
+            "type": "matching",
+            "type_name": "段落配信息",
+            "range": "14-17",
+            "questions": [
+              {
+                "id": 14,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 15,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "F"
+                ]
+              },
+              {
+                "id": 17,
+                "answers": [
+                  "E"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "matching",
+            "type_name": "人名配信息",
+            "range": "18-21",
+            "questions": [
+              {
+                "id": 18,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "F"
+                ]
+              },
+              {
+                "id": 20,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 21,
+                "answers": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank",
+            "type_name": "图表填空",
+            "range": "22-26",
+            "questions": [
+              {
+                "id": 22,
+                "answers": [
+                  "ship's anchor",
+                  "an anchor",
+                  "the anchor",
+                  "anchor"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "escape wheel",
+                  "wheel"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "tooth"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "long pendulum",
+                  "pendulum"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "second"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "What's Our Purpose of Gaining Knowledge?",
+        "question_groups": [
+          {
+            "type": "matching_heading",
+            "type_name": "段落配标题",
+            "range": "27-32",
+            "questions": [
+              {
+                "id": 27,
+                "answers": [
+                  "vi"
+                ]
+              },
+              {
+                "id": 28,
+                "answers": [
+                  "viii"
+                ]
+              },
+              {
+                "id": 29,
+                "answers": [
+                  "ii"
+                ]
+              },
+              {
+                "id": 30,
+                "answers": [
+                  "iv"
+                ]
+              },
+              {
+                "id": 31,
+                "answers": [
+                  "iii"
+                ]
+              },
+              {
+                "id": 32,
+                "answers": [
+                  "vii"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank",
+            "type_name": "摘要填空",
+            "range": "33-36",
+            "questions": [
+              {
+                "id": 33,
+                "answers": [
+                  "fire science"
+                ]
+              },
+              {
+                "id": 34,
+                "answers": [
+                  "investigators"
+                ]
+              },
+              {
+                "id": 35,
+                "answers": [
+                  "evidence"
+                ]
+              },
+              {
+                "id": 36,
+                "answers": [
+                  "prosecution"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "yes_no_not_given",
+            "type_name": "YesNo判断",
+            "range": "37-40",
+            "questions": [
+              {
+                "id": 37,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 38,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 39,
+                "answers": [
+                  "NO"
+                ]
+              },
+              {
+                "id": 40,
+                "answers": [
+                  "NO"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "郑涵中": [
+      "学员本次课程轻微迟到，无早退，保持正常出勤。作业方面能够按时完成并提交，其中判断题的正确率还可以。在课堂表现上，学员听课十分认真，笔记也记得很认真，整体学习态度端正，并且能够积极配合老师的教学安排。在知识掌握情况方面，学员展现出不错的自身英语基础，对课堂内容的吸收较好，希望后续继续保持这种良好的学习状态并进一步提升。",
+      "学员本次正常出勤且无迟到早退现象，课后按时提交了单元练习。在课堂上学员态度认真，能够紧紧跟上课堂进度，并跟练了摘要填空与单选等题型。从掌握情况来看，学员的词汇优势开始显露出来且优势很大，题型掌握度也可以，同时顺利完成了长难句与填空题的练习。整体表现值得肯定，希望继续保持。",
+      "该学员在网课期间保持正常出勤且无迟到早退现象，能够按时提交单元练习。在课堂表现方面，虽然受制于网课形式导致整体参与度相对较低，但学员能够紧跟课堂进度，在被点名回答问题时也能准确跟上思路，这一点值得表扬，不过在学习过程中多少存在一些注意力分散的情况。本节课主要跟练了匹配及图表填空题，学员在独立练习时的速度稍显缓慢，需要进一步提升答题效率。在知识掌握方面，该学员已经较好地掌握了词根词缀的分析方法以及长难句的解析技巧，希望后续能继续保持专注并提高做题速度。",
+      "学员本次正常出勤并参与了线上直播课程，期间没有出现迟到或早退的现象。在作业方面，学员能够按时提交单元练习，学习态度十分认真，基本能够跟上课堂的整体进度，不过在学习过程中偶尔会出现走神的情况。受限于线上授课的形式，学员在课堂上的整体参与度不算太高，进行独立练习时的速度也相对较慢。但在知识掌握方面，学员已经较好地掌握了句子匹配技巧以及相关的语法知识，希望后续能进一步提高专注度和练习效率。"
+    ],
+    "迪露孜": [
+      "学员本次按时出勤，无迟到早退现象。作业方面提交了阅读填空练习，正确率大约在八成左右。课堂上学员表现认真且专注，能够积极跟读听力材料并记录核心生词。在知识掌握方面，学员在单词方面有一点点小优势，但在识别同义替换以及进行长难句翻译时会出现卡顿现象，建议课后针对长难句结构和同义替换进行专项强化训练，以提升整体阅读和听力理解能力。",
+      "学员按时出勤参与课堂实践且无迟到早退，课后完成了摘要及笔记填空练习。课堂上学员参与度极高，不仅积极回答问题还主动互动，听课和笔记非常认真，全程跟随课堂节奏。在知识掌握方面，学员的题型掌握度很好，同义替换识别做得不错，并且已经理解非谓语及主语从句的相关语法知识，学习状态十分出色。",
+      "该学员保持正常出勤且无迟到早退记录，课后能够认真完成词汇及阅读练习。在课堂上，该学员展现出极高的参与度，不仅积极回答问题，还能主动与老师进行互动，听课和笔记都非常认真，全程紧密跟随课堂节奏。本节课重点练习了段落及图表填空题，学员在独立练习环节态度十分认真，能够有意识地运用所学的做题方法，不过总体做题速度依然偏慢，需要进一步加强熟练度。从知识掌握情况来看，该学员已经扎实掌握了段落及图表填空的解题技巧，希望今后能在保证正确率的前提下有效提升答题速度。",
+      "学员本次正常出勤但中途出现了早退的情况。在作业方面，学员完成了词汇以及阅读相关的练习。课堂上的整体参与度一般，不过在被点名时能够给出回答，听课态度还算比较认真，也会主动答题并且笔记记录得很认真。但整体来看，学员目前的学习状态不在最佳水平，让人感觉精力有些不足。在知识掌握层面，学员的扫读定位速度比较快，并且已经掌握了句子匹配技巧与词根知识，建议后续注意休息以保持更好的学习精力。"
+    ],
+    "周郁唯": [
+      "学员本次正常出勤，无迟到早退情况。作业完成质量很高，阅读题目全对，听力仅错两题。课堂表现良好，配合度良好，记笔记速度很快，并且主动答题三次，展现了积极的学习态度。在知识掌握方面，学员对同义替换非常熟悉，但在长难句分析上速度较慢，建议后续在长难句拆解和语法结构分析上多下功夫，从而提高做题速度和准确率。",
+      "学员正常出勤且无迟到早退，课后完成了两单元课后练习。课堂上的学员性格比较沉默，但依然能够主动答题三次并认真记笔记。在知识掌握层面，学员的独立练习效率倒是不错，做题速度很快且正确率也可以，同时已经理解非谓语及主语从句的核心用法。希望学员今后能在课堂上更加活跃，多与老师进行交流互动。",
+      "该学员正常出勤且无迟到早退现象，课后按时完成了两个单元的练习任务。近期的课堂表现有明显进步，参与度相比之前变得更加积极，学习态度十分认真，能够顺利跟上课堂进度，不仅认真记录笔记，还能主动举手答题。本节课主要进行了匹配与填空题的练习，学员在独立练习环节展现出较快的做题速度，但在解题过程中缺少对关键词的勾画习惯，这可能会影响定位的准确性。在知识掌握层面，该学员已经较好地掌握了匹配与填空题的核心技巧，建议后续练习中强化关键词定位意识以进一步提升准确率。",
+      "学员本次正常出勤，没有迟到或早退的情况，并且按时完成了课后练习。在课堂表现上，学员的参与度一般，但在被点名时能够进行回答，听课过程还算比较认真，能够主动记录笔记并参与答题。不过，学员在进行独立练习时的效率还是比较低的，课堂上的专注度也有所不足，整体学习状态不佳。在知识掌握方面，学员目前已经掌握了句子匹配题型的解题方法，希望后续能够调整好自身状态，提升练习效率与专注度。"
+    ],
+    "张育杰": [
+      "学员本次正常出勤，无迟到早退。课堂表现比较认真，近两节课进步很大，课堂参与度有很大提高，学习态度端正，遇到不懂的问题会主动发问。在知识掌握方面，学员目前存在词汇小短板，需要加强单词积累，同时对判断题中的F和NG还有点分不清，建议课后复习相关解题技巧并结合例句加深理解，以弥补词汇不足并提高判断题的正确率。",
+      "学员正常出勤且无迟到早退，课后完成了两单元阅读练习。课堂上学员参与度很高，不仅积极回答问题还主动互动，听课和笔记非常认真，全程跟随课堂节奏，并且能够主动提问。在知识掌握方面，学员已经掌握了摘要与笔记填空的解题技巧。整体学习态度端正，课堂表现优异，期待后续能有更大的突破。",
+      "该学员保持正常出勤且无迟到早退，课堂上参与度很高，能够积极回答问题并主动与老师互动，听课状态和笔记记录都非常认真，全程紧密跟随教学节奏。然而在独立练习环节，该学员表现得不够认真，存在照搬他人答案的情况，这反映出其在做题时有些缺乏自信。从知识掌握情况来看，该学员对课堂知识点的掌握程度相当不错，并且能够顺利完成同义替换的预测任务。希望该学员在今后的学习中能够建立自信，坚持独立思考并完成练习，从而真正检验和巩固自己的学习成果。",
+      "学员本次正常出勤，无迟到早退现象，并且顺利完成了生词与阅读复习作业。课堂上的学习态度非常认真，能够紧跟课堂进度，参与度较高，不仅积极回答问题，还主动与老师进行互动，同时也会主动记录课堂笔记。然而，学员在进行独立练习时的效率偏低，做题速度比较慢，整体的学习状态显得有些不好。在知识掌握方面，学员已经理解了句子匹配题型以及词根词缀的相关内容，建议后续注意调整学习状态以提高做题速度。"
+    ],
+    "吴来桐": [
+      "学员本次正常出勤，无迟到早退。作业能够按时提交，态度非常好且非常认真。课堂上学员非常认真，积极配合老师，参与度好。在知识掌握方面，学员英语基础扎实，单句翻译做得好，语感和题感都非常棒，目前对基础题型的掌握度很好。希望学员能够继续保持目前优异的学习状态，在后续学习中挑战更高难度的题型，进一步突破自我。",
+      "学员正常出勤且无迟到早退，课后按时提交了书写工整的作业。课堂上学员一如既往地认真，能够专注听讲并积极互动。在知识掌握方面，学员已经掌握了摘要填空与简答的做题方法，但在判断题中F和NG有区分不开的情况。建议课后针对这两种题型的区别进行专项复习，进一步巩固薄弱环节，提升整体准确率。",
+      "该学员正常出勤且无迟到早退，能够按时提交课后作业且书写十分工整。在课堂上，该学员参与度极高，不仅专注听讲，还能积极回答问题并主动互动，听课和笔记都非常认真，全程紧跟课堂节奏。本节课重点跟练了匹配及图表填空题，但在独立练习中，学员在填空题上的错误率偏高，这与其实际语言能力并不匹配，说明做题技巧尚未能在实战中充分发挥出来。在知识掌握方面，该学员已经掌握了匹配及图表填空的基本方法，后续需要重点调整心态，将所学技巧真正落实到练习中，以降低填空题的错误率。",
+      "学员本次正常出勤，没有迟到和早退的情况，作业能够按时提交且书写十分工整。在课堂表现方面，学员的参与度很高，能够积极回答问题并主动互动，听课和笔记都非常认真，全程紧密跟随课堂节奏，保持专注听讲。在知识掌握与练习环节，学员在进行独立练习时稍微有些不够认真，但好在基本功依然扎实，能够非常准确地找到同义替换内容，同时也练习了句子匹配及长难句的分析，希望后续在独立练习时能保持同样的专注度。"
+    ],
+    "伊纳德": [
+      "学员本次迟到，无早退，保持正常出勤。课堂上学员表现比较认真，但参与度还可以更高一点，建议后续更加主动地融入课堂互动。在知识掌握方面，学员独立练习速度偏慢，需要提升解题熟练度，同时在填空题中出现了词性错误，说明对词汇的词性辨析和语法结构掌握还需巩固，建议课后加强相关语法和词汇词性的专项练习。",
+      "学员正常出勤且无迟到早退，近期不迟到了表现不错，课后提交了第三四单元课后作业。课堂上学员参与了摘要填空与简答题练习，展现了良好的学习状态。在知识掌握方面，学员已经完成了长难句分析及题型辨析的训练，对复杂句子结构和不同题型的特点有了更清晰的认知。希望学员继续保持准时出勤的好习惯，稳步提升雅思成绩。",
+      "学员请假，无反馈。",
+      "学员本次正常出勤，无迟到早退现象，并完成了上节课布置的阅读词汇作业。课堂上的整体参与度偏低，较少主动发言，但值得肯定的是专注度有所进步，课堂上练习了句子匹配与长难句。在知识掌握情况方面，学员在被点名进行单句翻译时表现得相当不错，并且在独立练习填空题时也展现了一定的正确率，目前已经掌握了匹配题型与词根词缀的相关知识，希望后续能够进一步提高课堂参与度，多主动发言交流。"
+    ],
+    "李嘉森": [
+      "学员本次正常出勤，无迟到早退。作业按时提交，态度非常好且非常认真。课堂上学员认真听讲，全程跟随老师思路。由于学员年龄较小，词汇有一点弱势，但是有一定语法基础。考虑到本阶段的单词偏难，建议学员课前做好预习。目前学员的做题技巧受限于语言能力发挥不出来，且填空题的预测做得有问题并存在词性错误，后续需重点提升词汇量并加强词性判断训练。",
+      "学员正常出勤且无迟到早退，课后按时提交了作业并完成了全部题目。课堂上学员全程跟听，认真完成了各项题型练习。在知识掌握方面，学员已经熟悉新题型并且能分析长难句，展现了较好的语法和逻辑分析能力。不过目前学员的词汇基础较弱，需要紧急补充词汇量。建议课后加大单词背诵力度，为阅读和听力扫清障碍。",
+      "该学员保持正常出勤且无迟到早退的良好记录，课后能够按时提交作业并完整完成所有题目。在课堂学习过程中，该学员能够全程专注跟听老师的讲解，并顺利随堂完成各项练习任务。从知识掌握情况来看，该学员目前已经熟悉了雅思阅读的新题型特点，并且在长句分析方面展现出了较好的理解能力，能够准确拆解复杂句子结构。希望该学员能够继续保持这种良好的学习状态，在后续的课程中进一步巩固长难句分析技巧，并尝试将新题型的解题思路应用到更多的实战练习中去。",
+      "学员本次正常出勤，没有迟到或早退，按时提交了作业并且完成了所有的题目。课堂上的参与度一般，但在被点名时能够给出回答，学习态度认真，能够跟上课堂进度，做到专注听讲并顺利完成随堂练习。在知识掌握方面，学员目前的词汇基础实在有些薄弱，虽然对题型的掌握度还可以，但做题速度比较慢，需要花费一点思考的时间。不过学员已经掌握了匹配题的解法以及拆解长难句的技巧，建议课后加强词汇积累以提升整体速度。"
+    ],
+    "孙雅楠": [
+      "学员本次正常出勤，无迟到早退。作业按时提交，态度非常好且非常认真。课堂表现特别好，非常认真，但做题技巧的利用率有待提高。学员自身水平高，初级教材课的基础非常扎实，衔接无困难，定语从句翻译非常熟练。目前由于原文读不懂而导致填空题独立练习速度慢，建议后续在提升阅读长难句理解能力的同时，加强对做题技巧的实际应用训练。",
+      "学员正常出勤且无迟到早退，课后按时提交了第三单元作业。课堂上学员听课和笔记非常认真，全程跟随课堂节奏，参与度很高，不仅积极回答问题还主动互动并认真配合老师，同时练习了摘要填空与单选。在知识掌握方面，学员已经掌握非谓语与主语从句的核心知识点。整体学习态度十分端正，课堂表现非常优异。",
+      "该学员正常出勤且无迟到早退，能够按时提交各项课后作业。在课堂上，该学员参与度非常高，不仅积极回答问题，还能主动进行互动，听课和笔记记录都极为认真，全程完美跟随课堂节奏。本节课主要跟练了阅读与图表填空题，该学员的知识掌握度非常好，对于基础题型基本能够做到全部攻克，不仅做题速度快而且正确率高，甚至能够准确进行同义替换的预测。在核心知识掌握方面，该学员已经扎实掌握了同义替换技巧与词根分析方法，希望继续保持优势并挑战更高难度的题目。",
+      "学员请假，无反馈。"
+    ],
+    "曹天易": [
+      "学员请假，无反馈。",
+      "学员正常出勤且无迟到早退，课后完成了三四单元填空和简答作业。课堂上学员参与度不错，练习了快读技巧，并积极参与长难句与判断题的训练。在知识掌握方面，学员的题型掌握度还可以，已经掌握摘要填空及非谓语后置定语，但独立练习效率有待提高。建议学员在课后练习时合理规划时间，提升解题速度与专注度。",
+      "该学员虽然本次课程出现迟到情况，但无早退现象，整体算正常出勤，不过频繁迟到的问题需要引起注意并加以改正。课后该学员完成了第五和第六单元的练习任务。在课堂上，该学员学习态度认真，能够顺利跟上课堂进度，本节课重点练习了段落匹配与图表填空题。在独立练习环节，该学员的答题正确率还可以，能够较好地运用所学知识。从知识掌握情况来看，该学员已经掌握了同义替换技巧以及词根词缀的分析方法，建议今后合理安排作息时间，杜绝迟到现象，以保证完整的学习体验。",
+      "学员本次按时出勤，正常参与课程且无迟到早退现象，顺利完成了第八单元的练习。课堂上的参与度很高，态度十分认真，能够紧跟课堂进度，不仅积极回答问题，还主动进行互动，整体互动氛围十分积极。在知识掌握情况方面，学员自身的词汇基础比较好，在进行难度较高的单选题独立练习时也具备了一定的正确率，并且已经掌握了句子结尾匹配题的解题方法，希望后续继续保持这种良好的学习状态和积极的互动热情。"
+    ]
+  },
+  "ocr_results": {
+    "迪露孜": {
+      "answers": [
+        "CREATIVITY",
+        "LEARNING",
+        "PLAY-BASED",
+        "DECLINE",
+        "OUTDOOR",
+        "EARLY",
+        "EVIDENCE",
+        "LIFE",
+        "NG",
+        "F",
+        "NG",
+        "T",
+        "T",
+        "D",
+        "B",
+        "E",
+        "H",
+        "B",
+        "A",
+        "C",
+        "E",
+        "ANCHOR",
+        "PENDULUM ROCKS",
+        "TOOTH",
+        "PRECISE AMOUNT",
+        "CLOCKS",
+        "IV",
+        "VII",
+        "II",
+        "V",
+        "VI",
+        "III",
+        "X",
+        "X",
+        "X",
+        "X",
+        "F",
+        "NG",
+        "T",
+        "NG"
+      ],
+      "confidence": 0.12
+    },
+    "吴来桐": {
+      "answers": [
+        "CREATIVITY",
+        "RULES",
+        "CITIES",
+        "TRAFFIC",
+        "CRIME",
+        "COMPETITION",
+        "EVIDENCE",
+        "LIFE",
+        "TRUE",
+        "NOT GIVEN",
+        "NOT GIVEN",
+        "FALSE",
+        "TRUE",
+        "D",
+        "B",
+        "F",
+        "G",
+        "B",
+        "C",
+        "D",
+        "A",
+        "SHIP'S ANCHOR",
+        "ESCAPE WHEEL",
+        "ESCAPE WHEEL",
+        "PENDULUM",
+        "SECOND",
+        "VI",
+        "VIII",
+        "IV",
+        "VII",
+        "VII",
+        "VII",
+        "FIRE SCIENCE",
+        "INVESTIGATORS",
+        "EVIDENCE",
+        "PROSECUTION",
+        "NOT GIVEN",
+        "YES",
+        "NO",
+        "NOT GIVEN"
+      ],
+      "confidence": 0.15
+    },
+    "李嘉森": {
+      "answers": [
+        "CREATIVITY",
+        "RULES",
+        "SPECIES",
+        "CHILDHOOD",
+        "RISK",
+        "COMPETITION",
+        "EVIDENCE",
+        "LIFE",
+        "FALSE",
+        "TRUE",
+        "NG",
+        "TRUE",
+        "FALSE",
+        "C",
+        "B",
+        "D",
+        "F",
+        "A",
+        "C",
+        "E",
+        "D",
+        "LEVER-BASED",
+        "ESCAPE WHEEL",
+        "PENDULUM",
+        "NEW FLOOR-STANDING",
+        "GRANDFATHER CLOCK",
+        "IV",
+        "II",
+        "V",
+        "VII",
+        "III",
+        "I",
+        "MARKET EFFECTIVELY",
+        "MARKET EFFECTIVELY",
+        "CHAIN",
+        "ASPECT",
+        "YES",
+        "NO",
+        "NG",
+        "NO"
+      ],
+      "confidence": 0.15
+    }
+  },
+  "grade_results": {
+    "迪露孜": {
+      "raw_score": 10,
+      "score": null,
+      "correct_count": 10,
+      "wrong_count": 30,
+      "ielts_band": "4.0-4.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "笔记填空",
+          "stats": "正确 3/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "CREATIVITY",
+              "correct": "creativity",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "LEARNING",
+              "correct": "rules",
+              "is_correct": false
+            },
+            {
+              "q_id": 3,
+              "student": "PLAY-BASED",
+              "correct": "cities",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "DECLINE",
+              "correct": "traffic",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "OUTDOOR",
+              "correct": "crime",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "EARLY",
+              "correct": "competition",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "EVIDENCE",
+              "correct": "evidence",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "LIFE",
+              "correct": "life",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "TF判断",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "NG",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "T",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "段落配信息",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "E",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 17,
+              "student": "H",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "人名配信息",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "A",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "C",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 21,
+              "student": "E",
+              "correct": "A",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "图表填空",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 22,
+              "student": "ANCHOR",
+              "correct": "ship's anchor",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "PENDULUM ROCKS",
+              "correct": "escape wheel",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "TOOTH",
+              "correct": "tooth",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "PRECISE AMOUNT",
+              "correct": "long pendulum",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "CLOCKS",
+              "correct": "second",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "段落配标题",
+          "stats": "正确 1/6",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "IV",
+              "correct": "vi",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "VII",
+              "correct": "viii",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "II",
+              "correct": "ii",
+              "is_correct": true
+            },
+            {
+              "q_id": 30,
+              "student": "V",
+              "correct": "iv",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "VI",
+              "correct": "iii",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "III",
+              "correct": "vii",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "摘要填空",
+          "stats": "正确 0/4",
+          "details": [
+            {
+              "q_id": 33,
+              "student": "X",
+              "correct": "fire science",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "X",
+              "correct": "investigators",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "X",
+              "correct": "evidence",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "X",
+              "correct": "prosecution",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "YesNo判断",
+          "stats": "正确 0/4",
+          "details": [
+            {
+              "q_id": 37,
+              "student": "F",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "NG",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "T",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.1
+    },
+    "吴来桐": {
+      "raw_score": 31,
+      "score": null,
+      "correct_count": 31,
+      "wrong_count": 9,
+      "ielts_band": "7.0-7.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "笔记填空",
+          "stats": "正确 8/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "CREATIVITY",
+              "correct": "creativity",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "RULES",
+              "correct": "rules",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "CITIES",
+              "correct": "cities",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "TRAFFIC",
+              "correct": "traffic",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "CRIME",
+              "correct": "crime",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "COMPETITION",
+              "correct": "competition",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "EVIDENCE",
+              "correct": "evidence",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "LIFE",
+              "correct": "life",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "TF判断",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "NOT GIVEN",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "FALSE",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "段落配信息",
+          "stats": "正确 3/4",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "人名配信息",
+          "stats": "正确 3/4",
+          "details": [
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "C",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "图表填空",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 22,
+              "student": "SHIP'S ANCHOR",
+              "correct": "ship's anchor",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "ESCAPE WHEEL",
+              "correct": "escape wheel",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "ESCAPE WHEEL",
+              "correct": "tooth",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "PENDULUM",
+              "correct": "long pendulum",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "SECOND",
+              "correct": "second",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "段落配标题",
+          "stats": "正确 3/6",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "VI",
+              "correct": "vi",
+              "is_correct": true
+            },
+            {
+              "q_id": 28,
+              "student": "VIII",
+              "correct": "viii",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "IV",
+              "correct": "ii",
+              "is_correct": false
+            },
+            {
+              "q_id": 30,
+              "student": "VII",
+              "correct": "iv",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "VII",
+              "correct": "iii",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "VII",
+              "correct": "vii",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "摘要填空",
+          "stats": "正确 4/4",
+          "details": [
+            {
+              "q_id": 33,
+              "student": "FIRE SCIENCE",
+              "correct": "fire science",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "INVESTIGATORS",
+              "correct": "investigators",
+              "is_correct": true
+            },
+            {
+              "q_id": 35,
+              "student": "EVIDENCE",
+              "correct": "evidence",
+              "is_correct": true
+            },
+            {
+              "q_id": 36,
+              "student": "PROSECUTION",
+              "correct": "prosecution",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "YesNo判断",
+          "stats": "正确 3/4",
+          "details": [
+            {
+              "q_id": 37,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 38,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 40,
+              "student": "NOT GIVEN",
+              "correct": "NO",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "李嘉森": {
+      "raw_score": 11,
+      "score": null,
+      "correct_count": 11,
+      "wrong_count": 29,
+      "ielts_band": "4.0-4.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "笔记填空",
+          "stats": "正确 5/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "CREATIVITY",
+              "correct": "creativity",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "RULES",
+              "correct": "rules",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "SPECIES",
+              "correct": "cities",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "CHILDHOOD",
+              "correct": "traffic",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "RISK",
+              "correct": "crime",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "COMPETITION",
+              "correct": "competition",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "EVIDENCE",
+              "correct": "evidence",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "LIFE",
+              "correct": "life",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The Importance of Children's Play",
+          "type": "TF判断",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "FALSE",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "TRUE",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "FALSE",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "段落配信息",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "C",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "D",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 17,
+              "student": "F",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "人名配信息",
+          "stats": "正确 0/4",
+          "details": [
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 19,
+              "student": "C",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "E",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 21,
+              "student": "D",
+              "correct": "A",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "A Chronicle of Timekeeping",
+          "type": "图表填空",
+          "stats": "正确 1/5",
+          "details": [
+            {
+              "q_id": 22,
+              "student": "LEVER-BASED",
+              "correct": "ship's anchor",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "ESCAPE WHEEL",
+              "correct": "escape wheel",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "PENDULUM",
+              "correct": "tooth",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "NEW FLOOR-STANDING",
+              "correct": "long pendulum",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "GRANDFATHER CLOCK",
+              "correct": "second",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "段落配标题",
+          "stats": "正确 1/6",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "IV",
+              "correct": "vi",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "II",
+              "correct": "viii",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "V",
+              "correct": "ii",
+              "is_correct": false
+            },
+            {
+              "q_id": 30,
+              "student": "VII",
+              "correct": "iv",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "III",
+              "correct": "iii",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "I",
+              "correct": "vii",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "摘要填空",
+          "stats": "正确 0/4",
+          "details": [
+            {
+              "q_id": 33,
+              "student": "MARKET EFFECTIVELY",
+              "correct": "fire science",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "MARKET EFFECTIVELY",
+              "correct": "investigators",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "CHAIN",
+              "correct": "evidence",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "ASPECT",
+              "correct": "prosecution",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "What's Our Purpose of Gaining Knowledge?",
+          "type": "YesNo判断",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 37,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "NO",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    }
+  }
+}

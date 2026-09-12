@@ -1,0 +1,83 @@
+---
+Date: 2026-08-25T12:20:00+08:00
+lesson_number: 5
+archive_name: "丁清扬"
+course_type:
+  - "L2讲义"
+subject: "Reading"
+need_send_feedback: true
+links:
+  - "[[../丁清扬 Lesson 4/丁清扬 Lesson 4|⬅️ 上一课]]"
+  - "[[../丁清扬| 档案首页]]"
+  - "[[../丁清扬 Lesson 6/丁清扬 Lesson 6|➡️ 下一课]]"
+tags:
+  - "#课程记录"
+  - "#vip"
+---
+
+
+## 📂本节课文件
+- [[./Note 5|📝 课堂笔记]]
+- [[./Wordlist 5|📚 词汇表]]
+- [[./Grammar Note 5|📖 语法笔记]]
+- [[./Homework 5|✍️ 课后作业]]
+- [[./Quiz 6|📋 下节课入门测]]
+---
+## 📝 课堂反馈
+- [x] 提交反馈
+- [[./Feedback 5|💬 课堂反馈]]
+### 授课内容
+#### Lesson 5 Matching Sentence Endings/Category Matching 匹配题专项（一）
+
+##### 📚 课本内容（剑雅真题篇章）
+
+- **Why Pagodas Don't Fall Down**（宝塔为什么不倒）- C7T2P1 P23
+  - 段落：5-10
+  - 题型：分类匹配
+  - 难度：中等
+
+- **A Neuroscientist Reveals How to Think Differently**（神经科学家揭示如何不同思考）- C9T2P3 P116
+  - 段落：38-40
+  - 题型：半句匹配
+  - 难度：中等
+
+- **Numeration**（计数系统）- C6T2P3 P6
+  - 段落：27-31
+  - 题型：半句匹配
+  - 难度：中等
+
+- **Telepathy**（心灵感应）- C8T1P3 P52
+  - 段落：27-30
+  - 题型：半句匹配
+  - 难度：中等
+
+##### 📝 题型解析
+- **分类匹配（Category Matching）**：
+  - 信息归类
+  - 特征对比
+  - 选项逐一匹配
+
+- **半句匹配（Matching Sentence Endings）**：
+  - 句子前半部分定位
+  - 后半部分逻辑衔接
+  - 语法一致性检查
+
+##### 🔤 核心技能
+- 分类标准理解
+- 句子结构分析
+- 逻辑关系判断
+- 快速扫读定位
+
+---
+## ✍️作业记录
+- [x] 发送作业到家长群
+8月25日阅读作业：
+C8T1P3 P15	Telepathy
+27-30题
+
+---
+## 📌 下次课提醒
+
+- [ ] 准备打印作业
+- [ ] 准备入门测
+

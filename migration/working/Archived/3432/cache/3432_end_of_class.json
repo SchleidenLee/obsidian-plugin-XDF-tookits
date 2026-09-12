@@ -1,0 +1,1115 @@
+{
+  "class_name": "3432",
+  "course_type": "初级教材",
+  "students": [
+    "周郁唯",
+    "陶立恒",
+    "林晓渝",
+    "李德讯",
+    "王奕然",
+    "韩欣儒",
+    "徐伟睿",
+    "杨普旭"
+  ],
+  "answer_sheets": {
+    "周郁唯": "D:\\Schleiden\\Desktop\\3432初级教材\\周郁唯.jpg",
+    "李德讯": "D:\\Schleiden\\Desktop\\3432初级教材\\李德讯.jpg",
+    "杨普旭": "D:\\Schleiden\\Desktop\\3432初级教材\\杨普旭.jpg",
+    "林晓渝": "D:\\Schleiden\\Desktop\\3432初级教材\\林晓渝.jpg",
+    "陶立恒": "D:\\Schleiden\\Desktop\\3432初级教材\\陶立恒.jpg",
+    "韩欣儒": "D:\\Schleiden\\Desktop\\3432初级教材\\韩欣儒.jpg"
+  },
+  "config": {
+    "course_type": "初级教材",
+    "course_info": {
+      "target_students": "英语基础较薄弱，希望达到5.0分的学员",
+      "course_goal": "掌握雅思阅读基础题型与核心技能",
+      "material": "Complete IELTS 初级/剑桥真题辅助",
+      "test_info": "雅思G类阅读，共4篇，27题，包含填空题、判断题、信息匹配题"
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "Smoke alarms in the home",
+        "question_groups": [
+          {
+            "type": "true_false_not_given",
+            "type_name": "TF判断题",
+            "range": "1-7",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "Sydney Opera House Tours",
+        "question_groups": [
+          {
+            "type": "matching",
+            "type_name": "Matching Information",
+            "range": "8-14",
+            "questions": [
+              {
+                "id": 8,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 9,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 14,
+                "answers": [
+                  "G"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "Using Direct Mail to Sell Your Product",
+        "question_groups": [
+          {
+            "type": "fill_blank",
+            "type_name": "Gapfill",
+            "range": "15-21",
+            "questions": [
+              {
+                "id": 15,
+                "answers": [
+                  "decision maker"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "impact"
+                ]
+              },
+              {
+                "id": 17,
+                "answers": [
+                  "opening"
+                ]
+              },
+              {
+                "id": 18,
+                "answers": [
+                  "white envelop",
+                  "white envelope"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "brochure"
+                ]
+              },
+              {
+                "id": 20,
+                "answers": [
+                  "free sample"
+                ]
+              },
+              {
+                "id": 21,
+                "answers": [
+                  "response rate"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 4,
+        "title": "Job Specification: Communications Manager",
+        "question_groups": [
+          {
+            "type": "fill_blank",
+            "type_name": "Gapfill",
+            "range": "22-27",
+            "questions": [
+              {
+                "id": 22,
+                "answers": [
+                  "international profile",
+                  "profile"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "publications"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "website content"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "audience"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "purpose"
+                ]
+              },
+              {
+                "id": 27,
+                "answers": [
+                  "post-graduate",
+                  "postgraduate"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "周郁唯": [
+      "学员请假，无反馈。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员第三次作业按时提交且态度认真，同时完成了词汇及阅读配套练习。在单选题练习中总体正确率良好，但错误原因在于细节信息处理不到位，存在遇到原词就想选的情况，定位句精读做得不是很好，且单句理解存在较大问题，导致最后一题未能选出正确答案。在课堂表现上，学员积极参与了扫读与同义替换练习。从知识掌握情况来看，学员已经能够理解名词分类及修饰词的用法。整体学习状态稳定，后续需加强长难句理解与细节定位能力。",
+      "该学员正常出勤且无迟到早退现象，作业均按时提交，学习态度非常好且非常认真。在课堂上学员的参与度一般，但在点名时能够进行回答，整体认真程度还可以并且有记笔记的习惯。然而学员的语法情况非常令人担忧，目前为止仅能做到认识单词，对语法规则还没有建立认知，在翻译略微复杂的从句和介词结构时都存在明显问题，急需额外补充语法课程。不过在题型方面，学员的掌握度还可以，做题正确率保持良好。"
+    ],
+    "陶立恒": [
+      "该学员正常出勤且无迟到早退现象，第一次作业能够按时完成且态度十分认真。在简答题练习中，学员的关键词划分合理，定位点清晰，正确率很高，做到了全对，对题型的吸收效果不错。课堂上学员参与度很高，能够积极回答问题并主动与老师互动。不过在语言基础方面，学员的语法基础较为薄弱，需要进一步加强巩固，同时词汇基础也不够扎实，课后需要多加积累。",
+      "学员本次课程正常出勤且无迟到早退现象。作业方面，学员第三次作业按时提交且态度良好，并按时提交了词汇作业。在单选题练习中总体正确率非常好，原文有部分定位点标注，但是题干缺少关键词勾画，这一良好习惯还需要继续养成。在课堂表现上，学员能够主动发言并积极参与互动。从知识掌握情况来看，学员已经顺利完成了略读及名词练习，整体表现良好，后续只需注意完善题干关键词勾画的做题细节即可取得更大突破。",
+      "该学员正常出勤且无迟到早退现象，但作业没有交也没有写。在课堂上学员表现比较活跃，会积极回应老师并值得表扬，不过有时候过于活跃从而影响了课堂纪律。在学习掌握方面，学员的词汇仍然是面临的大问题，并且在遇到有些问题时容易钻牛角尖，去纠结一些没有必要的问题。此外，学员在独立练习环节没有认真对待，存在随便糊弄的情况，需要端正学习态度。"
+    ],
+    "林晓渝": [
+      "该学员正常出勤且无迟到早退现象，第一次作业能够按时完成且态度十分认真。在简答题练习中，学员的关键词划分合理，定位点清晰，但是缺少预测和检查步骤，导致部分答案没有填完整或者出现画蛇添足的情况。课堂上的参与度一般，通常在被点名时能够进行回答。在语言基础方面，学员的词汇基础十分扎实，并且简单句的语法掌握得很好，希望后续能提升课堂主动性并完善答题步骤。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员第三次作业按时提交且态度认真，并按时提交了食物话题作业。在单选题练习中总体正确率较好，但错误原因在于细节信息处理不到位，存在遇到原词就想选的倾向，定位句精读做得不是很好。在课堂表现上，学员主要是被动回答阅读提问，主动性有待提升。从知识掌握情况来看，学员已经掌握了名词二象性用法。整体学习态度端正，后续需要增强课堂互动积极性并深化定位句精读能力。",
+      "该学员正常出勤且无迟到早退现象，作业均按时提交，学习态度非常好且非常认真。在课堂上学员的参与度一般，但在被点名时能够进行回答，整体态度认真并且能够跟上课堂进度。在学习掌握情况方面，学员到目前为止的题型掌握度都很不错。针对今日学习的新题型判断题，学员的掌握度良好，在出门测试中展现出了不错的正确率，整体学习状态值得肯定。"
+    ],
+    "李德讯": [
+      "该学员正常出勤且无迟到早退现象，第一次作业能够按时完成且态度十分认真。在简答题练习中，学员的关键词划分合理，定位点清晰，正确率很高，但是部分题目存在画蛇添足的情况。课堂上学员听课和笔记非常认真，能够全程跟随课堂节奏，同时参与度很高，积极回答问题并主动互动。语言基础方面，学员的语法非常过硬，词汇基础扎实，且独立练习的速度很快，整体表现优异。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员第三次作业按时提交且态度认真。在单选题练习中总体正确率非常好，定位点精准且细节信息识别到位，定位句精读做得很好。在课堂表现上，学员全程保持专注，积极互动且练习速度快。从知识掌握情况来看，学员略读与扫读十分熟练，名词知识掌握扎实。整体表现十分优异，后续只需注意简答题答案的精简度即可达到完美状态。",
+      "该学员正常出勤且无迟到早退现象，作业均按时提交，学习态度非常好且非常认真。在课堂上学员听课和记笔记都非常认真，全程能够跟随课堂节奏，并且参与度高，会积极回答问题以及主动与老师互动。在学习掌握情况方面，学员到目前为止的所有题型掌握度都很好。特别是在今日学习的判断题题型中，学员对F与NG的区分掌握得非常到位，特此提出表扬。"
+    ],
+    "王奕然": [
+      "该学员正常出勤且无迟到早退现象，第一次作业能够按时完成且态度十分认真。在简答题练习中，学员的关键词划分合理，定位点清晰，正确率很高，做到了全对，对题型的吸收效果不错。课堂上学员态度认真，能够跟上课堂进度，参与度表现良好。但在语言基础方面，学员的词汇能力偏弱，并且在被点名进行单句翻译时表现还有提升空间，建议课后加强词汇积累和翻译练习。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员按时提交各项任务且学习态度认真。在课堂表现上，学员能够紧跟教学进度，课堂参与度非常高，展现了良好的学习热情。从知识掌握情况来看，学员在简答题部分全部做对，但在翻译部分出现了一些错误。整体学习状态积极投入，后续需要针对翻译薄弱环节进行专项巩固，以确保各项题型都能达到高水平发挥。",
+      "该学员正常出勤且无迟到早退现象，作业均按时提交，学习态度非常好且非常认真。在课堂上学员参与度高，能够积极回答问题并主动互动，同时听课和记笔记都非常认真，全程跟随课堂节奏。在学习掌握情况方面，学员到目前为止的全部题型掌握度都很好。在应对今日的新题型判断题时，学员在同义替换识别与定位方面具有一定优势，并且能够清楚分辨F与NG，表现优异。"
+    ],
+    "韩欣儒": [
+      "该学员正常出勤且无迟到早退现象，第一次作业能够按时完成且态度十分认真。在简答题练习中，学员的关键词划分合理，定位点清晰，但是缺少预测和检查步骤，导致部分答案没有填完整或者出现画蛇添足的情况。课堂上学员参与度表现良好，态度认真且能跟上课堂进度。不过在语言基础方面，学员的词汇基础不够扎实，语法基础也有点弱，被点名进行单句翻译时做得一般，需要全面夯实基础。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员第三次作业按时提交且态度认真，其他任务也按时全部完成。在单选题练习中总体正确率较好，但错误原因在于细节信息处理不到位，存在遇到原词就想选的情况，定位句精读做得不是很好。在课堂表现上，学员练习了扫读技巧并翻译了后置定语。从知识掌握情况来看，学员明确了名词分类，但在同义替换方面积累较少。整体学习态度认真，后续需要重点加强同义替换的积累与定位句的深度精读。",
+      "该学员正常出勤且无迟到早退现象，作业均按时提交，学习态度非常好且非常认真。在课堂上学员的参与度一般，但在点名时能够进行回答，整体态度认真并且能跟上课堂进度，独立练习效率很高，正确率和速度都表现得很好。然而在学习掌握方面，学员的词汇能力偏弱，这是目前最大的问题，且语法基础未见明显提升。尽管如此，学员到目前为止对新题型的掌握情况都还不错。"
+    ],
+    "徐伟睿": [
+      "该学员正常出勤且无迟到早退现象，课上完成了词汇语法练习以及同义替换练习。课堂表现方面，学员的参与度有进步，比之前更加积极，专注度也有很大进步，虽然第一节课注意力有点涣散，但第二节课有很大进步，课堂里的专注度表现很好且比较认真。在知识掌握方面，学员能够较好地识别定位词与同义替换，整体学习状态呈现积极向上的趋势，希望继续保持这种良好的专注度。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员顺利完成了词汇与语法练习，巩固了基础知识。在课堂表现上，学员全程保持专注，并积极参与课堂互动，展现了良好的听课状态。从知识掌握情况来看，学员能够准确识别名词用法及同义替换，对核心考点的把握较为清晰。整体学习过程专注高效，后续需要继续保持当前的学习热情，并在同义替换的广度上进一步拓展，以应对更复杂的阅读挑战。",
+      "该学员正常出勤且无迟到早退现象，但作业没有交也没有写。在课堂上学员整体表现良好，但是不注意课堂纪律，聊天和说闲话的情况很多，这一点需要家长尤其关注，并且学员的注意力容易不集中。在学习掌握方面，学员本身的基础还是在的，对于略微难的句子翻译也不在话下。不过学员在独立练习环节表现不认真，需要进一步端正练习态度以提高学习效果。"
+    ],
+    "杨普旭": [
+      "该学员正常出勤且无迟到早退现象，课堂上态度认真，能够紧跟课堂进度，参与度表现良好。在语言基础和题型掌握方面，学员的词汇基础扎实，语法非常过硬，简单句的语法掌握得很好，同时对题型的掌握情况也不错。整体来看学员具备很好的英语基础和学习能力，希望后续能够继续保持认真的学习态度，在优势项目上精益求精，争取在雅思考试中取得理想的成绩。",
+      "学员本次课程正常出勤且无迟到早退现象。在作业方面，学员按时提交了课前作业，展现了良好的时间管理能力。在课堂表现上，学员认真听讲并积极参与互动，课堂专注度较高。从知识掌握情况来看，学员已经掌握了名词语法及阅读技巧，对课程核心内容的吸收情况良好。整体学习态度端正且踏实，后续需要继续保持这种良好的学习习惯，将所学的阅读技巧灵活运用到更多的实战练习中去。",
+      "该学员正常出勤且无迟到早退现象，但作业没有交也没有写。在课堂上学员整体表现还行，不过在纪律方面问题非常大，存在不听话以及上课闲聊的情况，需要尤其注意。在学习掌握方面，学员本身水平不错，语法基础和词汇基础在班里都排在前面，甚至能够识别高难度长难句中的结构并做到合理翻译，对此提出表扬。此外，学员在出门测试中的判断题正确率很高，展现了扎实的基础。"
+    ]
+  },
+  "ocr_results": {
+    "周郁唯": {
+      "answers": [
+        "NG",
+        "F",
+        "F",
+        "NG",
+        "T",
+        "NG",
+        "T",
+        "C",
+        "E",
+        "D",
+        "NB",
+        "G",
+        "B",
+        "A",
+        "DIRECTLY",
+        "EXISTING CLIENTS",
+        "CONVINCE",
+        "WHITE ENVELOPE",
+        "VOLUME",
+        "CODED",
+        "PROMPTLY",
+        "MARKETING",
+        "SIX",
+        "WEBSITE",
+        "STRONG ATTENTION",
+        "SKILLS",
+        "3",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "李德讯": {
+      "answers": [
+        "T",
+        "NG",
+        "T",
+        "F",
+        "NG",
+        "T",
+        "NG",
+        "B",
+        "E",
+        "D",
+        "F",
+        "C",
+        "B",
+        "G",
+        "BUSSINESSMAN",
+        "IDEAL",
+        "MAXIMUM",
+        "WHITE ENVELOPE",
+        "BROCHURE",
+        "DIFFERENT LETTER",
+        "DETAILS",
+        "INTERNATIONAL PROFILE",
+        "COMMUNICATIONS",
+        "APPLICATION",
+        "SKILLS",
+        "DEMONSTRABLE TRACK",
+        "NEW",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "韩欣儒": {
+      "answers": [
+        "F",
+        "NG",
+        "F",
+        "NG",
+        "T",
+        "F",
+        "F",
+        "A",
+        "F",
+        "D",
+        "E",
+        "G",
+        "C",
+        "B",
+        "DIRECTLY",
+        "DECISION MAKER",
+        "MAXIMUM",
+        "CONVINCE",
+        "LEAST",
+        "CODED",
+        "DEALT",
+        "PROGRAMMERS",
+        "EDIT",
+        "EXTERNAL",
+        "TRACK",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "林晓渝": {
+      "answers": [
+        "T",
+        "F",
+        "NG",
+        "NG",
+        "T",
+        "NG",
+        "F",
+        "A",
+        "F",
+        "D",
+        "B",
+        "F",
+        "G",
+        "C",
+        "DECISION MAKER",
+        "X",
+        "OPENING",
+        "WHITE ENVELOPE",
+        "BROCHURE",
+        "FREE SAMPLE",
+        "COURSE DETAILS",
+        "INTERNATIONAL PROFILE",
+        "DESIGN AGENCIES",
+        "WEBSITE CONTENT",
+        "TAILOR",
+        "DEMONSTRABLE TRACK",
+        "POST-GRADUATE",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "陶立恒": {
+      "answers": [
+        "T",
+        "T",
+        "T",
+        "NG",
+        "F",
+        "NG",
+        "CT",
+        "G",
+        "A",
+        "D",
+        "GD",
+        "BC",
+        "E",
+        "D",
+        "FACTOR",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "CHEMICAL ENGINEERING CONG",
+        "WAIT",
+        "X",
+        "WRITING",
+        "X",
+        "GOOD",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.07
+    },
+    "杨普旭": {
+      "answers": [
+        "NG",
+        "F",
+        "NG",
+        "T",
+        "T",
+        "T",
+        "NG",
+        "C",
+        "E",
+        "D",
+        "X",
+        "B",
+        "G",
+        "C",
+        "X",
+        "X",
+        "X",
+        "WHITE ENVELOPE",
+        "BROCHURE",
+        "X",
+        "X",
+        "PROFILE",
+        "X",
+        "X",
+        "X",
+        "X",
+        "PUBLIC",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    }
+  },
+  "grade_results": {
+    "周郁唯": {
+      "raw_score": 4,
+      "ielts_band": "1.0-1.5",
+      "correct_count": 4,
+      "wrong_count": 23,
+      "errors": [
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.33
+    },
+    "陶立恒": {
+      "raw_score": 4,
+      "ielts_band": "1.0-1.5",
+      "correct_count": 4,
+      "wrong_count": 23,
+      "errors": [
+        {
+          "question": 16,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 17,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 18,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 19,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 20,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 21,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 24,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 26,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.53
+    },
+    "林晓渝": {
+      "raw_score": 11,
+      "ielts_band": "4.0-4.5",
+      "correct_count": 11,
+      "wrong_count": 16,
+      "errors": [
+        {
+          "question": 16,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.35
+    },
+    "李德讯": {
+      "raw_score": 9,
+      "ielts_band": "3.5-4.0",
+      "correct_count": 9,
+      "wrong_count": 18,
+      "errors": [
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.33
+    },
+    "韩欣儒": {
+      "raw_score": 2,
+      "ielts_band": "1.0-1.5",
+      "correct_count": 2,
+      "wrong_count": 25,
+      "errors": [
+        {
+          "question": 26,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 27,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.38
+    },
+    "杨普旭": {
+      "raw_score": 9,
+      "ielts_band": "3.5-4.0",
+      "correct_count": 9,
+      "wrong_count": 18,
+      "errors": [
+        {
+          "question": 11,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 15,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 16,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 17,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 20,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 21,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 23,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 24,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 25,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 26,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.57
+    }
+  }
+}

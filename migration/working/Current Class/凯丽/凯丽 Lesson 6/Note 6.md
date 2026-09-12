@@ -1,0 +1,23 @@
+fame 名声
+factual 真实的 
+academic 学术的 
+submit 上交
+beginner 初学者
+connection 连接，联系
+post 上传，发布
+release 释放，发布
+excellent 极好的
+entertain 娱乐 
+content 内容 
+loyalty 忠诚
+profit 利润 
+revenue 财政收入
+reject 拒绝 
+in one's memory
+regular 规律的
+formally 正式的
+treats 小零食
+desire 渴望
+video 视频
+accident 事故
+incident 事件

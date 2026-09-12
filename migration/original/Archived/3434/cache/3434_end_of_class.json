@@ -1,0 +1,3670 @@
+{
+  "class_name": "3434",
+  "course_type": "初级教材",
+  "students": [
+    "胡芸漫",
+    "张晏宁",
+    "赵紫恬",
+    "张雪莹",
+    "杨薏霏",
+    "阿尔斯坦",
+    "冯婧妍",
+    "马韵迪"
+  ],
+  "answer_sheets": {
+    "冯婧妍": "D:\\Schleiden\\Desktop\\3434初级教材\\冯婧妍.jpg",
+    "张晏宁": "D:\\Schleiden\\Desktop\\3434初级教材\\张晏宁.jpg",
+    "张雪莹": "D:\\Schleiden\\Desktop\\3434初级教材\\张雪莹.jpg",
+    "杨薏霏": "D:\\Schleiden\\Desktop\\3434初级教材\\杨薏霏.jpg",
+    "胡芸漫": "D:\\Schleiden\\Desktop\\3434初级教材\\胡芸漫.jpg",
+    "赵紫恬": "D:\\Schleiden\\Desktop\\3434初级教材\\赵紫恬.jpg",
+    "阿尔斯坦": "D:\\Schleiden\\Desktop\\3434初级教材\\阿尔斯坦.jpg",
+    "马韵迪": "D:\\Schleiden\\Desktop\\3434初级教材\\马韵迪.jpg"
+  },
+  "config": {
+    "course_type": "初级教材",
+    "course_info": {
+      "target_students": "英语基础较薄弱，希望达到5.0分的学员",
+      "course_goal": "掌握雅思阅读基础题型与核心技能，掌握基础语法和A2-B1水平的雅思高频词",
+      "material": "Complete IELTS 初级/剑桥真题辅助",
+      "test_info": "IELTS Reading Test Level 1，共40题，100分，包含词义选择、翻译、匹配、选词填空、判断、摘要填空"
+    },
+    "scoring": {
+      "total_questions": 40,
+      "total_points": 100,
+      "grade_rules": {
+        "part_a_word_choice": {
+          "type": "word_choice",
+          "range": "1-8",
+          "points_each": 2,
+          "total": 16
+        },
+        "part_b_translation": {
+          "type": "translation",
+          "range": "9-13",
+          "points_each": 5,
+          "total": 25
+        },
+        "part_c_matching": {
+          "type": "matching",
+          "range": "14-19",
+          "points_each": 2,
+          "total": 12
+        },
+        "part_d_section_a_cloze": {
+          "type": "cloze",
+          "range": "20-29",
+          "points_each": 2,
+          "total": 20
+        },
+        "part_d_section_b_tfng": {
+          "type": "true_false_not_given",
+          "range": "30-34",
+          "points_each": 3,
+          "total": 15
+        },
+        "part_d_section_b_summary": {
+          "type": "summary_fill",
+          "range": "35-40",
+          "points_each": 2,
+          "total": 12
+        }
+      }
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "Part A - Multiple Choice (Word Meaning)",
+        "question_groups": [
+          {
+            "type": "word_choice",
+            "type_name": "词义选择",
+            "range": "1-8",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "A"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "A"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 8,
+                "answers": [
+                  "A"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "Part B - English-Chinese Sentence Translation",
+        "question_groups": [
+          {
+            "type": "translation",
+            "type_name": "英译中翻译",
+            "range": "9-13",
+            "questions": [
+              {
+                "id": 9,
+                "answers": [
+                  "许多人仍然更喜欢永久固定在一个地方的房子"
+                ],
+                "grammar_focus": "定语从句（that 引导修饰先行词）"
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能"
+                ],
+                "grammar_focus": "定语从句（that 引导）+ 同位语结构（an action that...）"
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作"
+                ],
+                "grammar_focus": "定语从句（who 引导修饰先行词）"
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系"
+                ],
+                "grammar_focus": "定语从句（who 引导）+ 形式宾语（find it easier to do）"
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分"
+                ],
+                "grammar_focus": "让步状语从句（Although）+ 原因状语从句（because）+ 宾语从句（that 引导）"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "Part C - Matching (Words with Descriptions)",
+        "question_groups": [
+          {
+            "type": "matching",
+            "type_name": "单词匹配",
+            "range": "14-19",
+            "questions": [
+              {
+                "id": 14,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 15,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "F"
+                ]
+              },
+              {
+                "id": 17,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 18,
+                "answers": [
+                  "A"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "E"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 4,
+        "title": "Part D Section A - Cloze (Reading Comprehension)",
+        "question_groups": [
+          {
+            "type": "cloze",
+            "type_name": "选词填空",
+            "range": "20-29",
+            "questions": [
+              {
+                "id": 20,
+                "answers": [
+                  "overseas"
+                ]
+              },
+              {
+                "id": 21,
+                "answers": [
+                  "enrich"
+                ]
+              },
+              {
+                "id": 22,
+                "answers": [
+                  "convenience"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "welcome"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "value"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "facilities"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "habitat"
+                ]
+              },
+              {
+                "id": 27,
+                "answers": [
+                  "consume"
+                ]
+              },
+              {
+                "id": 28,
+                "answers": [
+                  "refuse"
+                ]
+              },
+              {
+                "id": 29,
+                "answers": [
+                  "appreciate"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 5,
+        "title": "Part D Section B - Reading Comprehension",
+        "question_groups": [
+          {
+            "type": "true_false_not_given",
+            "type_name": "判断题",
+            "range": "30-34",
+            "questions": [
+              {
+                "id": 30,
+                "answers": [
+                  "NO"
+                ]
+              },
+              {
+                "id": 31,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 32,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 33,
+                "answers": [
+                  "NO"
+                ]
+              },
+              {
+                "id": 34,
+                "answers": [
+                  "YES"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "summary_fill",
+            "type_name": "摘要填空",
+            "range": "35-40",
+            "questions": [
+              {
+                "id": 35,
+                "answers": [
+                  "E",
+                  "extinct"
+                ]
+              },
+              {
+                "id": 36,
+                "answers": [
+                  "F",
+                  "species"
+                ]
+              },
+              {
+                "id": 37,
+                "answers": [
+                  "B",
+                  "poachers"
+                ]
+              },
+              {
+                "id": 38,
+                "answers": [
+                  "J",
+                  "captive breeding"
+                ]
+              },
+              {
+                "id": 39,
+                "answers": [
+                  "G",
+                  "protected"
+                ]
+              },
+              {
+                "id": 40,
+                "answers": [
+                  "K",
+                  "destroyed"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "胡芸漫": [
+      "学员本次课程正常出勤且无迟到早退现象。第一次作业按时提交且态度认真。在简答题练习中，学员有关键词划分痕迹，具体预测做得很好且全对，题型掌握度不错。课堂参与度明显提升，值得表扬，同时态度认真，笔记记得很认真。该学员年龄较小，但是词汇水平有一定优势，头脑清晰。整体基础良好，能够适应本阶段学习。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。",
+      "学员本次课程正常出勤，没有出现迟到或早退的现象。作业方面能够按时提交且态度十分认真。在课堂表现上，学员的参与度有了明显的进步，比以往更加积极主动，学习态度端正，能够紧紧跟上课堂的教学进度。不过在知识掌握情况方面，学员的词汇劣势依然存在，目前本阶段的词汇对该学员来说确实偏难，需要课后在词汇积累上投入更多精力。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交并完成了词汇积累任务。在课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，积极参与互动并练习了略读方法。从掌握情况来看，学员的独立练习效率很高，正确率和速度都表现得非常好。此外，学员还进行了将来时的辨析以及判断题的练习，整体学习效果良好，希望继续保持这种认真的学习态度并不断巩固所学知识。"
+    ],
+    "张晏宁": [
+      "学员本次课程正常出勤且无迟到早退现象。作业虽然完成但是未提交，不过正确率表现良好。课堂上参与度高，能够积极回答问题并主动互动。学习态度认真，能跟上课堂进度。该学员年龄较小，语法基础还可以，但是单词有一点小缺口需要弥补。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。",
+      "学员本次课程正常出勤，全程无迟到与早退情况。课后作业均能按时提交，完成态度非常认真。课堂表现方面值得肯定，学员的参与度较之前有明显进步，课堂互动更加积极，整体学习态度认真，能够顺利跟上老师的课堂进度。但在知识掌握层面，学员的词汇弱势问题依然存在，建议课后继续加强词汇的记忆与巩固，以弥补这一短板。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交且无迟交情况。在课堂表现上，学员参与度很高，能够积极回答问题并主动互动，互动十分积极且无早退现象，不过有时候表现得有些过于活跃，需要注意课堂纪律。从掌握情况来看，学员对略读技巧掌握得比较熟练，但在词汇方面相对薄弱，建议课后增加词汇积累的时间，以弥补这一短板从而提升整体英语水平。"
+    ],
+    "赵紫恬": [
+      "学员本次课程正常出勤且无迟到早退现象。作业虽然已完成但是未按时提交。课堂上参与度明显提升，值得表扬，学习态度认真，笔记记得很认真。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。此外，在点名的单句翻译环节做得非常通顺，提出表扬。",
+      "学员本次课程正常出勤，没有迟到和早退的记录。作业方面能够按时提交，完成得十分认真。课堂上学员听课和做笔记都非常专注，全程紧密跟随老师的教学节奏，不过课堂参与度方面还有提升的空间，可以更加主动地参与互动。在知识掌握上表现优异，单句翻译发挥非常稳定，从句的翻译处理得十分到位。此外，学员对题型的掌握度很好，特别是在人名配信息题型上做得相当不错。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交并且全数完成。在课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，能够全程跟听并认真记录笔记。从掌握情况来看，学员的独立练习效率非常高，正确率和速度都表现得很好。此外，学员在时态辨析方面做得很准确，定位也十分精准，展现出扎实的学习基础和良好的课堂吸收能力，希望继续保持并进一步优化学习细节。"
+    ],
+    "张雪莹": [
+      "学员本次课程正常出勤且无迟到早退现象。作业按时完成且态度较认真。在简答题练习中，学员没有理解简答题的规则，但是定位句找得比较精确。课堂上表现比较认真，专注度可以，参与度也可以。该学员的词汇基础还可以，但是语法基础实在不好，导致词性预测做得不是很精确。学员的语感还有培养空间，思维比较直接，有点一根筋。建议弱化方法论，扩大阅读范围，通读文章来解题，增加输入量，先培养语感。",
+      "学员本次课程正常出勤，无迟到及早退现象。作业均能按时提交且态度认真。课堂表现十分出色，参与度极高，能够积极回答问题并主动与老师互动，听课和笔记都非常认真，全程紧跟课堂节奏，还会主动发问，展现出端正的学习态度。在知识掌握方面，总体情况还可以，但目前缺少一定的语感，导致对部分句子的理解会出现偏差，这主要是因为阅读量还不够，后续需要进行大量的阅读输入来提升语感。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交且无缺交情况。在课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，学习态度非常端正，并且全程出勤积极互动。从掌握情况来看，学员已经掌握了略读及同义替换技巧，但是英语思维还没有完全构建起来，具体表现为对判断题中F和NG的区分存在问题，并且在阅读句子的时候难以抓住主干信息，建议课后加强长难句分析和逻辑思维的专项训练。"
+    ],
+    "杨薏霏": [
+      "学员本次课程正常出勤且无迟到早退现象。第一次作业按时提交且态度认真。在简答题练习中，学员有关键词划分痕迹，但是词性预测和扫读定位出现了一点问题，正确率良好但是还有提升空间。课堂上表现很认真，点名的单句翻译做得很好。该学员词汇优势比较明显，但是又不足以应对下一阶段的学习，语法基础良好。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。建议可以适当扩大阅读量并弱化方法论，以通读的方式解题，重点关注自己读不通的句子，发现语法漏洞，先把基础打牢。",
+      "学员本次课程正常出勤，没有迟到或早退的情况。作业能够按时提交，完成态度认真。课堂上学员学习态度认真，能够顺利跟上教学进度，同时参与度很高，积极回答问题并主动进行互动。总体表现非常好，具备很强的学习主动性，虽然词汇方面具有一定优势，但在改写类替换的理解上本节课暴露出了一些问题，语感还需要进一步培养，建议后续做题时尝试通读全文来把握整体语境。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交两个单元的练习。在课堂表现上，学员展现出较大的词汇优势，能够积极互动并跟练略读，但是独立练习的正确率没有想象中高，细节方面还需要多加注意，同时学习到的方法需要更加积极地运用到实际练习中。从掌握情况来看，学员进行了词汇积累、同义替换练习以及判断题的练习，希望后续能够注重练习细节，将词汇优势转化为更高的正确率。"
+    ],
+    "阿尔斯坦": [
+      "学员本次课程迟到但无早退，属于正常出勤。作业按时提交。课堂上表现非常积极活跃，值得表扬，学习过程也比较专注。该学员有国外学习经历，词汇优势很大。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。不过在点名的单句翻译环节做得有点小问题，学员的语法比较匮乏，导致无法用语感翻译出来的句子就会卡壳，后续需要注意语法的学习。",
+      "学员本次课程正常出勤，全程无迟到与早退现象。课后作业均能按时提交，完成态度十分认真。在课堂表现上，学员参与度很高，能够积极回答问题并主动互动，听课和笔记都非常认真，全程紧密跟随课堂节奏。总体学习表现稳定且良好，不过在知识掌握细节上，部分词汇还不清楚其精确含义，且语感在应对精读长难句时有时会显得不够用，需要继续深化词汇理解并加强长难句的语感训练。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交并完成全部作业。在课堂表现上，学员态度认真，能够跟上课堂进度，全程保持专注并积极互动答题。从掌握情况来看，学员已经掌握了略读技巧以及一般将来时的相关知识，但是在进行独立练习时表现得不是很认真，这一点需要特别注意并加以改进，建议在未来的练习中保持与课堂听讲同等的专注度，以确保所学知识能够得到有效巩固和转化。"
+    ],
+    "冯婧妍": [
+      "学员第一次作业按时提交且态度认真。在简答题练习中，学员有关键词划分痕迹，具体预测做得很好，题型掌握度不错，但是有画蛇添足的情况，写了多余的单词进正确答案里，有点可惜，需要注意简答题问什么答什么。课堂上表现认真，参与度良好，不过还有提升空间。对题型接受度良好，第一次接触雅思题型能够很快理解规则。填空题掌握度好，题型特点和处理方法都掌握得不错。",
+      "学员本次课程正常出勤，没有迟到和早退的记录。作业方面能够按时提交，态度认真。课堂参与度表现一般，主要在老师点名时能够进行回答，但整体学习态度认真，能够跟上课堂进度。在知识掌握方面总体表现良好，不过词汇方面的问题依然存在，需要持续积累。值得肯定的是，学员对新题型的接受度不错，特别是在人名配信息题型上能够快速理解并掌握。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够按时提交。在课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，能够认真记录笔记，不过课堂互动相对较少，建议后续增加与老师的交流频率。从掌握情况来看，学员的独立练习效率非常高，并且对略读和填空题型的掌握速度很快，展现出较强的理解能力，希望在今后的学习中能够更加主动地参与课堂互动，进一步提升综合语言运用能力。"
+    ],
+    "马韵迪": [
+      "学员本次课程有迟到现象但无早退，属于正常出勤，这也是该学员作为插班生上的第一节课。课堂上学员听课和笔记都非常认真，全程紧跟教学节奏，不过课堂参与度还可以再提高一些。值得表扬的是，学员在简单句的点名翻译环节做得很不错。在知识掌握方面，学员具备一定的词汇基础，但语法基础相对偏弱，虽然能识别从句并知道其概念，却不知道如何正确调整语序和进行准确翻译，总体来看本阶段难度符合学员当前水平。此外，学员初次接触雅思题型，接受度比较良好，上手较快，后续老师会继续观察其学习状态。",
+      "学员在本次课程中正常出勤且无迟到早退现象。作业方面能够完成第五和第六单元的练习。在课堂表现上，学员参与度很高，能够积极回答问题并主动互动，笔记认真且紧跟教学节奏，不过有时候表现得有些过于活跃，需要注意课堂纪律。从掌握情况来看，学员已经掌握了略读技巧以及关键词法，但是词汇和语法方面都存在弱势，建议课后制定详细的词汇背诵和语法复习计划，以夯实基础并提升整体阅读与理解能力。"
+    ]
+  },
+  "ocr_results": {
+    "赵紫恬": {
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "A",
+        "B",
+        "A",
+        "C",
+        "A",
+        "许多人仍然更加喜欢在一个地方待着的家。",
+        "海豚游到游泳者身边，在他身边形成一个保护圈并把鲨鱼赶走，一个让科学家们相信。",
+        "一个获得国际知名资质的学生可以继续工作只要他们不放弃他们的工作。",
+        "在大家庭里生活很多年的人经常发现和家人之间很亲近是很简单的直到在他们离开后。",
+        "尽管快餐很方便，很多人拒绝它因为他们相信和家人一起吃饭在日常生活中是很重要的。",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "OVERSEAS",
+        "ENRICH",
+        "CONVENIENCE",
+        "REFUSE",
+        "VALUE",
+        "FACILITIES",
+        "HABITAT",
+        "CONSUME",
+        "APPRECIATE",
+        "WELCOME",
+        "NOT GIVEN",
+        "YES",
+        "YES",
+        "NO",
+        "YES",
+        "A",
+        "B",
+        "H",
+        "E",
+        "I",
+        "J"
+      ],
+      "confidence": 0.35
+    },
+    "张晏宁": {
+      "answers": [
+        "A",
+        "C",
+        "B",
+        "B",
+        "C",
+        "A",
+        "C",
+        "A",
+        "许多人还不适合去停留在一块个地方。",
+        "海豚们来到了游戏大厅，能在这里练习游泳与方向，是一个充满浪漫科学家，相信10年未来",
+        "学生应该去国际城市工作，会挑战在外的工工作，放弃他们的职业工作。",
+        "人们认为在生存竞争中许多年，常常会发现有关结果及成为证据，在他们没内化后。",
+        "在会议快变慢，许久没见面，因为他们相信那好似一支和你单人打球，一个全部利球成。",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "HABITAT",
+        "CONSUME",
+        "CONVENIENCE",
+        "VALUE",
+        "OVERSEAS",
+        "APPRECIATE",
+        "CONVENIENCE",
+        "WELCOME",
+        "ENRICH",
+        "FACILITIES",
+        "YES",
+        "YES",
+        "NO",
+        "NG",
+        "NG",
+        "G",
+        "F",
+        "H",
+        "J",
+        "D",
+        "E"
+      ],
+      "confidence": 0.33
+    },
+    "胡芸漫": {
+      "answers": [
+        "A",
+        "A",
+        "C",
+        "B",
+        "A",
+        "C",
+        "B",
+        "A",
+        "很多人仍然喜欢永久在一个地方的家",
+        "海豚来到游泳者身边找来一个救生圈，赶走了鲨鱼，这个行为让科学家相信这个行为",
+        "在发展中国家的学生可以继续工作不用放弃他的的工作，",
+        "住在大家庭很多年的人，会经常发现可以增进家庭成员间的关系，尽管他们搬出大家庭.",
+        "尽管快餐很方便，很多人不选择它因为他们相信分享美食像家人一样一起进食是日常生活中重要的一部分.",
+        "B",
+        "C",
+        "F",
+        "E",
+        "A",
+        "D",
+        "OVERSEAS",
+        "APPRECIATE",
+        "CONVENIENCE",
+        "FACILITIES",
+        "VALUE",
+        "CONSUME",
+        "REFUSE",
+        "HABITAT",
+        "ENRICH",
+        "WELCOME",
+        "NO",
+        "YES",
+        "NOT GIVEN",
+        "YES",
+        "YES",
+        "C",
+        "D",
+        "B",
+        "H",
+        "I",
+        "G"
+      ],
+      "confidence": 0.38
+    },
+    "张雪莹": {
+      "answers": [
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "C",
+        "B",
+        "A",
+        "许多人仍然更喜欢大约待在一个地方在家里",
+        "鲸鱼变成了一个访问者去营救形成一个保护圈不仅让他们离开出去，一个活动科学家访的可能不",
+        "学生赢得了国际的认同质量可以继续工作毫无疑问放弃他们的工作。",
+        "人们住在大家庭里很多年经常找他们更简单的近的关系和他们的亲戚甚至之后他们搬走。",
+        "尽管快餐很方便，许多人拒绝它是因为他们认为一起分享食物是一个家庭在日常生活",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "OVERSEAS",
+        "ENRICH",
+        "CONVENIENCE",
+        "VALUE",
+        "WELCOME",
+        "FACILITIES",
+        "HABITAT",
+        "APPRECIATE",
+        "REFUSE",
+        "CONSUE",
+        "T",
+        "NG",
+        "F",
+        "F",
+        "NG",
+        "C",
+        "H",
+        "I",
+        "B",
+        "J",
+        "L"
+      ],
+      "confidence": 0.35
+    },
+    "冯婧妍": {
+      "answers": [
+        "A",
+        "A",
+        "A",
+        "B",
+        "B",
+        "C",
+        "B",
+        "A",
+        "相比于待在其他地方许多人仍然更喜欢待在家里",
+        "海豚去救援游泳者并形成一个保护圈，赶走鲨鱼走，这一行动让科学家相信这不是天生的行为",
+        "在国际会议上失利的学生可以持续工作没有效率和他们的工作",
+        "已经住在大家庭的人们许多多年常常发现持续关系和亲戚很简单，甚至会在他们搬走后",
+        "尽管垃圾食品是方便的，许多人拒绝它是因为他们相信一起分享食物在一个家中是一个重",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "F",
+        "OVERSEAS",
+        "WELCOMES",
+        "APPRECIATE",
+        "FACILITIES",
+        "REFUSE",
+        "CONVENIENCE",
+        "HABITAT",
+        "ENRICH",
+        "CONSUME",
+        "VALUE",
+        "NO",
+        "YES",
+        "NO",
+        "NG",
+        "NO",
+        "C",
+        "F",
+        "H",
+        "J",
+        "I",
+        "L"
+      ],
+      "confidence": 0.33
+    },
+    "阿尔斯坦": {
+      "answers": [
+        "A",
+        "A",
+        "C",
+        "C",
+        "B",
+        "C",
+        "C",
+        "A",
+        "HÁI是XǏ HUĀN FÁNG子在有YĪ SĪ XĪN的地FĀNG",
+        "X",
+        "X",
+        "在大家TÍNG ZHÙ的人会ZÈN JÌN和QĪN QĪN们的GǍN QÍNG JIÙ SUÀN BĀN走了也不会忘",
+        "SUǑ有快CĀN店都很FĀNG BIÀN,很多人都带ZHE家人来吃,YĪN WÈI他们JUÉ DE在家TĪNG",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "OVERSEA",
+        "CONSUME",
+        "VALUE",
+        "WELCOME",
+        "APPRECIATE",
+        "ENRICH",
+        "HABITAT",
+        "REFUSE",
+        "FACILITIES",
+        "CONVENIENCE",
+        "NG",
+        "NO",
+        "YES",
+        "NO",
+        "YES",
+        "L",
+        "H",
+        "C",
+        "F",
+        "E",
+        "I"
+      ],
+      "confidence": 0.33
+    },
+    "马韵迪": {
+      "answers": [
+        "A",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "很多人仍然更喜欢家是因为它是一个待着安心的地方.",
+        "海豚们过来打扰游泳的人，包围形成一个保护圈并且让鲨鱼离开，一个摄影师和和科学家们都相信也许不",
+        "X",
+        "人们住在多有活力的家庭中比名字经常找它更简单",
+        "尽管快餐是便利的，许多人拒绝它是因为分享菜品一起作为一个家庭在日常生活中最重要的一环.",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "VALUE",
+        "ENRICH",
+        "FACILITIES",
+        "CONSUME",
+        "WELCOME",
+        "CONVENIENCE",
+        "HABITAT",
+        "OVERSEAS",
+        "REFUSE",
+        "APPRECIATE.",
+        "NG.",
+        "N",
+        "Y",
+        "Y",
+        "NG.",
+        "B",
+        "E",
+        "I",
+        "H",
+        "C",
+        "L"
+      ],
+      "confidence": 0.35
+    },
+    "杨薏霏": {
+      "answers": [
+        "A",
+        "A",
+        "C",
+        "A",
+        "B",
+        "A",
+        "B",
+        "A",
+        "多数人们仍然较喜欢在一个地方永久地待在家里，可以永久地待着的家里的一个地方",
+        "海豚会去营救游泳者，以前会保护他们并且驱赶鲨鱼离开，科学家们相信这也许不是单纯的本能反应的一个行为。",
+        "获得国际认证资格的学生可以继续工作只要不放弃工作。",
+        "在大家庭生活过的人们在俄罗斯都经常寻找一个更简单的关系，核心关系，即便在他们和亲戚的离开大家庭后。",
+        "虽然快餐很方便，但很多人拒绝它，因为他们认为和家人一起分享食物是日常生活中重要的一部分。",
+        "D",
+        "B",
+        "F",
+        "C",
+        "A",
+        "E",
+        "OVERSEAS",
+        "ENRICH",
+        "CONVENIENCE",
+        "VALUE",
+        "APPRECIATE",
+        "FACILITIES",
+        "HABITAT",
+        "WELCOME",
+        "REFUSE",
+        "CONSUME",
+        "NG",
+        "YES",
+        "YES",
+        "NO",
+        "YES",
+        "E",
+        "F",
+        "D",
+        "J",
+        "G",
+        "I"
+      ],
+      "confidence": 0.33
+    }
+  },
+  "grade_results": {
+    "胡芸漫": {
+      "raw_score": 19,
+      "score": 50,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 19,
+      "wrong_count": 21,
+      "ielts_band": "4.5",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 7,
+          "wrong": 1,
+          "total": 8,
+          "points_each": 2,
+          "score": 14
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 2,
+          "wrong": 3,
+          "total": 5,
+          "points_each": 5,
+          "score": 12
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 2,
+          "wrong": 4,
+          "total": 6,
+          "points_each": 2,
+          "score": 4
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 3,
+          "wrong": 7,
+          "total": 10,
+          "points_each": 2,
+          "score": 6
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 4,
+          "wrong": 1,
+          "total": 5,
+          "points_each": 3,
+          "score": 12
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 1,
+          "wrong": 5,
+          "total": 6,
+          "points_each": 2,
+          "score": 2
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 7/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "很多人仍然喜欢永久在一个地方的家",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 4,
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "海豚来到游泳者身边找来一个救生圈，赶走了鲨鱼，这个行为让科学家相信这个行为",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "在发展中国家的学生可以继续工作不用放弃他的的工作，",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "住在大家庭很多年的人，会经常发现可以增进家庭成员间的关系，尽管他们搬出大家庭.",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "尽管快餐很方便，很多人不选择它因为他们相信分享美食像家人一样一起进食是日常生活中重要的一部分.",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 3,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 2/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "B",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "E",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "D",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 3/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEAS",
+              "correct": "overseas",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "APPRECIATE",
+              "correct": "enrich",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "CONVENIENCE",
+              "correct": "convenience",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "FACILITIES",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "VALUE",
+              "correct": "value",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "CONSUME",
+              "correct": "facilities",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "REFUSE",
+              "correct": "habitat",
+              "is_correct": false
+            },
+            {
+              "q_id": 27,
+              "student": "HABITAT",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "ENRICH",
+              "correct": "refuse",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "WELCOME",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 31,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 33,
+              "student": "YES",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 1/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "C",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "D",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 38,
+              "student": "H",
+              "correct": "J",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "I",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "G",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "张晏宁": {
+      "raw_score": 13,
+      "score": 29,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 13,
+      "wrong_count": 27,
+      "ielts_band": "2.6",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 3,
+          "wrong": 5,
+          "total": 8,
+          "points_each": 2,
+          "score": 6
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 0,
+          "wrong": 5,
+          "total": 5,
+          "points_each": 5,
+          "score": 2
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 1,
+          "wrong": 9,
+          "total": 10,
+          "points_each": 2,
+          "score": 2
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 1,
+          "wrong": 4,
+          "total": 5,
+          "points_each": 3,
+          "score": 3
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 2,
+          "wrong": 4,
+          "total": 6,
+          "points_each": 2,
+          "score": 4
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 3/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "C",
+              "correct": "A",
+              "is_correct": false
+            },
+            {
+              "q_id": 3,
+              "student": "B",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "许多人还不适合去停留在一块个地方。",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "海豚们来到了游戏大厅，能在这里练习游泳与方向，是一个充满浪漫科学家，相信10年未来",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 0,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "学生应该去国际城市工作，会挑战在外的工工作，放弃他们的职业工作。",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "人们认为在生存竞争中许多年，常常会发现有关结果及成为证据，在他们没内化后。",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "在会议快变慢，许久没见面，因为他们相信那好似一支和你单人打球，一个全部利球成。",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 0,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 1/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "HABITAT",
+              "correct": "overseas",
+              "is_correct": false
+            },
+            {
+              "q_id": 21,
+              "student": "CONSUME",
+              "correct": "enrich",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "CONVENIENCE",
+              "correct": "convenience",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "VALUE",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "OVERSEAS",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "APPRECIATE",
+              "correct": "facilities",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "CONVENIENCE",
+              "correct": "habitat",
+              "is_correct": false
+            },
+            {
+              "q_id": 27,
+              "student": "WELCOME",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "ENRICH",
+              "correct": "refuse",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "FACILITIES",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 1/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "YES",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "NO",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "NG",
+              "correct": "YES",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 2/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "G",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 37,
+              "student": "H",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "J",
+              "correct": "J",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "D",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "E",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "赵紫恬": {
+      "raw_score": 23,
+      "score": 58,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 23,
+      "wrong_count": 17,
+      "ielts_band": "5.2",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 4,
+          "wrong": 4,
+          "total": 8,
+          "points_each": 2,
+          "score": 8
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 3,
+          "wrong": 2,
+          "total": 5,
+          "points_each": 5,
+          "score": 15
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 7,
+          "wrong": 3,
+          "total": 10,
+          "points_each": 2,
+          "score": 14
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 3,
+          "wrong": 2,
+          "total": 5,
+          "points_each": 3,
+          "score": 9
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 0,
+          "wrong": 6,
+          "total": 6,
+          "points_each": 2,
+          "score": 0
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 4/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "许多人仍然更加喜欢在一个地方待着的家。",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 4,
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "海豚游到游泳者身边，在他身边形成一个保护圈并把鲨鱼赶走，一个让科学家们相信。",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "一个获得国际知名资质的学生可以继续工作只要他们不放弃他们的工作。",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 4,
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "在大家庭里生活很多年的人经常发现和家人之间很亲近是很简单的直到在他们离开后。",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 3,
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "尽管快餐很方便，很多人拒绝它因为他们相信和家人一起吃饭在日常生活中是很重要的。",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 4,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 7/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEAS",
+              "correct": "overseas",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "ENRICH",
+              "correct": "enrich",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "CONVENIENCE",
+              "correct": "convenience",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "REFUSE",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "VALUE",
+              "correct": "value",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "FACILITIES",
+              "correct": "facilities",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "CONSUME",
+              "correct": "consume",
+              "is_correct": true
+            },
+            {
+              "q_id": 28,
+              "student": "APPRECIATE",
+              "correct": "refuse",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "WELCOME",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NOT GIVEN",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 0/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "A",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "B",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "H",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "E",
+              "correct": "J",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "I",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "J",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "张雪莹": {
+      "raw_score": 21,
+      "score": 50,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 21,
+      "wrong_count": 19,
+      "ielts_band": "4.5",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 7,
+          "wrong": 1,
+          "total": 8,
+          "points_each": 2,
+          "score": 14
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 1,
+          "wrong": 4,
+          "total": 5,
+          "points_each": 5,
+          "score": 9
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 6,
+          "wrong": 4,
+          "total": 10,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 1,
+          "wrong": 4,
+          "total": 5,
+          "points_each": 3,
+          "score": 3
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 0,
+          "wrong": 6,
+          "total": 6,
+          "points_each": 2,
+          "score": 0
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 7/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "许多人仍然更喜欢大约待在一个地方在家里",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "鲸鱼变成了一个访问者去营救形成一个保护圈不仅让他们离开出去，一个活动科学家访的可能不",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "学生赢得了国际的认同质量可以继续工作毫无疑问放弃他们的工作。",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "人们住在大家庭里很多年经常找他们更简单的近的关系和他们的亲戚甚至之后他们搬走。",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "尽管快餐很方便，许多人拒绝它是因为他们认为一起分享食物是一个家庭在日常生活",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 2,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 6/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEAS",
+              "correct": "overseas",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "ENRICH",
+              "correct": "enrich",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "CONVENIENCE",
+              "correct": "convenience",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "VALUE",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "WELCOME",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "FACILITIES",
+              "correct": "facilities",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "APPRECIATE",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "REFUSE",
+              "correct": "refuse",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "CONSUE",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 1/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "T",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "NG",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "F",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "F",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "NG",
+              "correct": "YES",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 0/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "C",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "H",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "I",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "B",
+              "correct": "J",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "J",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "L",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "杨薏霏": {
+      "raw_score": 27,
+      "score": 65,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 27,
+      "wrong_count": 13,
+      "ielts_band": "5.9",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 6,
+          "wrong": 2,
+          "total": 8,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 2,
+          "wrong": 3,
+          "total": 5,
+          "points_each": 5,
+          "score": 12
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 6,
+          "wrong": 4,
+          "total": 10,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 3,
+          "wrong": 2,
+          "total": 5,
+          "points_each": 3,
+          "score": 9
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 4,
+          "wrong": 2,
+          "total": 6,
+          "points_each": 2,
+          "score": 8
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 6/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "多数人们仍然较喜欢在一个地方永久地待在家里，可以永久地待着的家里的一个地方",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "海豚会去营救游泳者，以前会保护他们并且驱赶鲨鱼离开，科学家们相信这也许不是单纯的本能反应的一个行为。",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "获得国际认证资格的学生可以继续工作只要不放弃工作。",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 4,
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "在大家庭生活过的人们在俄罗斯都经常寻找一个更简单的关系，核心关系，即便在他们和亲戚的离开大家庭后。",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "虽然快餐很方便，但很多人拒绝它，因为他们认为和家人一起分享食物是日常生活中重要的一部分。",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 5,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 6/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEAS",
+              "correct": "overseas",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "ENRICH",
+              "correct": "enrich",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "CONVENIENCE",
+              "correct": "convenience",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "VALUE",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "APPRECIATE",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "FACILITIES",
+              "correct": "facilities",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "WELCOME",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "REFUSE",
+              "correct": "refuse",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "CONSUME",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 4/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            },
+            {
+              "q_id": 36,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 37,
+              "student": "D",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "J",
+              "correct": "J",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 40,
+              "student": "I",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "阿尔斯坦": {
+      "raw_score": 16,
+      "score": 36,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 16,
+      "wrong_count": 24,
+      "ielts_band": "3.2",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 6,
+          "wrong": 2,
+          "total": 8,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 0,
+          "wrong": 5,
+          "total": 5,
+          "points_each": 5,
+          "score": 2
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 2,
+          "wrong": 8,
+          "total": 10,
+          "points_each": 2,
+          "score": 4
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 2,
+          "wrong": 3,
+          "total": 5,
+          "points_each": 3,
+          "score": 6
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 0,
+          "wrong": 6,
+          "total": 6,
+          "points_each": 2,
+          "score": 0
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 6/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "HÁI是XǏ HUĀN FÁNG子在有YĪ SĪ XĪN的地FĀNG",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 0,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "X",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 0,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "X",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 0,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "在大家TÍNG ZHÙ的人会ZÈN JÌN和QĪN QĪN们的GǍN QÍNG JIÙ SUÀN BĀN走了也不会忘",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "SUǑ有快CĀN店都很FĀNG BIÀN,很多人都带ZHE家人来吃,YĪN WÈI他们JUÉ DE在家TĪNG",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 1,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 2/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEA",
+              "correct": "overseas",
+              "is_correct": false
+            },
+            {
+              "q_id": 21,
+              "student": "CONSUME",
+              "correct": "enrich",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "VALUE",
+              "correct": "convenience",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "WELCOME",
+              "correct": "welcome",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "APPRECIATE",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "ENRICH",
+              "correct": "facilities",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "REFUSE",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "FACILITIES",
+              "correct": "refuse",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "CONVENIENCE",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "NO",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 0/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "L",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "H",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "F",
+              "correct": "J",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "E",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "I",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "question": 10,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 11,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.05
+    },
+    "冯婧妍": {
+      "raw_score": 19,
+      "score": 47,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 19,
+      "wrong_count": 21,
+      "ielts_band": "4.2",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 7,
+          "wrong": 1,
+          "total": 8,
+          "points_each": 2,
+          "score": 14
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 1,
+          "wrong": 4,
+          "total": 5,
+          "points_each": 5,
+          "score": 9
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 5,
+          "wrong": 1,
+          "total": 6,
+          "points_each": 2,
+          "score": 10
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 2,
+          "wrong": 8,
+          "total": 10,
+          "points_each": 2,
+          "score": 4
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 2,
+          "wrong": 3,
+          "total": 5,
+          "points_each": 3,
+          "score": 6
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 2,
+          "wrong": 4,
+          "total": 6,
+          "points_each": 2,
+          "score": 4
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 7/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "相比于待在其他地方许多人仍然更喜欢待在家里",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "海豚去救援游泳者并形成一个保护圈，赶走鲨鱼走，这一行动让科学家相信这不是天生的行为",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 3,
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "在国际会议上失利的学生可以持续工作没有效率和他们的工作",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "已经住在大家庭的人们许多多年常常发现持续关系和亲戚很简单，甚至会在他们搬走后",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 2,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "尽管垃圾食品是方便的，许多人拒绝它是因为他们相信一起分享食物在一个家中是一个重",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 3,
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 5/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "F",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 2/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "OVERSEAS",
+              "correct": "overseas",
+              "is_correct": true
+            },
+            {
+              "q_id": 21,
+              "student": "WELCOMES",
+              "correct": "enrich",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "APPRECIATE",
+              "correct": "convenience",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "FACILITIES",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "REFUSE",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "CONVENIENCE",
+              "correct": "facilities",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "ENRICH",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "CONSUME",
+              "correct": "refuse",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "VALUE",
+              "correct": "appreciate",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 31,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "NO",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "NG",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "NO",
+              "correct": "YES",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 2/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "C",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 37,
+              "student": "H",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "J",
+              "correct": "J",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "I",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "L",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "马韵迪": {
+      "raw_score": 15,
+      "score": 35,
+      "total_points": 100,
+      "total_questions": 40,
+      "correct_count": 15,
+      "wrong_count": 25,
+      "ielts_band": "3.1",
+      "type_scores": {
+        "part_a_word_choice": {
+          "type_name": "word_choice",
+          "range": "1-8",
+          "correct": 5,
+          "wrong": 3,
+          "total": 8,
+          "points_each": 2,
+          "score": 10
+        },
+        "part_b_translation": {
+          "type_name": "translation",
+          "range": "9-13",
+          "correct": 0,
+          "wrong": 5,
+          "total": 5,
+          "points_each": 5,
+          "score": 5
+        },
+        "part_c_matching": {
+          "type_name": "matching",
+          "range": "14-19",
+          "correct": 6,
+          "wrong": 0,
+          "total": 6,
+          "points_each": 2,
+          "score": 12
+        },
+        "part_d_section_a_cloze": {
+          "type_name": "cloze",
+          "range": "20-29",
+          "correct": 4,
+          "wrong": 6,
+          "total": 10,
+          "points_each": 2,
+          "score": 8
+        },
+        "part_d_section_b_tfng": {
+          "type_name": "true_false_not_given",
+          "range": "30-34",
+          "correct": 0,
+          "wrong": 5,
+          "total": 5,
+          "points_each": 3,
+          "score": 0
+        },
+        "part_d_section_b_summary": {
+          "type_name": "summary_fill",
+          "range": "35-40",
+          "correct": 0,
+          "wrong": 6,
+          "total": 6,
+          "points_each": 2,
+          "score": 0
+        }
+      },
+      "type_analysis": [
+        {
+          "passage": "Part A - Multiple Choice (Word Meaning)",
+          "type": "词义选择",
+          "stats": "正确 5/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "B",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "A",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part B - English-Chinese Sentence Translation",
+          "type": "英译中翻译",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "很多人仍然更喜欢家是因为它是一个待着安心的地方.",
+              "correct": "许多人仍然更喜欢永久固定在一个地方的房子",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "海豚们过来打扰游泳的人，包围形成一个保护圈并且让鲨鱼离开，一个摄影师和和科学家们都相信也许不",
+              "correct": "前来救援游泳者的海豚们围成了一个保护圈，并把鲨鱼赶走，科学家认为这种行为可能并非纯粹出于本能",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "X",
+              "correct": "通过远程学习获得国际认可学历的学生可以继续工作，而不必放弃自己的工作",
+              "score": 0,
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "人们住在多有活力的家庭中比名字经常找它更简单",
+              "correct": "在大家庭中生活多年的人，即使搬到别处，也往往更容易与亲戚保持密切关系",
+              "score": 1,
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "尽管快餐是便利的，许多人拒绝它是因为分享菜品一起作为一个家庭在日常生活中最重要的一环.",
+              "correct": "尽管快餐很方便，但许多人还是拒绝吃，因为他们相信一家人一起吃饭是日常生活中很重要的一部分",
+              "score": 2,
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part C - Matching (Words with Descriptions)",
+          "type": "单词匹配",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 17,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section A - Cloze (Reading Comprehension)",
+          "type": "选词填空",
+          "stats": "正确 4/10",
+          "details": [
+            {
+              "q_id": 20,
+              "student": "VALUE",
+              "correct": "overseas",
+              "is_correct": false
+            },
+            {
+              "q_id": 21,
+              "student": "ENRICH",
+              "correct": "enrich",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "FACILITIES",
+              "correct": "convenience",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "CONSUME",
+              "correct": "welcome",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "WELCOME",
+              "correct": "value",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "CONVENIENCE",
+              "correct": "facilities",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "HABITAT",
+              "correct": "habitat",
+              "is_correct": true
+            },
+            {
+              "q_id": 27,
+              "student": "OVERSEAS",
+              "correct": "consume",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "REFUSE",
+              "correct": "refuse",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "APPRECIATE.",
+              "correct": "appreciate",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "判断题",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 30,
+              "student": "NG.",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 31,
+              "student": "N",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "Y",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "Y",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "NG.",
+              "correct": "YES",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "Part D Section B - Reading Comprehension",
+          "type": "摘要填空",
+          "stats": "正确 0/6",
+          "details": [
+            {
+              "q_id": 35,
+              "student": "B",
+              "correct": "E",
+              "is_correct": false
+            },
+            {
+              "q_id": 36,
+              "student": "E",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "I",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "H",
+              "correct": "J",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "C",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "L",
+              "correct": "K",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "question": 11,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.03
+    }
+  }
+}

@@ -1,0 +1,2597 @@
+{
+  "class_name": "3412",
+  "course_type": "L2讲义",
+  "students": [
+    "文羽晨",
+    "梁靖翔",
+    "杨泽轩",
+    "吴乐清",
+    "张羽瑶",
+    "张若曦",
+    "艾克山",
+    "税祺恩",
+    "周润洲",
+    "李昭质",
+    "钟佳佟"
+  ],
+  "answer_sheets": {
+    "吴乐清": "D:\\Schleiden\\Desktop\\3412中级讲义\\吴乐清.jpg",
+    "张若曦": "D:\\Schleiden\\Desktop\\3412中级讲义\\张若曦.jpg",
+    "李昭质": "D:\\Schleiden\\Desktop\\3412中级讲义\\李昭质.jpg",
+    "杨泽轩": "D:\\Schleiden\\Desktop\\3412中级讲义\\杨泽轩.jpg",
+    "税祺恩": "D:\\Schleiden\\Desktop\\3412中级讲义\\税祺恩.jpg",
+    "钟佳佟": "D:\\Schleiden\\Desktop\\3412中级讲义\\钟佳佟.jpg"
+  },
+  "config": {
+    "course_type": "中级讲义",
+    "course_info": {
+      "target_students": "英语基础良好，自身水平在5分到5.5分左右的学员",
+      "course_goal": "达到雅思A类阅读6.5分左右水平",
+      "material": "剑雅真题8-14选篇",
+      "test_info": "剑雅真题A类阅读，共3篇，40题"
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "The White Horse of Uffington",
+        "question_groups": [
+          {
+            "type": "true_false_not_given",
+            "type_name": "TFNG判断",
+            "range": "1-8",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 8,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank",
+            "type_name": "笔记填空",
+            "range": "9-13",
+            "questions": [
+              {
+                "id": 9,
+                "answers": [
+                  "Ridgeway"
+                ]
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "documents"
+                ]
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "soil"
+                ]
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "fertility"
+                ]
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "Rhiannon"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "I Contain Multitudes",
+        "question_groups": [
+          {
+            "type": "multiple_choice",
+            "type_name": "单选",
+            "range": "14-16",
+            "questions": [
+              {
+                "id": 14,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 15,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank_with_word_bank",
+            "type_name": "有词库摘要填空",
+            "range": "17-20",
+            "questions": [
+              {
+                "id": 17,
+                "answers": [
+                  "G"
+                ]
+              },
+              {
+                "id": 18,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "H"
+                ]
+              },
+              {
+                "id": 20,
+                "answers": [
+                  "E"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "yes_no_not_given",
+            "type_name": "YesNo判断",
+            "range": "21-26",
+            "questions": [
+              {
+                "id": 21,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 22,
+                "answers": [
+                  "NO"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "NO"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "How to Make Wise Decisions",
+        "question_groups": [
+          {
+            "type": "multiple_choice",
+            "type_name": "单选",
+            "range": "27-30",
+            "questions": [
+              {
+                "id": 27,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 28,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 29,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 30,
+                "answers": [
+                  "D"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank_with_word_bank",
+            "type_name": "有词库摘要填空",
+            "range": "31-35",
+            "questions": [
+              {
+                "id": 31,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 32,
+                "answers": [
+                  "A"
+                ]
+              },
+              {
+                "id": 33,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 34,
+                "answers": [
+                  "F"
+                ]
+              },
+              {
+                "id": 35,
+                "answers": [
+                  "G"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "true_false_not_given",
+            "type_name": "TF判断",
+            "range": "36-40",
+            "questions": [
+              {
+                "id": 36,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 37,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 38,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 39,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 40,
+                "answers": [
+                  "TRUE"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "文羽晨": [
+      "学员今日正常出勤且无迟到早退。作业方面已顺利完成双语等表格填空任务。课堂表现十分优异，参与度很高，能够积极回答问题并主动与老师互动，学习态度认真，完全能跟上课堂进度，同时认真记录了同义替换词组。在知识掌握方面，学员已经扎实掌握了定位与词性预判的核心技巧。整体表现非常出色，希望学员能够继续保持这种高涨的学习热情和良好的互动习惯，在雅思备考中取得更大进步。",
+      "学员本次课程正常出勤且无迟到早退现象，学习态度端正。在作业方面，学员认真完成了剑雅判断题练习，展现了较好的课后执行力。课堂表现上，学员能够积极回答问题，并详细记录同义替换内容，听课状态良好。在知识掌握方面，学员重点练习了F与NG辨析考点，对这两类易混淆题型的辨别能力有所提升，希望课后继续巩固相关技巧。",
+      "该学员本次课程正常出勤且无迟到早退现象，课后按时完成了匹配题专项练习。在课堂表现方面，学员整体参与度比较好，但是相比之前有所下滑，不过学习态度依然认真，能够紧紧跟上课堂进度，并且认真记录了特征同义替换词。在知识掌握情况上，学员已经成功理清了半句匹配逻辑，整体学习状态值得肯定，希望后续能保持更高的课堂热情。",
+      "该学员本次课程正常出勤，没有出现迟到或早退的现象。在作业方面，能够按时提交，学习态度非常好且十分认真。在课堂上，该学员参与度很高，能够积极回答问题并与老师进行主动互动，同时听课和做笔记都非常认真，全程紧跟课堂节奏。在知识掌握方面，虽然对题型的掌握度还可以，但独立练习的效果有所下滑，这主要是受到了词汇瓶颈的限制，后续需要重点加强词汇的积累与突破。"
+    ],
+    "梁靖翔": [
+      "学员请假，无反馈。",
+      "学员在本次课程中正常出勤，全程无迟到早退情况，纪律表现良好。作业方面，学员按时提交了判断选择作业，完成了既定的练习任务。课堂表现方面，学员听讲认真，能够专注记录老师讲解的核心技能，展现了良好的学习习惯。在知识掌握情况上，学员已经较好地掌握了同义替换识别技巧，能够在阅读中准确捕捉关键信息，期待后续保持这一良好状态。",
+      "学员请假，无反馈。",
+      "学员请假，无反馈。"
+    ],
+    "杨泽轩": [
+      "学员今日正常出勤，没有迟到早退的情况。作业部分已经完成了双语及心灵感应篇章的练习。课堂上的参与度表现一般，不过在点名提问时能够正常回答，学习态度端正认真，能够跟上整体的课堂进度，并在课上练习了阶梯水井等阅读篇章。从知识掌握的角度来看，学员能够认真记录同义替换与词性预判的相关内容。建议学员在今后的课堂中更加主动地参与讨论，进一步提升自己的阅读解题速度和准确率。",
+      "学员本节课正常出勤，没有迟到和早退的现象，出勤状况十分理想。课后作业方面，学员顺利完成了双语及软木等篇章的练习，练习量达标。课堂表现上，学员听讲专注，认真记录同义替换与相关考点，笔记详实。在知识掌握层面，学员通过课堂训练已经掌握了区间定位与排除法，解题思路更加清晰，希望在今后的练习中继续熟练运用这些解题技巧。",
+      "该学员在本次课程中正常出勤，没有出现迟到或早退的情况，并且顺利完成了匹配题练习作业。课堂上的表现十分优异，听课和笔记非常认真，全程都在跟随课堂节奏，同时详细记录了同义替换考点。从掌握情况来看，学员已经扎实掌握了分类与人名匹配的相关技巧，展现出良好的学习专注度和知识吸收能力，继续保持即可。",
+      "该学员本次课程正常出勤，无迟到早退情况。作业均能按时提交，态度非常好且非常认真。在入门测试环节，该学员的答题速度表现良好。课堂表现方面，参与度高，能够积极回答问题并主动互动，听课和笔记非常认真，全程跟随课堂节奏。在知识掌握上，总体题型掌握还可以，定位能力也保持良好，但在同义替换的识别上还存在一点问题，课后需要针对同义替换进行专项训练。"
+    ],
+    "吴乐清": [
+      "学员今日正常出勤，无迟到早退现象。课后作业已按要求完成双语及心灵感应等练习。课堂表现极为出色，听课和笔记都非常认真，能够全程紧密跟随课堂节奏，并认真跟练了阶梯水井及音乐运动例题。在知识掌握方面，学员展现出比较大的词汇量优势，题感很好，对于雅思各类题型的接受度也非常高，并且已经熟练掌握了同义替换与词性预判技巧。希望学员继续保持这种极佳的学习状态，向更高的目标迈进。",
+      "学员在本次课堂上正常出勤，无迟到及早退记录，学习态度值得肯定。作业完成情况良好，学员按时完成了判断选择题作业，巩固了课堂所学。课堂表现方面，学员能够紧跟老师思路，认真跟练阶梯水井等经典例题，互动与练习状态良好。在知识掌握上，学员重点练习了判断辨析与排除法，对复杂题型的处理能力有所增强，建议课后多加复习以彻底消化。",
+      "该学员本次课正常出勤，无迟到早退记录，按要求完成了匹配题作业。课堂听讲和笔记非常认真，能够全程跟随课堂节奏，虽然整体参与度一般，但在被点名时能够准确回答问题。在跟练分类与人名题的过程中，学员积极练习定位与替换技巧，对相关知识点的掌握正在逐步深化，建议课后增加主动发言的频率以进一步提升课堂互动效果。",
+      "该学员本次课程正常出勤，无迟到早退现象。作业按时提交，态度非常好且非常认真。入门测试中正确率表现十分突出。课堂听讲和笔记非常认真，全程跟随课堂节奏，不过课堂参与度一般，主要在点名时能够进行回答。在知识掌握方面，该学员的天赋开始兑现，独立练习的正确率非常高且做题速度快，到目前为止对各类题型的掌握都非常扎实硬朗，希望继续保持这种良好的学习状态。"
+    ],
+    "张羽瑶": [
+      "学员今日正常出勤，没有迟到或早退。作业方面已经完成了剑雅填空与摘要作业。课堂上学员的参与度一般，但在被点名时能够进行回答，学习态度认真，能够跟上课堂进度，并详细记录了同义替换与结构分析。在掌握情况上，学员能够准确预判空格词性与词义，但在点名的单句翻译环节中，暴露出词汇积累和连词成句方面还有提升空间。建议学员课后加强词汇记忆与句子结构练习，弥补这一薄弱环节。",
+      "学员本节课正常出勤，没有迟到或早退的情况，课堂纪律保持良好。作业方面，学员认真完成了四篇判断题作业，练习态度十分端正。课堂表现上，学员全程保持专注，认真记录核心笔记，展现了良好的听课习惯。在知识掌握情况方面，学员已经基本掌握了定位技巧，但在假与未提及的辨析上错误较多，建议课后针对这两类易错题型进行专项强化训练。",
+      "该学员正常出勤且无迟到早退，认真完成了匹配题型练习作业。课堂上听课和笔记非常认真，全程跟随课堂节奏，并且全程听讲记录笔记，值得表扬的是参与度有进步，比之前更加积极活跃。在知识掌握方面，学员已经较好地掌握了定位与同义替换的核心方法，展现出明显的学习进步态势，希望未来能够维持这种积极向上的学习状态。",
+      "学员请假，无反馈。"
+    ],
+    "张若曦": [
+      "学员今日正常出勤，全程无迟到早退。作业部分已按时完成双语等表格填空作业。课堂表现方面，学员听课和笔记都非常认真，能够全程跟随课堂节奏，虽然整体参与度一般，但在点名时能够给出回答，课上认真练习了划关键词与同义替换。从掌握情况来看，学员已经较好地掌握了无词库摘要填空步骤。希望学员在保持认真听课和做笔记的良好习惯的同时，能够进一步提高课堂互动的积极性，加深对知识点的理解。",
+      "学员在本次课程中正常出勤，无迟到早退现象，展现了良好的时间观念。作业方面，学员按时完成了判断与选择题作业，课后复习落实到位。课堂表现上，学员能够认真听课并详细记录笔记，在互动环节也能积极作答，课堂参与度较高。在知识掌握层面，学员已经较好地掌握了判断辨析及排除法，解题准确率稳步提升，希望继续保持当前的学习热情与状态。",
+      "该学员本次课程正常出勤，无迟到早退现象，按时完成了匹配题作业。课堂参与度高，能够积极回答问题并主动与老师互动，听课和笔记非常认真，全程跟随课堂节奏，专注听讲并记录笔记。在掌握情况方面，学员已经熟悉了定位与替换技巧，但是独立练习效率有所下降，主要原因是遇到的生词逐渐变多，建议课后加强词汇积累以突破目前的练习瓶颈。",
+      "该学员本次课程正常出勤，无迟到早退情况。作业方面能够按时提交，态度非常好且非常认真，并顺利完成了段落大意题的练习。在课堂表现上，该学员全程跟听，认真记录课堂笔记，学习态度端正。在知识掌握层面，目前已经较好地掌握了略读技巧，并顺利完成了信息匹配的相关练习，整体学习进度稳步推进，课后需继续巩固所学技巧以提升阅读效率。"
+    ],
+    "艾克山": [
+      "学员今日正常出勤，没有迟到和早退的情况。作业方面已经完成了双语好处填空练习。课堂上的学习态度十分认真，能够跟上课堂进度，参与度表现一般，但在点名提问时能够正常回答，并在课上练习了关键词定位技巧。在知识掌握层面，学员已经掌握了摘要填空词性的判断方法，但独立练习时的效率不够好，做题速度比较慢。建议学员在课后增加限时训练，逐步提高解题速度，从而提升整体的做题效率。",
+      "学员本次课程虽然正常出勤且无早退，但迟到时间较长，需要特别注意时间管理并调整作息。作业方面，学员完成了软木等判断选择作业，保证了基本的练习量。课堂表现上，学员能够参与到判断选择题的课堂练习中，跟上了教学进度。在知识掌握情况方面，学员已经掌握了NG辨析与选项排除法，核心解题技巧有所提升，希望今后不仅能提高做题正确率，也能改善出勤纪律。",
+      "该学员正常出勤，无迟到早退情况。课堂上听课和笔记非常认真，能够全程跟随课堂节奏，虽然整体参与度一般，但在被点名时能够给出回应，特别是点名的单句翻译做得非常好，展现了扎实的语言基础。不过在独立练习环节表现稍弱，需要进一步加强自主解题能力的训练，建议课后多做针对性练习以巩固课堂所学内容。",
+      "该学员本次课程正常出勤，无迟到早退现象。作业按时提交，态度非常好且非常认真。课堂上听课和笔记非常认真，全程跟随课堂节奏，但参与度一般，主要在点名时能够回答问题。在知识掌握方面，点名时的单句翻译表现稳定，识别修饰结构和调整语序的能力都很稳。虽然在独立练习环节做题速度略慢，但是正确率很高，后续可以通过增加练习量来进一步提升做题速度。"
+    ],
+    "税祺恩": [
+      "学员今日正常出勤，无迟到早退现象。作业已按要求完成双语及心灵感应填空。课堂表现十分积极，参与度很高，能够积极回答问题并主动互动，且参与度相比之前有明显提升，这一点非常值得肯定，课上认真记录了答题步骤及同义替换。在掌握情况上，学员词汇基础不错，对雅思题型的接受度良好，并且已经顺利完成了摘要结构分析与定位的练习。希望学员能够保持这种良好的学习势头，继续提升自己的英语综合能力。",
+      "学员本节课正常出勤，全程无迟到早退现象，学习态度十分认真。作业方面，学员顺利完成了判断与选择题作业，课后巩固工作做得很到位。课堂表现上，学员思维活跃，不仅能够积极互动，还认真记录了重点笔记，听课效率很高。在知识掌握层面，学员已经扎实掌握了判断辨析与选择定位技巧，能够准确找到解题突破口，期待在后续课程中取得更大的进步。",
+      "该学员正常出勤且无迟到早退，认真完成了匹配题作业。课堂参与度高，积极回答问题并主动互动，听课和笔记非常认真，全程跟随课堂节奏，详细记录了匹配题笔记。从掌握情况来看，学员对题型的掌握度很好，并且已经牢固掌握了半句特征匹配的技巧，整体学习状态十分出色，希望继续保持这种高效的学习节奏。",
+      "该学员本次课程正常出勤，无迟到早退情况。作业按时提交，态度非常好且非常认真。课堂上听课和笔记非常认真，全程跟随课堂节奏，参与度高，能够积极回答问题并主动互动，学习态度非常好，会主动提问并积极思考。在知识掌握上，对段落配标题的掌握度不错。对于段落配信息题型，考点重复利用率很高，但是抓关键词有时候会失误，即使抓到了有时也未能准确对应得分，课后需加强关键词的精准定位与匹配训练。"
+    ],
+    "周润洲": [
+      "学员今日正常出勤，没有迟到早退。作业方面已经完成了双语及心灵感应表格填空作业。课堂表现非常优异，参与度很高，能够积极回答问题并主动互动，听课和笔记都非常认真，全程紧密跟随课堂节奏，并详细记录了同义替换及填空题通用步骤。从掌握情况来看，学员基础不错，知识点吸收得很好，并且已经完成了摘要结构分析及语法判断练习。希望学员继续保持这种专注的学习状态，不断巩固和拓展所学知识。",
+      "学员在本次课程中正常出勤，没有迟到和早退的记录，课堂纪律表现优秀。作业方面，学员按时完成了判断及选择作业，展现了良好的自主学习能力。课堂表现上，学员全程保持高度专注，并且能够积极回答问题，与老师形成了良好的互动。在知识掌握情况上，学员已经全面掌握了判断及选择解题技巧，对各类题型的应对更加得心应手，希望课后继续保持良好的学习势头。",
+      "该学员本次课程正常出勤，无迟到早退记录，完成了匹配题专项练习。课堂上全程专注并积极互动，态度认真且能跟上课堂进度，虽然参与度比较好，但是相比之前有所下滑。在知识掌握方面，学员已经掌握了匹配题定位技巧，但是独立练习的效率有所降低，这可能是词汇量不足的原因，建议课后重点扩充词汇量以提升整体解题效率。",
+      "该学员本次课程正常出勤，无迟到早退现象。作业按时提交，态度非常好且非常认真。课堂表现上态度认真，能够跟上课堂进度，参与度高，能够积极回答问题并主动互动。在知识掌握方面，做段落配标题题时速度很快，独立练习效率高且正确率高。不过在段落配信息题型上，还没有把题型特点利用起来，并且对NG选项的理解还不是很透彻，课后需要重点复习该题型特点及NG的判断逻辑。"
+    ],
+    "李昭质": [
+      "学员今日正常出勤，无迟到早退现象。作业部分已顺利完成双语好处填空。课堂表现上，学员性格比较沉默，整体参与度可以更高一点，但学习态度认真，能够跟上课堂进度，并认真记录了填空做题步骤。在知识掌握方面，学员已经能够识别同义替换词性，但在独立练习时效率不够好。建议学员在课后多进行自主练习，培养独立思考的习惯，同时鼓励在课堂上多表达自己的想法，提高课堂参与的积极性。",
+      "学员本节课正常出勤，无迟到早退情况，学习态度端正踏实。作业方面，学员认真完成了判断与选择作业，保证了充足的练习量。课堂表现上，学员安静听讲，专注度很高，并且详细记录了课堂笔记，学习习惯良好。在知识掌握方面，学员已经较好地掌握了同义替换的识别方法，但对排除法的运用还不够熟练，建议课后针对排除法进行专项练习，以提高解题效率。",
+      "该学员正常出勤，无迟到早退现象，按要求完成了匹配题练习。在课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，并且仔细记录了匹配题笔记。在知识掌握情况方面，学员已经顺利掌握了半句匹配技巧，展现出良好的听课效率和知识内化能力，希望在今后的学习中继续保持这种严谨认真的学习态度。",
+      "该学员本次课程正常出勤，无迟到早退情况。作业按时提交，态度非常好且非常认真。课堂上参与度一般，主要在点名时能够回答，但听课和笔记非常认真，全程跟随课堂节奏。在知识掌握方面，段落配标题的独立练习正确率达标，略读方法掌握得不错。段落配信息的掌握度还可以，但是考点重复技巧的利用率还不是很高。此外，点名时的单句翻译不够通顺，且词汇基础略弱，后续需要重点加强词汇积累与长难句翻译练习。"
+    ],
+    "钟佳佟": [
+      "学员今日正常出勤，没有迟到或早退。作业方面已经提交了双语好处等两篇填空练习。课堂表现上，学员听课和笔记都非常认真，能够全程跟随课堂节奏，虽然参与度一般，但在点名时能够回答，并完成了阶梯水井等真题练习。从掌握情况来看，学员能够记录填空步骤及同义替换，但考虑到学员年龄偏小，词汇量还有较大的提升空间。建议学员在课后增加词汇积累，多阅读英文材料，逐步扩大自己的词汇储备。",
+      "学员在本次课堂上正常出勤，没有迟到或早退的现象，出勤状况十分理想。作业方面，学员按时提交了判断选择题，课后任务完成度较高。课堂表现上，学员能够全程跟随老师的节奏做真题，实操练习非常认真，课堂参与度良好。在知识掌握层面，学员详细记录了相关考点及排除法，对解题思路有了清晰的认识，希望课后能够反复复习笔记，将技巧转化为实际的得分能力。",
+      "该学员本次课正常出勤，无迟到早退情况。课堂上听课和笔记非常认真，能够全程跟随课堂节奏，虽然参与度一般，但在被点名时能够回答问题。从整体来看，学员的总体掌握情况很好，基础技能和题型掌握得都不错，目前正确率偏低的原因是词汇量储备不足，但鉴于学员年龄较小，这种情况完全可以理解，后续通过增加词汇积累即可有效提升正确率。",
+      "该学员本次课程正常出勤，无迟到早退现象。作业按时提交，态度非常好且非常认真。课堂上听课和笔记非常认真，全程跟随课堂节奏，并且参与度有进步，表现得比之前更加积极。在知识掌握上，对题型特点掌握得很好，独立练习效率也很高，段落配标题的技巧基本都用上了。不过本节课学习的段落配信息内容还需要进一步消化，考点重复的利用率不是很高，课后需多加练习以巩固所学技巧。"
+    ]
+  },
+  "ocr_results": {
+    "张若曦": {
+      "answers": [
+        "TRUE",
+        "NOT GIVEN",
+        "TRUE",
+        "FALSE",
+        "NOT GIVEN",
+        "NOT GIVEN",
+        "FALSE",
+        "TRUE",
+        "TRACK",
+        "DOCUMENTS",
+        "SOIL",
+        "FERTILITY",
+        "RHIANNON",
+        "A",
+        "C",
+        "A",
+        "G",
+        "H",
+        "C",
+        "F",
+        "YES",
+        "NO",
+        "NO",
+        "YES",
+        "NOT GIVEN",
+        "NO",
+        "D",
+        "C",
+        "C",
+        "B",
+        "J",
+        "A",
+        "C",
+        "H",
+        "E",
+        "NOT GIVEN",
+        "TRUE",
+        "TRUE",
+        "NOT GIVEN",
+        "FALSE"
+      ],
+      "confidence": 0.25
+    },
+    "杨泽轩": {
+      "answers": [
+        "T",
+        "NG",
+        "T",
+        "F",
+        "F",
+        "T",
+        "F",
+        "NG",
+        "NEOLITHIC",
+        "DOCUMENTS",
+        "SOIL",
+        "ASSOCIATIONS",
+        "RHIANNON",
+        "A",
+        "C",
+        "A",
+        "G",
+        "B",
+        "H",
+        "E",
+        "F",
+        "F",
+        "NG",
+        "T",
+        "T",
+        "F",
+        "B",
+        "D",
+        "C",
+        "B",
+        "A",
+        "E",
+        "D",
+        "H",
+        "F",
+        "F",
+        "T",
+        "NG",
+        "T",
+        "F"
+      ],
+      "confidence": 0.25
+    },
+    "税祺恩": {
+      "answers": [
+        "T",
+        "NG",
+        "T",
+        "F",
+        "F",
+        "T",
+        "T",
+        "NG",
+        "RIDGEWAY",
+        "DOCUMENTS",
+        "CONSTRUCTION",
+        "FERTILITY",
+        "RHIANNON",
+        "D",
+        "C",
+        "B",
+        "G",
+        "B",
+        "F",
+        "H",
+        "YES",
+        "NO",
+        "NG",
+        "YES",
+        "NG",
+        "NO",
+        "B",
+        "D",
+        "B",
+        "B",
+        "D",
+        "A",
+        "C",
+        "C",
+        "G",
+        "F",
+        "T",
+        "NG",
+        "NG",
+        "T"
+      ],
+      "confidence": 0.3
+    },
+    "李昭质": {
+      "answers": [
+        "F",
+        "NG",
+        "T",
+        "T",
+        "NG",
+        "T",
+        "T",
+        "F",
+        "RIDGEWAY",
+        "1190",
+        "SOIL",
+        "FERTILITY",
+        "RHIANNON",
+        "D",
+        "C",
+        "A",
+        "G",
+        "C",
+        "4",
+        "E",
+        "NO",
+        "YES",
+        "YES",
+        "YES",
+        "NG",
+        "NO",
+        "C",
+        "A",
+        "B",
+        "D",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.2
+    },
+    "吴乐清": {
+      "answers": [
+        "T",
+        "NG",
+        "T",
+        "F",
+        "F",
+        "T",
+        "T",
+        "NG",
+        "RIDGEWAY",
+        "ABINGDON",
+        "DANCE",
+        "FERTILITY",
+        "RHIANNON",
+        "D",
+        "C",
+        "A",
+        "G",
+        "B",
+        "H",
+        "E",
+        "N",
+        "Y",
+        "NG",
+        "Y",
+        "NG",
+        "N",
+        "D",
+        "D",
+        "B",
+        "D",
+        "B",
+        "A",
+        "C",
+        "F",
+        "H",
+        "T",
+        "F",
+        "NG",
+        "T",
+        "F"
+      ],
+      "confidence": 0.28
+    },
+    "钟佳佟": {
+      "answers": [
+        "T",
+        "NG",
+        "NG",
+        "F",
+        "T",
+        "F",
+        "NG",
+        "T",
+        "TRACK",
+        "DOCUMENTS",
+        "CONSTRUCTION",
+        "ASSOCIATIONS",
+        "RHIANNON",
+        "A",
+        "C",
+        "A",
+        "X",
+        "B",
+        "B",
+        "G",
+        "YES",
+        "YES",
+        "NOT GIVEN",
+        "NOT GIVEN",
+        "YES",
+        "NO",
+        "D",
+        "C",
+        "B",
+        "D",
+        "E",
+        "D",
+        "G",
+        "C",
+        "A",
+        "NOT GIVEN",
+        "TRUE",
+        "TRUE",
+        "NOT GIVEN",
+        "FALSE"
+      ],
+      "confidence": 0.3
+    }
+  },
+  "grade_results": {
+    "杨泽轩": {
+      "raw_score": 24,
+      "score": null,
+      "correct_count": 24,
+      "wrong_count": 16,
+      "ielts_band": "6.0-6.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 7/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "NEOLITHIC",
+              "correct": "Ridgeway",
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "DOCUMENTS",
+              "correct": "documents",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "SOIL",
+              "correct": "soil",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "ASSOCIATIONS",
+              "correct": "fertility",
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 2/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "A",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 4/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "H",
+              "correct": "H",
+              "is_correct": true
+            },
+            {
+              "q_id": 20,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 4/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "F",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "F",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "T",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "T",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "F",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 28,
+              "student": "D",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 30,
+              "student": "B",
+              "correct": "D",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "A",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "E",
+              "correct": "A",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "D",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "H",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "F",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 37,
+              "student": "T",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 40,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "吴乐清": {
+      "raw_score": 29,
+      "score": null,
+      "correct_count": 29,
+      "wrong_count": 11,
+      "ielts_band": "6.5-7.0",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 8/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "RIDGEWAY",
+              "correct": "Ridgeway",
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "ABINGDON",
+              "correct": "documents",
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "DANCE",
+              "correct": "soil",
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "FERTILITY",
+              "correct": "fertility",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 3/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 4/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "H",
+              "correct": "H",
+              "is_correct": true
+            },
+            {
+              "q_id": 20,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 4/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "N",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "Y",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "Y",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "N",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "D",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "D",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 30,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "B",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 33,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "F",
+              "correct": "F",
+              "is_correct": true
+            },
+            {
+              "q_id": 35,
+              "student": "H",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "T",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "F",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 40,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "张若曦": {
+      "raw_score": 19,
+      "score": null,
+      "correct_count": 19,
+      "wrong_count": 21,
+      "ielts_band": "5.0-5.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 4/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "FALSE",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "NOT GIVEN",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "NOT GIVEN",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "FALSE",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "TRUE",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "TRACK",
+              "correct": "Ridgeway",
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "DOCUMENTS",
+              "correct": "documents",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "SOIL",
+              "correct": "soil",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "FERTILITY",
+              "correct": "fertility",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 2/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "A",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "H",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 19,
+              "student": "C",
+              "correct": "H",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "F",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 5/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "NO",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "D",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 30,
+              "student": "B",
+              "correct": "D",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "J",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 33,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "H",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "E",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "NOT GIVEN",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "TRUE",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "TRUE",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "NOT GIVEN",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "FALSE",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "税祺恩": {
+      "raw_score": 31,
+      "score": null,
+      "correct_count": 31,
+      "wrong_count": 9,
+      "ielts_band": "7.0-7.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 8/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "RIDGEWAY",
+              "correct": "Ridgeway",
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "DOCUMENTS",
+              "correct": "documents",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "CONSTRUCTION",
+              "correct": "soil",
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "FERTILITY",
+              "correct": "fertility",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 2/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "B",
+              "correct": "A",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "F",
+              "correct": "H",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "H",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 6/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            },
+            {
+              "q_id": 23,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 28,
+              "student": "D",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 30,
+              "student": "B",
+              "correct": "D",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            },
+            {
+              "q_id": 33,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 34,
+              "student": "C",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 3/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 37,
+              "student": "T",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "NG",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    },
+    "李昭质": {
+      "raw_score": 18,
+      "score": null,
+      "correct_count": 18,
+      "wrong_count": 22,
+      "ielts_band": "5.0-5.5",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 4/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 2,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "T",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 5,
+              "student": "NG",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "F",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "RIDGEWAY",
+              "correct": "Ridgeway",
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "1190",
+              "correct": "documents",
+              "is_correct": false
+            },
+            {
+              "q_id": 11,
+              "student": "SOIL",
+              "correct": "soil",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "FERTILITY",
+              "correct": "fertility",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 3/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 19,
+              "student": "4",
+              "correct": "H",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 3/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "NO",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 22,
+              "student": "YES",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 24,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 26,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "A",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 30,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "X",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "X",
+              "correct": "A",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "X",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "X",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "X",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "X",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "X",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "X",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "X",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "X",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.25
+    },
+    "钟佳佟": {
+      "raw_score": 14,
+      "score": null,
+      "correct_count": 14,
+      "wrong_count": 26,
+      "ielts_band": "4.5-5.0",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 3/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "T",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NG",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "NG",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 4,
+              "student": "F",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "T",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 6,
+              "student": "F",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 7,
+              "student": "NG",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 8,
+              "student": "T",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 2/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "TRACK",
+              "correct": "Ridgeway",
+              "is_correct": false
+            },
+            {
+              "q_id": 10,
+              "student": "DOCUMENTS",
+              "correct": "documents",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "CONSTRUCTION",
+              "correct": "soil",
+              "is_correct": false
+            },
+            {
+              "q_id": 12,
+              "student": "ASSOCIATIONS",
+              "correct": "fertility",
+              "is_correct": false
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 2/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "A",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 1/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "X",
+              "correct": "G",
+              "is_correct": false
+            },
+            {
+              "q_id": 18,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 19,
+              "student": "B",
+              "correct": "H",
+              "is_correct": false
+            },
+            {
+              "q_id": 20,
+              "student": "G",
+              "correct": "E",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 3/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "YES",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "NOT GIVEN",
+              "correct": "YES",
+              "is_correct": false
+            },
+            {
+              "q_id": 25,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 3/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "D",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 28,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 29,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 30,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "E",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 32,
+              "student": "D",
+              "correct": "A",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "G",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "C",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "A",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 0/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "NOT GIVEN",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "TRUE",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 38,
+              "student": "TRUE",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 39,
+              "student": "NOT GIVEN",
+              "correct": "TRUE",
+              "is_correct": false
+            },
+            {
+              "q_id": 40,
+              "student": "FALSE",
+              "correct": "TRUE",
+              "is_correct": false
+            }
+          ]
+        }
+      ],
+      "errors": [
+        {
+          "question": 17,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.03
+    }
+  }
+}

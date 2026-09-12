@@ -1,0 +1,13 @@
+| 单词            | 词性    | 汉意          | 单词             | 词性   | 汉意              |
+| ------------- | ----- | ----------- | -------------- | ---- | --------------- |
+| high achiever |       | 高成就者；成绩优异的人 | sophisticated  | adj. | 发达的；先进的；老练的；熟练的 |
+| distinction   | n.    | 区别          | irrelevant     | adj. | 不相关的            |
+| durable       | adj.  | 耐造的；耐用的     | contemporary   | adj. | 当代的             |
+| low achiever  |       | 低成就者；成绩不佳的人 | persist        | v.   | 持续              |
+| fulfill       | v.    | 实现          | cognitive      | adj. | 认知的             |
+| steer         | v.    | 操纵；打方向      | previous       | adj. | 先前的             |
+| during        | prep. | 期间          | bias           | n.   | 偏见              |
+| disorder      | n.    | 混乱；失调       | steering wheel |      | 方向盘             |
+| trace back    |       | 追溯          | civic          | adj. | 市政的；市民的         |
+| restrict      | v.    | 限制          | evaporate      | v.   | 蒸发              |
+| perception    | n.    | 视角/观点       | concept        | n.   | 概念              |

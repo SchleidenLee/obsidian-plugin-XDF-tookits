@@ -1,0 +1,731 @@
+{
+  "class_name": "3408",
+  "course_type": "中级讲义",
+  "students": [
+    "白金玉",
+    "郭杰",
+    "惠琬芯",
+    "徐启艺",
+    "郭金瑞",
+    "张泽宇"
+  ],
+  "answer_sheets": {
+    "白金玉": "D:\\Schleiden\\Desktop\\3408中级讲义\\白金玉.png"
+  },
+  "config": {
+    "course_type": "中级讲义",
+    "course_info": {
+      "target_students": "英语基础良好，自身水平在5分到5.5分左右的学员",
+      "course_goal": "达到雅思A类阅读6.5分左右水平",
+      "material": "剑雅真题8-14选篇",
+      "test_info": "剑雅真题A类阅读，共3篇，40题"
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "The White Horse of Uffington",
+        "question_groups": [
+          {
+            "type": "true_false_not_given",
+            "type_name": "TFNG判断",
+            "range": "1-8",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 8,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank",
+            "type_name": "笔记填空",
+            "range": "9-13",
+            "questions": [
+              {
+                "id": 9,
+                "answers": [
+                  "Ridgeway"
+                ]
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "documents"
+                ]
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "soil"
+                ]
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "fertility"
+                ]
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "Rhiannon"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "I Contain Multitudes",
+        "question_groups": [
+          {
+            "type": "multiple_choice",
+            "type_name": "单选",
+            "range": "14-16",
+            "questions": [
+              {
+                "id": 14,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 15,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "A"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank_with_word_bank",
+            "type_name": "有词库摘要填空",
+            "range": "17-20",
+            "questions": [
+              {
+                "id": 17,
+                "answers": [
+                  "G"
+                ]
+              },
+              {
+                "id": 18,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "H"
+                ]
+              },
+              {
+                "id": 20,
+                "answers": [
+                  "E"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "yes_no_not_given",
+            "type_name": "YesNo判断",
+            "range": "21-26",
+            "questions": [
+              {
+                "id": 21,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 22,
+                "answers": [
+                  "NO"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "YES"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "NO"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "How to Make Wise Decisions",
+        "question_groups": [
+          {
+            "type": "multiple_choice",
+            "type_name": "单选",
+            "range": "27-30",
+            "questions": [
+              {
+                "id": 27,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 28,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 29,
+                "answers": [
+                  "B"
+                ]
+              },
+              {
+                "id": 30,
+                "answers": [
+                  "D"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "fill_blank_with_word_bank",
+            "type_name": "有词库摘要填空",
+            "range": "31-35",
+            "questions": [
+              {
+                "id": 31,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 32,
+                "answers": [
+                  "A"
+                ]
+              },
+              {
+                "id": 33,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 34,
+                "answers": [
+                  "F"
+                ]
+              },
+              {
+                "id": 35,
+                "answers": [
+                  "G"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "true_false_not_given",
+            "type_name": "TF判断",
+            "range": "36-40",
+            "questions": [
+              {
+                "id": 36,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 37,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 38,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 39,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 40,
+                "answers": [
+                  "TRUE"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "白金玉": [
+      "学员本次课程正常出勤且无迟到早退现象。第一次作业按时提交但缺少关键词划分痕迹。在填空题练习中学员总体正确率良好，不过会被小乱序影响定位，缺少代入翻译的检查步骤，且找参照物的方法掌握得不是很好。入门测速度快且完成及时，学员有复习动作使得上节课生词语法掌握好且正确率很高，填空题正确率非常高并能做具体预测。学员听课和笔记非常认真，能够全程跟随课堂节奏。学员自身语感非常强且应试技巧丰富，在此提出表扬，非常匹配本阶段学习内容，目前为止的知识点掌握都很到位。不过学员的词汇存在一点点小短板，需要注意扩展词汇。",
+      "学员正常出勤且无迟到早退，课后作业的正确率保持稳定。在课堂表现上，学员的参与度有了明显提高，听课非常认真，并且在学习过程中能够展现出自己独立的思考。在知识掌握方面，得益于扎实的语法功底，学员对填空题的掌握非常扎实。然而在做判断题和单选题时，学员偏向于单句理解，解题技巧性偏弱，加之词汇量存在一定瓶颈，导致这两类题型的错误率有所提高。同时学员心思较为细腻，这也导致在下判断时容易想得过多，虽然目前影响不是很大，但建议在做判断题时保持直来直去的思考方式，避免过度推理从而导致出错。",
+      "学员请假，无反馈。",
+      "学员本次出勤正常且无迟到早退现象。在作业方面，学员第七课作业未交，但第八课作业全部正确。课堂表现上，学员听课和笔记非常认真，能够全程跟随课堂节奏，互动十分积极，略读寻找主旨的速度较快。在知识掌握情况方面，学员具备很强的细节信息处理能力，在段落配标题题型中也能合理利用关键词，独立练习效率非常高，段落大意题目全部做对，但在信息匹配题型中容易出现遗漏的情况，后续需要加强该题型的练习。"
+    ],
+    "郭杰": [
+      "学员本次课程正常出勤且无迟到早退现象。作业虽然按时完成但未按时提交。在入门测中表现很突出且速度比较快，正确率也不错，特别是填空题具体预测做得非常好，说明上节课吸收得很好。学员听课和笔记非常认真，能够全程跟随课堂节奏。目前学员学习能力比较强，填空题基本掌握且表现不错，同时词汇有很大优势并超过班级平均水平。在课堂互动方面学员可以更活跃一点，不过第二节课已经有了很大进步。",
+      "学员正常出勤且无迟到早退，能够按时完成课后作业且作业质量很高，入门测试表现良好。在课堂上学员学习态度认真，课堂参与度也有了明显的进步。在知识掌握方面，学员寻找定位点非常精确，整体掌握度很好，独立练习的速度非常快且正确率极高，充分展现出了强大的学习能力。此外学员自身的词汇基础也非常好，到目前为止对各类简单题型的掌握情况都很出色，整体学习状态十分优异，希望继续保持这种高效的学习节奏。",
+      "学员本次课程正常出勤且无迟到早退现象，课后作业均能按时提交，学习态度非常好且十分认真。在半句匹配练习中正确率良好，但存在原文定位句理解偏差以及没有善用关键词导致出错的情况。课堂上学员听课和做笔记非常认真，全程紧跟课堂节奏，课堂参与度也保持良好。整体知识掌握情况依然保持高水平，独立练习速度快，定位点抓得很准，对改写类替换的识别效率高，这对配对题的解答帮助很大。此外，学员对新题型人名配信息的掌握度非常好，能够做出结构性预测，正确率十分突出，值得表扬。",
+      "学员本次出勤正常且无迟到早退现象。作业方面，学员按时提交了段落大意题。课堂表现上，学员听课和笔记非常认真，全程跟随课堂节奏，学习态度非常认真，并在课堂上练习了略读与段落扫读。在知识掌握情况方面，学员目前还是存在习惯性多读的情况，关键词利用率比较低，但如果是精确指令寻找某个关键词又能很快完成，这说明是习惯问题而不是能力问题，学员需要有意识改善阅读习惯，尤其是在速度没那么快的时候，精读应局限在定位句内，避免过度花费时间，此外还需继续巩固主旨识别与重复信息的处理能力。"
+    ],
+    "惠琬芯": [
+      "学员本次课程正常出勤且无迟到早退现象。第一次作业没有完成，这一点需要特别注意。入门测速度良好，整体表现良好但存在部分错误，说明上节课总体吸收度有待提高。在填空题练习中存在一定错误，最大的问题是有词性错误，这说明学员的基础语法还有点漏洞。学员学习态度认真，能够跟上课堂进度，目前题型掌握度和知识点还可以。不过学员的语法和词汇应对本阶段学习有点吃力，需要尤其注意自行补充相关基础内容。",
+      "学员有迟到现象但无早退，属于正常出勤。课后作业的完成情况不容乐观，存在多次未完成作业的情况。在入门测试中，学员的答题速度表现不错，但是正确率还有待提高。在课堂表现方面，学员学习态度认真，能够跟上课堂进度，同时课堂参与度很高，能够积极回答问题并主动与老师互动。在知识掌握上，学员的知识点留存非常好，记忆力出众，讲过的知识点和生词都能牢记，这是学员非常突出的优点。不过学员在单句翻译方面表现欠佳，暴露出较大的语法问题，且英语语感还没有完全构建起来，后续需要重点加强语法和语感的训练。",
+      "学员请假，无反馈。"
+    ],
+    "徐启艺": [
+      "学员本次课程正常出勤且无迟到早退现象。作业按时完成且态度认真，总体完成度很好，具体预测清晰且正确率突出，并完成了双语及心灵感应填空。入门测速度快且完成及时，学员有复习动作使得上节课生词语法掌握好且正确率很高，填空速度表现好并且关键词划分合理以及同义替换识别合理。学员听课比较认真，课堂参与度还可以更高一点，不过已经有一定进步了，课堂上练习了定位与摘要结构分析。目前学员语法基础扎实，基础技能和填空题掌握度良好，在此提出表扬，并且掌握了填空步骤与词性预判。不过学员的词汇存在小短板，需要继续积累。",
+      "学员正常出勤且无迟到早退，能够按时完成课后作业，作业态度认真，并完成了判断与选择练习。入门测试整体表现良好，但在判断题部分答题速度有点慢，定位和下判断所花费的时间都比较长。在课堂表现上，学员的参与度有所进步，比之前更加积极，学习态度认真，能够跟上课堂进度，并在课上认真练习定位与选项排除技巧。在知识掌握方面，学员的词汇基础比较扎实，具备一定的英语基础，对基础题型的掌握还可以，但是做题速度是一个亟待解决的大问题。在被点名进行单句翻译时，学员完成得没有问题，只是表现得有些犹豫。此外学员目前已经掌握了False与Not Given的辨析方法，后续需重点提升做题速度。",
+      "学员本次课程正常出勤且无迟到早退现象，课后作业均能按时提交，学习态度非常好且十分认真。在半句匹配练习中正确率良好，但存在原文定位句理解偏差以及没有善用关键词导致出错的情况。课堂上学员听课和做笔记非常认真，全程紧跟课堂节奏，课堂参与度也保持良好。在知识掌握方面，学员对于简单题的做题速度非常快，且善于利用关键词，不过整体的定位效率还可以更好一点。此外，学员对新题型的掌握度良好，同义替换预测的相关知识点也掌握得不错，整体表现值得肯定。",
+      "学员本次出勤正常且无迟到早退现象。作业方面，学员按时提交了作业，且段落匹配题目回答正确。课堂表现上，学员听课和笔记非常认真，能够全程紧跟课堂节奏，笔记记录十分认真。在知识掌握情况方面，学员整体进步非常大，目前对各题型的掌握度都非常好，这证明堆叠练习量是非常有用的，同时学员在略读扫读及信息匹配题型上的表现也十分良好，希望继续保持这种学习状态并进一步巩固所学知识。"
+    ],
+    "郭金瑞": [
+      "学员请假，无反馈。",
+      "学员本次课程正常出勤且无迟到早退现象，课后作业均能按时提交，学习态度非常好且十分认真。在半句匹配练习中单句理解不是很理想，正确率还有待进一步提高。课堂上学员听课和做笔记非常认真，全程紧跟课堂节奏，课堂参与度也保持良好。在知识掌握方面，学员对本节课新题型人名配信息的掌握度良好。不过学员的单句理解能力还有提升空间，阅读时容易产生误解，这在判断题中会严重影响对错判断。值得肯定的是，学员的词汇优势依然存在，在练习中也有一定发挥，希望后续能继续巩固提升。",
+      "学员请假，无反馈。"
+    ],
+    "张泽宇": [
+      "学员本次课程正常出勤且无迟到早退现象。第一次作业按时提交但缺少关键词划分痕迹。在填空题练习中学员总体正确率良好，不过会被小乱序影响定位，缺少代入翻译的检查步骤，且找参照物的方法掌握得不是很好。入门测速度表现良好且完成及时，但正确率还有提升空间。学员听课和笔记比较认真，只是有时课堂节奏较快会有点跟不上。目前学员的语法基础不错，基础技巧知识点和填空题题型掌握度也还不错。由于学员年龄较小，词汇量方面还有很大提升空间，同时雅思题型和国内考试存在一定区别，学员还需要时间来逐渐适应。",
+      "学员正常出勤且无迟到早退现象，能够按时完成课后作业，作业正确率一直保持得很稳定，对基础题型的吸收度较好。在入门测试环节，学员的答题速度偏慢，对判断题的判断依据还有些不够清晰，容易混淆False和Not Given选项。在课堂表现方面，学员参与度良好，被点名时能够积极回答问题，学习态度十分认真，能够顺利跟上课堂进度。根据学员现有的英语基础来看，目前的知识掌握度已经相当不错，能够很好地跟上教学节奏。在后续的学习中，学员需要重点加强词汇方面的积累与巩固，以进一步提升整体答题速度和准确率。"
+    ]
+  },
+  "ocr_results": {
+    "白金玉": {
+      "answers": [
+        "TRUE",
+        "NOT GIVEN",
+        "TRUE",
+        "FALSE",
+        "FALSE",
+        "TRUE",
+        "TRUE",
+        "NOT GIVEN",
+        "RIDGEWAY",
+        "DOCUMENTS",
+        "SOIL",
+        "FERTILITY",
+        "RHIANNON",
+        "A",
+        "C",
+        "A",
+        "G",
+        "F",
+        "H",
+        "E",
+        "YES",
+        "NOT GIVEN",
+        "NOT GIVEN",
+        "YES",
+        "YES",
+        "NO",
+        "B",
+        "D",
+        "C",
+        "D",
+        "D",
+        "C",
+        "I",
+        "A",
+        "F",
+        "TRUE",
+        "NOT GIVEN",
+        "NOT GIVEN",
+        "TRUE",
+        "TRUE"
+      ],
+      "confidence": 0.25
+    }
+  },
+  "grade_results": {
+    "白金玉": {
+      "raw_score": 29,
+      "score": null,
+      "correct_count": 29,
+      "wrong_count": 11,
+      "ielts_band": "6.5-7.0",
+      "total_questions": 40,
+      "type_analysis": [
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "TFNG判断",
+          "stats": "正确 8/8",
+          "details": [
+            {
+              "q_id": 1,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 2,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 3,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 4,
+              "student": "FALSE",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 5,
+              "student": "FALSE",
+              "correct": "FALSE",
+              "is_correct": true
+            },
+            {
+              "q_id": 6,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 7,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 8,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "The White Horse of Uffington",
+          "type": "笔记填空",
+          "stats": "正确 5/5",
+          "details": [
+            {
+              "q_id": 9,
+              "student": "RIDGEWAY",
+              "correct": "Ridgeway",
+              "is_correct": true
+            },
+            {
+              "q_id": 10,
+              "student": "DOCUMENTS",
+              "correct": "documents",
+              "is_correct": true
+            },
+            {
+              "q_id": 11,
+              "student": "SOIL",
+              "correct": "soil",
+              "is_correct": true
+            },
+            {
+              "q_id": 12,
+              "student": "FERTILITY",
+              "correct": "fertility",
+              "is_correct": true
+            },
+            {
+              "q_id": 13,
+              "student": "RHIANNON",
+              "correct": "Rhiannon",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "单选",
+          "stats": "正确 2/3",
+          "details": [
+            {
+              "q_id": 14,
+              "student": "A",
+              "correct": "D",
+              "is_correct": false
+            },
+            {
+              "q_id": 15,
+              "student": "C",
+              "correct": "C",
+              "is_correct": true
+            },
+            {
+              "q_id": 16,
+              "student": "A",
+              "correct": "A",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "有词库摘要填空",
+          "stats": "正确 3/4",
+          "details": [
+            {
+              "q_id": 17,
+              "student": "G",
+              "correct": "G",
+              "is_correct": true
+            },
+            {
+              "q_id": 18,
+              "student": "F",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 19,
+              "student": "H",
+              "correct": "H",
+              "is_correct": true
+            },
+            {
+              "q_id": 20,
+              "student": "E",
+              "correct": "E",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "I Contain Multitudes",
+          "type": "YesNo判断",
+          "stats": "正确 4/6",
+          "details": [
+            {
+              "q_id": 21,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 22,
+              "student": "NOT GIVEN",
+              "correct": "NO",
+              "is_correct": false
+            },
+            {
+              "q_id": 23,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 24,
+              "student": "YES",
+              "correct": "YES",
+              "is_correct": true
+            },
+            {
+              "q_id": 25,
+              "student": "YES",
+              "correct": "NOT GIVEN",
+              "is_correct": false
+            },
+            {
+              "q_id": 26,
+              "student": "NO",
+              "correct": "NO",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "单选",
+          "stats": "正确 2/4",
+          "details": [
+            {
+              "q_id": 27,
+              "student": "B",
+              "correct": "B",
+              "is_correct": true
+            },
+            {
+              "q_id": 28,
+              "student": "D",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 29,
+              "student": "C",
+              "correct": "B",
+              "is_correct": false
+            },
+            {
+              "q_id": 30,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "有词库摘要填空",
+          "stats": "正确 1/5",
+          "details": [
+            {
+              "q_id": 31,
+              "student": "D",
+              "correct": "D",
+              "is_correct": true
+            },
+            {
+              "q_id": 32,
+              "student": "C",
+              "correct": "A",
+              "is_correct": false
+            },
+            {
+              "q_id": 33,
+              "student": "I",
+              "correct": "C",
+              "is_correct": false
+            },
+            {
+              "q_id": 34,
+              "student": "A",
+              "correct": "F",
+              "is_correct": false
+            },
+            {
+              "q_id": 35,
+              "student": "F",
+              "correct": "G",
+              "is_correct": false
+            }
+          ]
+        },
+        {
+          "passage": "How to Make Wise Decisions",
+          "type": "TF判断",
+          "stats": "正确 4/5",
+          "details": [
+            {
+              "q_id": 36,
+              "student": "TRUE",
+              "correct": "FALSE",
+              "is_correct": false
+            },
+            {
+              "q_id": 37,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 38,
+              "student": "NOT GIVEN",
+              "correct": "NOT GIVEN",
+              "is_correct": true
+            },
+            {
+              "q_id": 39,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            },
+            {
+              "q_id": 40,
+              "student": "TRUE",
+              "correct": "TRUE",
+              "is_correct": true
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "error_rate": 0.0
+    }
+  }
+}

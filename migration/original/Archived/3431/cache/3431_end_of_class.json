@@ -1,0 +1,739 @@
+{
+  "class_name": "3431",
+  "course_type": "初级教材",
+  "students": [
+    "周熙晨",
+    "孙铭浩",
+    "乃皮塞·阿力木",
+    "邓凯泽",
+    "郭钰涵",
+    "扎依达",
+    "孙心悦"
+  ],
+  "answer_sheets": {
+    "孙铭浩": "D:\\Schleiden\\Desktop\\3431初级教材\\孙铭浩.jpg",
+    "扎依达": "D:\\Schleiden\\Desktop\\3431初级教材\\扎依达.jpg",
+    "邓凯泽": "D:\\Schleiden\\Desktop\\3431初级教材\\邓凯泽.jpg"
+  },
+  "config": {
+    "course_type": "初级教材",
+    "course_info": {
+      "target_students": "英语基础较薄弱，希望达到5.0分的学员",
+      "course_goal": "掌握雅思阅读基础题型与核心技能",
+      "material": "Complete IELTS 初级/剑桥真题辅助",
+      "test_info": "雅思G类阅读，共4篇，27题，包含填空题、判断题、信息匹配题"
+    },
+    "sections": [
+      {
+        "passage_id": 1,
+        "title": "Smoke alarms in the home",
+        "question_groups": [
+          {
+            "type": "true_false_not_given",
+            "type_name": "TF判断题",
+            "range": "1-7",
+            "questions": [
+              {
+                "id": 1,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 2,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 3,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              },
+              {
+                "id": 4,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 5,
+                "answers": [
+                  "FALSE"
+                ]
+              },
+              {
+                "id": 6,
+                "answers": [
+                  "TRUE"
+                ]
+              },
+              {
+                "id": 7,
+                "answers": [
+                  "NOT GIVEN"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 2,
+        "title": "Sydney Opera House Tours",
+        "question_groups": [
+          {
+            "type": "matching",
+            "type_name": "Matching Information",
+            "range": "8-14",
+            "questions": [
+              {
+                "id": 8,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 9,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 10,
+                "answers": [
+                  "D"
+                ]
+              },
+              {
+                "id": 11,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 12,
+                "answers": [
+                  "C"
+                ]
+              },
+              {
+                "id": 13,
+                "answers": [
+                  "E"
+                ]
+              },
+              {
+                "id": 14,
+                "answers": [
+                  "G"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 3,
+        "title": "Using Direct Mail to Sell Your Product",
+        "question_groups": [
+          {
+            "type": "fill_blank",
+            "type_name": "Gapfill",
+            "range": "15-21",
+            "questions": [
+              {
+                "id": 15,
+                "answers": [
+                  "decision maker"
+                ]
+              },
+              {
+                "id": 16,
+                "answers": [
+                  "impact"
+                ]
+              },
+              {
+                "id": 17,
+                "answers": [
+                  "opening"
+                ]
+              },
+              {
+                "id": 18,
+                "answers": [
+                  "white envelop",
+                  "white envelope"
+                ]
+              },
+              {
+                "id": 19,
+                "answers": [
+                  "brochure"
+                ]
+              },
+              {
+                "id": 20,
+                "answers": [
+                  "free sample"
+                ]
+              },
+              {
+                "id": 21,
+                "answers": [
+                  "response rate"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "passage_id": 4,
+        "title": "Job Specification: Communications Manager",
+        "question_groups": [
+          {
+            "type": "fill_blank",
+            "type_name": "Gapfill",
+            "range": "22-27",
+            "questions": [
+              {
+                "id": 22,
+                "answers": [
+                  "international profile",
+                  "profile"
+                ]
+              },
+              {
+                "id": 23,
+                "answers": [
+                  "publications"
+                ]
+              },
+              {
+                "id": 24,
+                "answers": [
+                  "website content"
+                ]
+              },
+              {
+                "id": 25,
+                "answers": [
+                  "audience"
+                ]
+              },
+              {
+                "id": 26,
+                "answers": [
+                  "purpose"
+                ]
+              },
+              {
+                "id": 27,
+                "answers": [
+                  "post-graduate",
+                  "postgraduate"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "historical_feedback": {
+    "周熙晨": [
+      "学员本次课程正常出勤且无迟到早退现象，作业虽按时完成但未能按时提交。在课堂上学员参与度较高，能够积极回答问题并主动与老师互动，学习态度十分认真，能够紧紧跟上课堂进度。在知识掌握方面，学员具备一定的语法基础，词汇量也还可以，对阅读题型的吸收情况比较好，扫读和略读的方法掌握得还可以。不过在定语从句的翻译上还存在一些问题，熟练度有待提高，建议课后多加练习以巩固该知识点。",
+      "学员本次课程正常出勤，没有迟到和早退现象。作业方面能够按时完成，态度十分认真。在入门测试环节，学员完成单选题的速度表现良好，正确率也表现良好。课堂上学员态度认真，能够紧紧跟上课堂进度，同时参与度很高，积极回答问题并主动与老师互动。在知识掌握方面，学员展现出一定的词汇优势，独立练习的效率也很高，并且目前为止对各种题型的掌握度都非常不错，整体学习状态值得肯定。",
+      "该学员在本次课程中按时出勤且无迟到早退现象。在作业方面，第五次作业能够按时完成且态度十分认真。具体来看，段落配标题题型正确率很高，但是在寻找同义替换时不够严谨，而段落配信息题型则保持了较高的正确率。课堂上该学员态度良好，对题型的掌握度还可以，独立练习时的表现也还行，并且具备了一定的学习主动性。不过需要注意的是，该学员目前的词汇量略弱，需要在后续学习中重点加强词汇积累与同义替换的严谨性训练。"
+    ],
+    "孙铭浩": [
+      "学员本次课程有迟到现象但无早退且正常出勤，作业虽然按时完成但未能按时提交。在课堂表现上学员认真程度一般，偶尔会出现走神的情况，独立练习时的效率不够高，导致目前还看不出其具体的知识掌握情况。在词汇方面学员基础尚可但仍有缺口，当堂吸收度还可以，对于老师的提问能够回答上来。建议学员在后续学习中注意调整学习状态，提高专注力和练习效率，并进一步扩充词汇量以弥补目前的缺口。",
+      "学员请假，无反馈。",
+      "该学员在考勤方面表现优秀，按时出勤且无迟到早退情况。虽然本次未能按时完成作业，但在课堂上的表现却令人欣慰。该学员的课堂参与度有了明显的提升，这一点非常值得肯定，同时专注度也有了很大的进步，总体表现值得表扬。从学习效果来看，该学员对当前讲解的题型掌握度良好，展现出了不错的理解能力。希望该学员在保持良好课堂状态的同时，能够合理安排时间，确保后续作业能够按时高质量完成，从而进一步提升整体备考效果。"
+    ],
+    "乃皮塞·阿力木": [
+      "学员本次课程正常出勤且无迟到早退现象，作业虽按时完成但未能按时提交。在课堂上学员听课和做笔记都非常认真，能够全程跟随课堂节奏，课堂参与度良好，但还有进一步提升的空间。在知识储备方面，学员具备一定的词汇基础且语法基础良好。对于具体题型的掌握，学员对简答题和填空题的掌握度还可以，但整体而言还需要进行更多的练习来更好地适应雅思阅读的考试要求和节奏。",
+      "学员本次正常出勤，无迟到早退情况。作业能够按时完成，态度认真且正确率很好。入门测试中进行了单选题的练习。课堂上学员表现认真积极，能够主动参与互动并回答问题，练习效率很高。学员的基础词汇和语法没有问题，但在理解上会有一点小问题，思维比较直接。整体知识掌握情况很好，特别是在同义替换识别方面展现出一定的优势，希望后续在理解深度上继续提升。",
+      "该学员能够按时出勤且无迟到早退现象，学习态度端正。在作业完成情况上，该学员均能按时完成老师布置的任务。课堂表现十分突出，参与度极高，不仅积极回答问题，还能与老师进行主动互动。该学员听课和做笔记都非常认真，能够全程紧密跟随课堂节奏。在知识掌握方面，该学员原有的词汇优势依然存在，这为其阅读和听力打下了坚实基础。此外，该学员在独立练习环节的效率非常高，能够快速准确地完成题目，整体学习状态十分优异。"
+    ],
+    "邓凯泽": [
+      "学员本次课程正常出勤且无迟到早退现象，作业虽按时完成但未能按时提交。在课堂上学员参与度很高，能够积极回答问题并主动互动，听课和做笔记都非常认真，全程紧跟课堂节奏，展现出了很强的学习主动性。在知识掌握方面，学员在被点名进行单句翻译时表现不错，吸收知识的速度很快，能够迅速掌握被动语态的用法。不过学员在介词的掌握上还存在一些小问题，但整体的题型掌握度是可以的，建议课后针对介词用法进行专项巩固。",
+      "学员本次正常出勤，无迟到早退现象。课堂上学员态度认真，遇到不懂的地方会主动发问，虽然整体互动比较少，但被点名回答问题时表现也还不错。在知识掌握方面，学员对各类题型的掌握度还可以，但是单句阅读能力还有待提高，在阅读时不太能体会出句子所表达的情感态度，这也直接导致了在做单选题时出现错误，建议课后加强长难句的阅读与情感分析训练。",
+      "学员请假，无反馈。"
+    ],
+    "郭钰涵": [
+      "学员请假，无反馈。",
+      "学员本次正常出勤，无迟到早退情况。作业方面能够按时完成，并且认真完成了词汇与阅读的相关练习。在入门测试中，学员的单选题表现很好。课堂上学员听讲非常认真，积极参与了扫读与翻译练习。在知识掌握方面，学员已经较好地掌握了名词与修饰词的用法，整体学习状态十分专注，希望继续保持这种良好的学习习惯，进一步巩固所学知识。",
+      "该学员在本次课程中按时出勤，没有出现迟到或早退的情况。尽管未能按时完成课后作业，但其在课堂上的表现依然可圈可点。该学员听课和记录笔记都非常认真，能够全程紧跟老师的课堂节奏。更值得称赞的是，该学员在课堂上会主动发问，展现出了很强的学习主动性，这对于雅思备考而言是非常宝贵的品质。从随堂测验和互动来看，该学员对当前所讲题型的掌握度良好，理解较为透彻。建议该学员课后务必提高作业完成效率，以巩固课堂所学。"
+    ],
+    "扎依达": [
+      "学员本次课程有迟到现象且无早退，虽正常出勤但需要特别注意出勤情况，因为学员已经两节课迟到了且迟到时间还不短。作业虽然按时完成但未能按时提交。在课堂上学员参与度不高，进行独立练习时不爱动笔且专注度不够，需要及时调整学习状态。不过学员在被点名进行单句翻译时表现尚可，说明其具备一定的英语基础，希望学员能够端正学习态度，改善出勤和课堂表现。",
+      "学员本次正常出勤但存在迟到现象，无早退，出勤情况需要特别注意，因为一共只有四节课却出现了多次迟到。作业方面未能按时完成。不过学员在课堂上的表现良好，有一定的参与度，被点名进行的翻译练习做得还可以。在知识掌握方面，学员的基础其实还可以，词汇和语法水平都不错，独立练习环节的速度很快且正确率很高，目前为止对填空题和单选题的掌握度都不错，若能改善出勤与作业问题，进步会更加明显。",
+      "学员请假，无反馈。"
+    ],
+    "孙心悦": [
+      "学员本次课程正常出勤且无迟到早退现象，作业虽按时完成但未能按时提交。在线下课堂上学员表现得很不错，学习态度比较认真，能够跟上课堂进度且参与度良好。在知识掌握方面，学员的语法基础稍微偏弱一点，但对题型的吸收度良好，扫读和略读的技巧也掌握得良好。至于学员对课堂知识具体的吸收情况，后续还需要通过查看其课后作业来完成最终评估，建议课后加强语法部分的复习。",
+      "学员本次正常出勤，无迟到早退情况。作业已经按时提交。在入门测试中，学员的单选题表现良好，正确率比较高，做题速度也可以。课堂上学员听课和做笔记都非常认真，全程紧跟课堂节奏，专注听讲并积极互动。在知识掌握方面，总体表现不错，特此提出表扬，不过在人名配对题目上表现正确，但在修饰词练习中出现了出错的情况，后续需要针对修饰词的用法进行针对性复习与巩固。",
+      "该学员在考勤方面表现规范，按时出勤且无迟到早退现象。在课后任务方面，该学员能够按时完成作业，整体态度良好。课堂上的表现同样出色，听课和做笔记都非常认真，能够全程顺畅地跟随课堂节奏。在知识吸收方面，该学员对各类题型的掌握度良好，能够准确运用解题技巧。特别值得一提的是，该学员在同义替换的识别上表现得十分合理，能够敏锐地捕捉到题目与原文之间的词汇对应关系。希望该学员继续保持这种严谨认真的学习状态，稳步提升雅思成绩。"
+    ]
+  },
+  "ocr_results": {
+    "邓凯泽": {
+      "answers": [
+        "NOT GIVEN",
+        "FALSE",
+        "NOT GIVEN",
+        "YES",
+        "YES",
+        "NO",
+        "NO",
+        "B",
+        "E",
+        "D",
+        "C",
+        "F",
+        "G",
+        "A",
+        "MAILING LIST",
+        "BUSINESS",
+        "X",
+        "WHITE ENVELOPE",
+        "VOLUME",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "孙铭浩": {
+      "answers": [
+        "F",
+        "F",
+        "T",
+        "T",
+        "F",
+        "T",
+        "X",
+        "A",
+        "E",
+        "D",
+        "B",
+        "C",
+        "E",
+        "F",
+        "DIRECTLY",
+        "X",
+        "X",
+        "ENVELOPE",
+        "TRY",
+        "SALES",
+        "SALES",
+        "PROFILE",
+        "STRATEGIES",
+        "X",
+        "X",
+        "APPLICATIONS",
+        "INTERNATIONALLY",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    },
+    "扎依达": {
+      "answers": [
+        "TRUE FALSE",
+        "FALSE",
+        "NOT GIVEN",
+        "FALSE",
+        "NOT GIVEN",
+        "TRUE",
+        "FALSE",
+        "C",
+        "E",
+        "D",
+        "F",
+        "G",
+        "B",
+        "A",
+        "DIRECTLY",
+        "X",
+        "ATTRACT",
+        "MIND",
+        "TRY",
+        "EASY",
+        "X",
+        "PROFILE",
+        "PHOTOGRAPHIC",
+        "X",
+        "DEMONSTRABLE",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X",
+        "X"
+      ],
+      "confidence": 0.1
+    }
+  },
+  "grade_results": {
+    "孙铭浩": {
+      "raw_score": 8,
+      "ielts_band": "3.5-4.0",
+      "correct_count": 8,
+      "wrong_count": 19,
+      "errors": [
+        {
+          "question": 7,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 16,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 17,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 24,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 25,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.45
+    },
+    "邓凯泽": {
+      "raw_score": 5,
+      "ielts_band": "1.0-1.5",
+      "correct_count": 5,
+      "wrong_count": 22,
+      "errors": [
+        {
+          "question": 17,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 20,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 21,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 22,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 23,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 24,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 25,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 26,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 27,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.55
+    },
+    "扎依达": {
+      "raw_score": 6,
+      "ielts_band": "2.5-3.0",
+      "correct_count": 6,
+      "wrong_count": 21,
+      "errors": [
+        {
+          "question": 16,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 21,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 24,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 26,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 27,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 28,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 29,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 30,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 31,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 32,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 33,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 34,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 35,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 36,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 37,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 38,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 39,
+          "answer": "X",
+          "error_type": "unrecognized"
+        },
+        {
+          "question": 40,
+          "answer": "X",
+          "error_type": "unrecognized"
+        }
+      ],
+      "error_rate": 0.45
+    }
+  }
+}

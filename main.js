@@ -46,7 +46,7 @@ ${e}`)}return t.push("\u8BF7\u76F4\u63A5\u5199\u51FA\u672C\u8BFE\u53CD\u9988\u6B
 `),r=t?[P,"<!-- \u6BCF\u6B21\u8BFE\u540E\u5728\u8FD9\u91CC\u589E\u52A0\u8BFE\u7A0B\u94FE\u63A5 -->","",""].join(`
 `):[P,"","### \u{1F3F7}\uFE0F "+(n.course_type??""),"- *\u6682\u65E0\u8BFE\u7A0B\u8BB0\u5F55\uFF0C\u7B49\u5F85\u751F\u6210\u7B2C 1 \u8BFE...*",""].join(`
 `);return["## \u{1F465} \u5B66\u5458\u4FE1\u606F","","| \u59D3\u540D | \u5B66\u6821 | \u5E74\u7EA7 | \u82F1\u8BED\u7A0B\u5EA6 | \u76EE\u6807\u5206\u6570 | \u5DF2\u4E0A\u8BFE\u7A0B | \u8003\u8BD5\u65F6\u95F4 | \u8003\u8BD5\u6210\u7EE9 | \u5907\u6CE8 |","|------|------|------|----------|----------|----------|----------|----------|------|",s,"","---","","## \u{1F4DD} \u5907\u6CE8","<!-- \u5728\u6B64\u8BB0\u5F55\u73ED\u7EA7\u6CE8\u610F\u4E8B\u9879 -->","","---","",r,"---","",j,""].join(`
-`)}function J(n,t,e,s){let r=n==="class"?"\u{1F4D6} Lesson "+e+" - "+s:"\u7B2C "+e+" \u8BFE - "+s;return"- [[./"+t+"/"+t+"|"+r+"]]"}function V(n,t,e){return n=n.replace(/(total_lessons:\s*)(\d+)/,`$1${t}`),n=n.replace(/(last_date:\s*)(null|[^\n]*)/,`$1${e}`),n}function H(n,t,e){if(n.includes(e))return n;let s=n.indexOf(t);if(s===-1)return n;let i=n.slice(s).indexOf(`
+`)}function J(n,t,e,s){let r=" Lesson "+e+" - "+s;return"- [[./"+t+"/"+t+"|"+r+"]]"}function V(n,t,e){return n=n.replace(/(total_lessons:\s*)(\d+)/,`$1${t}`),n=n.replace(/(last_date:\s*)(null|[^\n]*)/,`$1${e}`),n}function H(n,t,e){if(n.includes(e))return n;let s=n.indexOf(t);if(s===-1)return n;let i=n.slice(s).indexOf(`
 ---`);if(i===-1)return n;let a=s+i;return n.slice(0,a)+`
 `+e+n.slice(a)}function U(n,t){let e="  - "+K(t),s=n.split(`
 `),r=-1,i=!1;for(let a=0;a<s.length;a++){if(s[a].trim()==="course_type:"){i=!0;continue}if(i){let o=s[a].trim();if(o.startsWith("- "))r=a;else if(o==="---"||o&&!o.startsWith("-"))break}}return r===-1?n:(s.splice(r+1,0,e),s.join(`
@@ -56,8 +56,6 @@ ${e}`)}return t.push("\u8BF7\u76F4\u63A5\u5199\u51FA\u672C\u8BFE\u53CD\u9988\u6B
 
 ### \u{1F3F7}\uFE0F `+t+`
 `+e+`
-
----
 `;return n.slice(0,c)+u+n.slice(c)}function Pe(n,t){if(!n.includes(j))return n+`
 ${j}
 ${t}
