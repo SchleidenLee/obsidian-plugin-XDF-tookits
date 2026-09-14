@@ -72,6 +72,8 @@ function lessonFolder(archiveName: string, lessonNum: number, folderPath?: unkno
   return `Current Class/${archiveName}/${archiveName} Lesson ${lessonNum}`;
 }
 
+const TARGET_DESC = "班级名或一对一学员名（档案名）";
+
 export const TOOL_DEFS: ToolDef[] = [
   {
     name: "list_classes",
@@ -93,7 +95,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "列出指定班级或一对一的所有课次。",
     inputSchema: {
       type: "object",
-      properties: { target: { type: "string", description: "班级名或一对一学员名" } },
+      properties: { target: { type: "string", description: TARGET_DESC } },
       required: ["target"],
     },
   },
@@ -102,7 +104,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "按日期查询当天所有课次。",
     inputSchema: {
       type: "object",
-      properties: { date: { type: "string", description: "YYYY-MM-DD" } },
+      properties: { date: { type: "string", description: "日期 YYYY-MM-DD" } },
       required: ["date"],
     },
   },
@@ -111,7 +113,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "列出指定学员参加的所有课次。",
     inputSchema: {
       type: "object",
-      properties: { student: { type: "string" } },
+      properties: { student: { type: "string", description: "学员姓名" } },
       required: ["student"],
     },
   },
@@ -121,9 +123,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: "number" },
-        date: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号（与 date 二选一）" },
+        date: { type: "string", description: "日期 YYYY-MM-DD（与 lesson 二选一）" },
       },
       required: ["target"],
     },
@@ -133,7 +135,10 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "获取课次详情：路径、出勤/反馈相关 section。",
     inputSchema: {
       type: "object",
-      properties: { target: { type: "string" }, lesson: { type: "number" } },
+      properties: {
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号" },
+      },
       required: ["target", "lesson"],
     },
   },
@@ -143,9 +148,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: ["number", "string"] },
-        student: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: ["number", "string"], description: "课次号或日期 YYYY-MM-DD" },
+        student: { type: "string", description: "可选，指定学员姓名" },
       },
       required: ["target", "lesson"],
     },
@@ -156,9 +161,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: ["number", "string"] },
-        student: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: ["number", "string"], description: "课次号或日期 YYYY-MM-DD" },
+        student: { type: "string", description: "可选，指定学员姓名" },
       },
       required: ["target", "lesson"],
     },
@@ -169,9 +174,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: ["number", "string"] },
-        type: { type: "string", description: "teaching_content | homework" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: ["number", "string"], description: "课次号或日期 YYYY-MM-DD" },
+        type: { type: "string", description: "提取类型：teaching_content（授课内容，默认）或 homework（作业）" },
       },
       required: ["target", "lesson"],
     },
@@ -181,7 +186,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "检查指定档案的反馈提交状态。",
     inputSchema: {
       type: "object",
-      properties: { target: { type: "string" } },
+      properties: { target: { type: "string", description: TARGET_DESC } },
       required: ["target"],
     },
   },
@@ -190,7 +195,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "检查指定档案待办（未提交反馈等）。",
     inputSchema: {
       type: "object",
-      properties: { target: { type: "string" } },
+      properties: { target: { type: "string", description: TARGET_DESC } },
       required: ["target"],
     },
   },
@@ -204,7 +209,10 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "只读 SQL。仅 SELECT/WITH/EXPLAIN。七表：archives/lessons/sections/checkboxes/class_roster/students/files。",
     inputSchema: {
       type: "object",
-      properties: { sql: { type: "string" }, limit: { type: "number" } },
+      properties: {
+        sql: { type: "string", description: "SQL 语句" },
+        limit: { type: "number", description: "可选，最大返回行数，默认 100" },
+      },
       required: ["sql"],
     },
   },
@@ -214,11 +222,11 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: "number" },
-        student: { type: "string" },
-        content: { type: "string" },
-        feedback_type: { type: "string", description: "student_feedback | class_feedback" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号" },
+        student: { type: "string", description: "可选，学员姓名（student_feedback 时建议填写）" },
+        content: { type: "string", description: "反馈内容" },
+        feedback_type: { type: "string", description: "反馈类型：student_feedback（学员个人）或 class_feedback（班级整体），默认 student_feedback" },
       },
       required: ["target", "lesson", "content"],
     },
@@ -229,11 +237,11 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: "number" },
-        student: { type: "string" },
-        content: { type: "string" },
-        field: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号" },
+        student: { type: "string", description: "学员姓名" },
+        content: { type: "string", description: "字段内容" },
+        field: { type: "string", description: "字段名：出勤/作业情况/课堂表现/掌握情况/入门测等" },
       },
       required: ["target", "lesson", "student", "content"],
     },
@@ -244,9 +252,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: "number" },
-        content: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号" },
+        content: { type: "string", description: "授课内容" },
       },
       required: ["target", "lesson", "content"],
     },
@@ -256,7 +264,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "把缺失课次链接补进档案页课程记录索引。",
     inputSchema: {
       type: "object",
-      properties: { target: { type: "string" } },
+      properties: { target: { type: "string", description: TARGET_DESC } },
       required: ["target"],
     },
   },
@@ -266,11 +274,11 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lessons: { type: "string" },
-        item: { type: "string" },
-        state: { type: "string" },
-        section: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lessons: { type: "string", description: "课次范围，如 1-3,5 或单个数字 2" },
+        item: { type: "string", description: "checkbox 项名称（如 提交反馈）" },
+        state: { type: "string", description: "checked（勾选）或 unchecked（取消），默认 checked" },
+        section: { type: "string", description: "可选，所在区块标题（如 班级反馈）" },
       },
       required: ["target", "lessons", "item"],
     },
@@ -281,19 +289,20 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        class_name: { type: "string" },
-        first_class_date: { type: "string" },
+        class_name: { type: "string", description: "班级名称" },
+        first_class_date: { type: "string", description: "首次上课日期 YYYY-MM-DD" },
         course_type: {
           type: "string",
           enum: ["Foundation Grammar", "L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"],
+          description: "课程类型",
         },
-        schedule_type: { type: "string", enum: ["weekend", "full-time"] },
-        students: { type: "string" },
-        first_class_time: { type: "string" },
+        schedule_type: { type: "string", enum: ["weekend", "full-time"], description: "排课类型：weekend（周末班）或 full-time（全日制）" },
+        students: { type: "string", description: "学员名单，换行分隔的姓名列表" },
+        first_class_time: { type: "string", description: "首次上课时间 HH:MM" },
         subject: {
           type: "string",
           enum: ["Listening", "Speaking", "Reading", "Writing"],
-          description: "雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必填",
+          description: "雅思科目（L1教材/L1讲义/L2教材/L2讲义/精讲精练时必填）",
         },
         folder: { type: "string", description: "存放文件夹，默认 Current Class" },
       },
@@ -306,18 +315,19 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        student_name: { type: "string" },
-        first_class_date: { type: "string" },
+        student_name: { type: "string", description: "学员姓名" },
+        first_class_date: { type: "string", description: "首次上课日期 YYYY-MM-DD" },
         course_type: {
           type: "string",
           enum: ["Foundation Grammar", "L1教材", "L1讲义", "L2教材", "L2讲义", "精讲精练"],
+          description: "课程类型",
         },
-        schedule_type: { type: "string", enum: ["weekend", "full-time"] },
-        first_class_time: { type: "string" },
+        schedule_type: { type: "string", enum: ["weekend", "full-time"], description: "排课类型：weekend（周末班）或 full-time（全日制）" },
+        first_class_time: { type: "string", description: "首次上课时间 HH:MM" },
         subject: {
           type: "string",
           enum: ["Listening", "Speaking", "Reading", "Writing"],
-          description: "雅思课程（L1教材/L1讲义/L2教材/L2讲义/精讲精练）必填",
+          description: "雅思科目（L1教材/L1讲义/L2教材/L2讲义/精讲精练时必填）",
         },
         folder: { type: "string", description: "存放文件夹，默认 Current Class" },
       },
@@ -330,11 +340,11 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        dates: { type: "string" },
-        time_slots: { type: "array", items: { type: "number" } },
-        course_type: { type: "string" },
-        subject: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        dates: { type: ["string", "array"], description: "日期列表：字符串用逗号分隔（2026-07-01,2026-07-03），或数组格式" },
+        time_slots: { type: "array", items: { type: "number" }, description: "时段编号数组，班课 1-4" },
+        course_type: { type: "string", description: "课程类型，不传则沿用档案设置" },
+        subject: { type: "string", description: "科目（Listening/Speaking/Reading/Writing），不传则沿用档案设置" },
       },
       required: ["target", "dates"],
     },
@@ -345,11 +355,11 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        dates: { type: "string" },
-        time_slots: { type: "array", items: { type: "number" } },
-        course_type: { type: "string" },
-        subject: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        dates: { type: ["string", "array"], description: "日期列表：字符串用逗号分隔（2026-07-01,2026-07-03），或数组格式" },
+        time_slots: { type: "array", items: { type: "number" }, description: "时段编号数组，一对一 1-5" },
+        course_type: { type: "string", description: "课程类型，不传则沿用档案设置" },
+        subject: { type: "string", description: "科目（Listening/Speaking/Reading/Writing），不传则沿用档案设置" },
       },
       required: ["target", "dates"],
     },
@@ -360,9 +370,9 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        test_name: { type: "string" },
-        date: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        test_name: { type: "string", description: "测试名称（如 入门测、结班测）" },
+        date: { type: "string", description: "测试日期 YYYY-MM-DD" },
       },
       required: ["target", "test_name", "date"],
     },
@@ -372,7 +382,7 @@ export const TOOL_DEFS: ToolDef[] = [
     description: "汇总一名学员跨班课的反馈与出勤。",
     inputSchema: {
       type: "object",
-      properties: { student: { type: "string" } },
+      properties: { student: { type: "string", description: "学员姓名" } },
       required: ["student"],
     },
   },
@@ -382,10 +392,10 @@ export const TOOL_DEFS: ToolDef[] = [
     inputSchema: {
       type: "object",
       properties: {
-        target: { type: "string" },
-        lesson: { type: "number" },
-        date: { type: "string" },
-        student: { type: "string" },
+        target: { type: "string", description: TARGET_DESC },
+        lesson: { type: "number", description: "课次号（与 date 二选一）" },
+        date: { type: "string", description: "日期 YYYY-MM-DD（与 lesson 二选一）" },
+        student: { type: "string", description: "可选，指定学员姓名，不传则处理全部学员" },
       },
       required: ["target"],
     },
