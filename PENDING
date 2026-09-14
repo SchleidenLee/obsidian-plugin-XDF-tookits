@@ -1,168 +1,60 @@
-# PENDING: 语气预设组 + Subject 注入
+# PENDING: Tool Schema 规范化
 
 ## 背景
+外部 agent 反馈 tool schema 存在两类问题：
+1. `target` 参数无 description，agent 不知道传学员名、档案路径还是别的
+2. `dates` 类型写错（schema 写 string，实际接受 array）
+3. 大量参数缺少 description，agent 靠猜导致试错
 
-Python MCP 的反馈 prompt 有一套不错的语气风格（客观中立、100字以上、完整段落），可以作为预设之一。当前 TS 版本的系统提示词更严格（禁止模型腔、2-6句），作为另一个预设。用户可以在预设基础上微调，保存为自定义配置。
+## 修改文件: `src/xdf/tools.ts` — `TOOL_DEFS` 数组
 
----
+### 统一 `target` description
+所有含 `target` 的工具统一加：`"班级名或一对一学员名（档案名）"`
 
-## 任务 1: 数据结构调整
+涉及工具（16个）：
+`list_lessons`、`find_lessons`、`get_lesson_detail`、`extract_raw`、`extract_feedback`、`extract_content`、`check_feedback`、`check_todo`、`write_feedback`、`write_raw`、`write_teaching_content`、`update_archive_index`、`write_checkbox`、`create_class_lesson`、`create_one_on_one_lesson`、`create_test_feedback`、`generate_daily_feedback`
 
-### 修改文件: `src/settings.ts`
+### 逐工具修改清单
 
-**新增接口:**
-```typescript
-export interface TonePreset {
-  name: string;
-  address: string;
-  avoid: string;
-  style: string;
-}
-```
-
-**修改 `ToneConfig` 接口:**
-```typescript
-export interface ToneConfig {
-  // 当前生效值（UI 编辑的是这里）
-  address: string;
-  avoid: string;
-  style: string;
-  notes: string;  // 保留兼容
-  audience: string;  // 保留兼容
-  
-  // 预设系统
-  presets: TonePreset[];  // 预设列表（只读，不可覆盖）
-  activePreset: string;   // 当前选中的预设名，或 "custom"
-  custom?: TonePreset;    // 用户自定义配置
-}
-```
-
-**修改 `DEFAULT_SETTINGS`:**
-```typescript
-tone: {
-  address: "学员",
-  audience: "",
-  style: "",
-  avoid: "",
-  notes: "",
-  presets: [
-    {
-      name: "TS严格版",
-      address: "学员",
-      avoid: "四字成语",
-      style: "短句、先说问题再说作业、不客套",
-    },
-    {
-      name: "Python客观版",
-      address: "学员",
-      avoid: "",
-      style: "客观中立、100字以上、完整段落、不分条列点",
-    },
-  ],
-  activePreset: "TS严格版",
-}
-```
-
----
-
-## 任务 2: UI 重构
-
-### 修改文件: `src/settings.ts`
-
-**2a. 称呼下拉加「姓名」选项**
-- 选项: `孩子 / 学员 / 姓名（后两字）/ 姓名`
-- 选"姓名"时提示改为"输入全名，直接使用"
-
-**2b. 预设选择器**
-- 位置: "语气"标题下方，三个字段上方
-- 下拉菜单显示所有预设名 + "自定义"
-- 选择预设后自动填充下方三个字段（只读模式）
-- 选择"自定义"后可编辑字段
-
-**2c. 字段编辑区**
-- 三个字段: 称呼、违禁词、风格偏好
-- 如果当前选中预设，字段显示为只读（灰色背景）
-- 如果选中"自定义"或用户修改了预设值，字段可编辑
-
-**2d. 保存按钮**
-- 位置: 字段下方
-- 文案: "保存为自定义配置"
-- 点击后将当前字段值保存到 `custom` 字段，`activePreset` 设为 "custom"
-- 如果 `custom` 已存在，提示"覆盖现有自定义配置？"
-
-**2e. 提取语气按钮**
-- 保留现有功能
-- 提取后自动设为"自定义"模式
-
----
-
-## 任务 3: Subject 注入系统提示词
-
-### 修改文件: `src/xdf/feedbackPrompt.ts`
-
-**修改 `DAILY_FEEDBACK_SYSTEM_PROMPT`:**
-```typescript
-export const DAILY_FEEDBACK_SYSTEM_PROMPT = `你是新东方一线雅思{subject}老师，在写给学生或家长看的课后反馈。
-...`;
-```
-
-**修改 `buildDailyFeedbackUserPrompt` 调用处 (`src/xdf/tools.ts` 第 1190 行):**
-```typescript
-// 当前
-const text = await chatComplete(ctx.settings, prompt);
-
-// 改为
-const subjectLabel = lessonRow.subject ? `（${lessonRow.subject}）` : "";
-const systemPrompt = DAILY_FEEDBACK_SYSTEM_PROMPT.replace("{subject}", subjectLabel);
-const text = await chatComplete(ctx.settings, prompt, systemPrompt);
-```
-
----
-
-## 任务 4: 预设语气数据
-
-### Python MCP 的语气风格（作为预设）
-
-从 `references/MCP-XDF-Assistant/scripts/workflows/daily_feedback_generator.py` 第 682-696 行提取:
-
-**System Prompt:**
-```
-你是一位资深雅思教师，负责给学员写反馈。
-```
-
-**User Prompt 中的语气要求:**
-```
-1. 语气客观中立，称呼学员为 "学员"，禁止称呼学员姓名
-2. 每个学员 100字以上，上不封顶
-3. 需要包含原始记录中的全部信息，禁止遗漏信息
-4. 需要生成完整的一段内容，禁止包含任何格式和分级标题，禁止分条列点，禁止使用冒号
-```
-
-**转换为预设配置:**
-```typescript
-{
-  name: "Python客观版",
-  address: "学员",
-  avoid: "",
-  style: "客观中立、100字以上、完整段落、不分条列点、不使用冒号",
-}
-```
-
----
-
-## 修改文件清单
-
-| 文件 | 改动 |
-|------|------|
-| `src/settings.ts` | 新增 `TonePreset` 接口，修改 `ToneConfig`，修改 `DEFAULT_SETTINGS`，重构 UI（预设选择器 + 保存按钮 + 称呼加姓名） |
-| `src/xdf/feedbackPrompt.ts` | `DAILY_FEEDBACK_SYSTEM_PROMPT` 加 `{subject}` 占位符 |
-| `src/xdf/tools.ts` | `generate_daily_feedback` 工具中注入 subject 到 system prompt |
-
----
-
-## 实施顺序
-
-1. 数据结构调整（settings.ts）
-2. UI 重构（settings.ts）
-3. Subject 注入（feedbackPrompt.ts + tools.ts）
-4. 测试
+| 工具 | 参数 | 改动 |
+|------|------|------|
+| `list_lessons` | `target` | 已有 description ✅ |
+| `list_student_lessons` | `student` | 加 `"学员姓名"` |
+| `find_lessons` | `target` | 加 description |
+| `find_lessons` | `lesson` | 加 `"课次号（与 date 二选一）"` |
+| `find_lessons` | `date` | 加 `"日期 YYYY-MM-DD（与 lesson 二选一）"` |
+| `get_lesson_detail` | `target` | 加 description |
+| `get_lesson_detail` | `lesson` | 加 `"课次号"` |
+| `extract_raw` | `target` | 加 description |
+| `extract_raw` | `lesson` | 加 `"课次号或日期 YYYY-MM-DD"` |
+| `extract_raw` | `student` | 加 `"可选，指定学员姓名"` |
+| `extract_feedback` | 同 extract_raw | 同上 |
+| `extract_content` | `target` | 加 description |
+| `extract_content` | `lesson` | 加 `"课次号或日期 YYYY-MM-DD"` |
+| `extract_content` | `type` | 改为 `"提取类型：teaching_content（授课内容，默认）或 homework（作业）"` |
+| `check_feedback` | `target` | 加 description |
+| `check_todo` | `target` | 加 description |
+| `query_db` | `limit` | 加 `"可选，最大返回行数，默认 100"` |
+| `write_feedback` | `target` | 加 description |
+| `write_feedback` | `student` | 加 `"可选，学员姓名（student_feedback 时建议填写）"` |
+| `write_feedback` | `feedback_type` | 改为 `"反馈类型：student_feedback（学员个人）或 class_feedback（班级整体），默认 student_feedback"` |
+| `write_raw` | `target` | 加 description |
+| `write_raw` | `field` | 加 `"字段名：出勤/作业情况/课堂表现/掌握情况/入门测等"` |
+| `write_teaching_content` | `target` | 加 description |
+| `update_archive_index` | `target` | 加 description |
+| `write_checkbox` | `target` | 加 description |
+| `write_checkbox` | `lessons` | 加 `"课次范围，如 1-3,5 或单个数字 2"` |
+| `write_checkbox` | `state` | 加 `"checked（勾选）或 unchecked（取消），默认 checked"` |
+| `write_checkbox` | `section` | 加 `"可选，所在区块标题（如 班级反馈）"` |
+| `create_class` | `students` | 加 `"学员名单，换行分隔的姓名列表"` |
+| `create_class_lesson` | `target` | 加 description |
+| `create_class_lesson` | `dates` | 类型改为 `["string", "array"]`，description 改为 `"日期列表：字符串用逗号分隔（2026-07-01,2026-07-03），或数组格式"` |
+| `create_class_lesson` | `time_slots` | 加 `"时段编号数组，班课 1-4"` |
+| `create_class_lesson` | `course_type` | 加 `"课程类型，不传则沿用档案设置"` |
+| `create_class_lesson` | `subject` | 加 `"科目（Listening/Speaking/Reading/Writing），不传则沿用档案设置"` |
+| `create_one_on_one_lesson` | 同 create_class_lesson | 同上，time_slots 改为 `"时段编号数组，一对一 1-5"` |
+| `create_test_feedback` | `target` | 加 description |
+| `generate_daily_feedback` | `target` | 加 description |
+| `generate_daily_feedback` | `lesson` | 加 `"课次号（与 date 二选一）"` |
+| `generate_daily_feedback` | `date` | 加 `"日期 YYYY-MM-DD（与 lesson 二选一）"` |
+| `generate_daily_feedback` | `student` | 加 `"可选，指定学员姓名，不传则处理全部学员"` |
