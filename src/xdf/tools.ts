@@ -1,6 +1,6 @@
 import type { App } from "obsidian";
-import { requestUrl } from "obsidian";
 import type { XdfToolkitsSettings } from "../settings";
+import { chatText } from "../model";
 import { createXdfDb, dateOnly, jsonList, type XdfDb } from "./db";
 import {
   DAILY_FEEDBACK_SYSTEM_PROMPT,
@@ -437,41 +437,6 @@ export const TOOL_DEFS: ToolDef[] = [
     },
   },
 ];
-
-async function chatComplete(
-  settings: XdfToolkitsSettings,
-  prompt: string,
-  system = DAILY_FEEDBACK_SYSTEM_PROMPT,
-): Promise<string> {
-  if (!settings.llmBaseUrl || !settings.llmApiKey) {
-    throw new Error("未配置模型 Base URL / API Key");
-  }
-  const url = settings.llmBaseUrl.replace(/\/$/, "") + "/chat/completions";
-  const res = await requestUrl({
-    url,
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${settings.llmApiKey}`,
-    },
-    body: JSON.stringify({
-      model: settings.llmModel || "qwen-plus",
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: prompt },
-      ],
-      temperature: 0.4,
-    }),
-    throw: false,
-  });
-  if (res.status >= 400) throw new Error(`LLM HTTP ${res.status}: ${res.text.slice(0, 200)}`);
-  const json = res.json as {
-    choices?: { message?: { content?: string } }[];
-  };
-  const text = json.choices?.[0]?.message?.content?.trim();
-  if (!text) throw new Error("LLM 无输出");
-  return text;
-}
 
 export async function callTool(
   ctx: ToolContext,
@@ -1199,7 +1164,11 @@ export async function callTool(
           });
           const subjectLabel = lessonRow.subject ? `（${lessonRow.subject}）` : "";
           const systemPrompt = DAILY_FEEDBACK_SYSTEM_PROMPT.replace("{subject}", subjectLabel);
-          const text = await chatComplete(ctx.settings, prompt, systemPrompt);
+          const text = await chatText(ctx.settings, {
+            user: prompt,
+            system: systemPrompt,
+            temperature: 0.4,
+          });
           const inner = await callTool(ctx, "write_feedback", {
             target,
             lesson: Number(lessonRow.lesson_number),

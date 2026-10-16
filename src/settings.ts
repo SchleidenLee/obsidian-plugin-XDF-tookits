@@ -1,6 +1,11 @@
-import { App, Notice, PluginSettingTab, Setting, requestUrl } from "obsidian";
+import { App, Notice, PluginSettingTab, Setting } from "obsidian";
 import type XdfToolkitsPlugin from "./main";
 import { TONE_EXTRACT_SYSTEM } from "./xdf/feedbackPrompt";
+import { chatText, chatVision } from "./model";
+
+// 1x1 透明 PNG，用于视觉模型连通性测试
+const PIXEL_PNG_B64 =
+  "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
 
 export interface TonePreset {
   name: string;
@@ -28,6 +33,9 @@ export interface XdfToolkitsSettings {
   llmBaseUrl: string;
   llmApiKey: string;
   llmModel: string;
+  visionBaseUrl: string;
+  visionApiKey: string;
+  visionModel: string;
   useTeachingContent: boolean;
   usePreviousRaw: boolean;
   previousRawLessons: number;
@@ -42,6 +50,9 @@ export const DEFAULT_SETTINGS: XdfToolkitsSettings = {
   llmBaseUrl: "https://api.schleiden.space/v1",
   llmApiKey: "",
   llmModel: "qwen-plus",
+  visionBaseUrl: "",
+  visionApiKey: "",
+  visionModel: "",
   useTeachingContent: true,
   usePreviousRaw: true,
   previousRawLessons: 2,
@@ -68,39 +79,6 @@ export const DEFAULT_SETTINGS: XdfToolkitsSettings = {
     activePreset: "TS严格版",
   },
 };
-
-async function chatJson(
-  settings: XdfToolkitsSettings,
-  system: string,
-  user: string,
-): Promise<string> {
-  if (!settings.llmBaseUrl || !settings.llmApiKey) {
-    throw new Error("未配置模型");
-  }
-  const url = settings.llmBaseUrl.replace(/\/$/, "") + "/chat/completions";
-  const res = await requestUrl({
-    url,
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${settings.llmApiKey}`,
-    },
-    body: JSON.stringify({
-      model: settings.llmModel || "qwen-plus",
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-      temperature: 0.2,
-    }),
-    throw: false,
-  });
-  if (res.status >= 400) throw new Error(`LLM HTTP ${res.status}: ${res.text.slice(0, 200)}`);
-  const json = res.json as { choices?: { message?: { content?: string } }[] };
-  const text = json.choices?.[0]?.message?.content?.trim();
-  if (!text) throw new Error("LLM 无输出");
-  return text;
-}
 
 export class XdfToolkitsSettingTab extends PluginSettingTab {
   plugin: XdfToolkitsPlugin;
@@ -202,7 +180,64 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
           b.setDisabled(true);
           b.setButtonText("测试中...");
           try {
-            await chatJson(this.plugin.settings, "回复OK", "ping");
+            await chatText(this.plugin.settings, {
+              system: "回复OK",
+              user: "ping",
+              temperature: 0.2,
+            });
+            new Notice("连接成功");
+          } catch (e) {
+            const msg = e instanceof Error ? e.message : String(e);
+            new Notice(`连接失败：${msg}`);
+          } finally {
+            b.setDisabled(false);
+            b.setButtonText("测试");
+          }
+        }),
+      );
+
+    containerEl.createEl("h3", { text: "视觉模型（识图，独立供应商）" });
+
+    new Setting(containerEl)
+      .setName("Base URL")
+      .addText((t) =>
+        t.setValue(this.plugin.settings.visionBaseUrl).onChange(async (v) => {
+          this.plugin.settings.visionBaseUrl = v.trim();
+          await this.plugin.saveSettings();
+        }),
+      );
+
+    new Setting(containerEl)
+      .setName("API Key")
+      .addText((t) =>
+        t.setValue(this.plugin.settings.visionApiKey).onChange(async (v) => {
+          this.plugin.settings.visionApiKey = v.trim();
+          await this.plugin.saveSettings();
+        }),
+      );
+
+    new Setting(containerEl)
+      .setName("模型名")
+      .addText((t) =>
+        t.setValue(this.plugin.settings.visionModel).onChange(async (v) => {
+          this.plugin.settings.visionModel = v.trim();
+          await this.plugin.saveSettings();
+        }),
+      );
+
+    new Setting(containerEl)
+      .setName("测试连接")
+      .setDesc("用 1x1 图片验证视觉 Base URL、API Key、模型名是否可用")
+      .addButton((b) =>
+        b.setButtonText("测试").onClick(async () => {
+          b.setDisabled(true);
+          b.setButtonText("测试中...");
+          try {
+            await chatVision(this.plugin.settings, {
+              prompt: "回复OK",
+              images: [{ mime: "image/png", base64: PIXEL_PNG_B64 }],
+              temperature: 0.2,
+            });
             new Notice("连接成功");
           } catch (e) {
             const msg = e instanceof Error ? e.message : String(e);
@@ -397,7 +432,11 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
         }
         b.setDisabled(true);
         try {
-          const raw = await chatJson(this.plugin.settings, TONE_EXTRACT_SYSTEM, sample);
+          const raw = await chatText(this.plugin.settings, {
+            system: TONE_EXTRACT_SYSTEM,
+            user: sample,
+            temperature: 0.2,
+          });
           const match = raw.match(/\{[\s\S]*\}/);
           if (!match) throw new Error("未解析到 JSON");
           const parsed = JSON.parse(match[0]) as Partial<ToneConfig>;
