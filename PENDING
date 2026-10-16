@@ -58,3 +58,208 @@
 | `generate_daily_feedback` | `lesson` | 加 `"课次号（与 date 二选一）"` |
 | `generate_daily_feedback` | `date` | 加 `"日期 YYYY-MM-DD（与 lesson 二选一）"` |
 | `generate_daily_feedback` | `student` | 加 `"可选，指定学员姓名，不传则处理全部学员"` |
+
+---
+
+## 代码审查整改计划（2026-10-04）
+
+### 来源说明
+
+本节是对 `obsidian-plugin-XDF-tookits` 源码（`src/xdf/tools.ts` ~1235 行、`src/xdf/feedbackPrompt.ts`、`src/xdf/markdown.ts`、`src/xdf/archiveCreate.ts`、`src/xdf/db.ts`、`src/xdf/templates.ts`、`src/settings.ts`、`src/mcp/httpServer.ts`、`src/main.ts`）代码审查发现的结构化整理。
+
+行号均已逐条对照当前磁盘源码核实（核对基准见每条路径后的行号）；无法在当前代码中直接证实的项以 `[待确认]` 标注。所有条目均为待办（`- [ ]`），未改动任何源码。
+
+### 严重
+
+- [ ] **query_db 的“只读”可被 CTE-DML 绕过** — `src/xdf/tools.ts:793-808`
+  - 现象：仅用 `stripped.split(/\s+/)[0]` 取首关键字校验（`select`/`with`/`explain`，793-802 行），且只拦“非末尾分号”。`WITH x AS (SELECT 1) DELETE FROM archives` 首关键字为 `with`、无内部 `;`，可完整通过校验并交给 `db.query(stripped)`（803 行）执行，属真实可写路径。
+  - 影响：任何 MCP 客户端可用 CTE-DML（DELETE/UPDATE/INSERT）改库，绕过“只读 SQL”承诺，可篡改 archives/lessons/sections 等七表，属于可证实的完整性/安全风险。
+  - 修复方向：改用真正的只读连接（对 xdf-base 暴露的连接执行 `PRAGMA query_only=ON`，或改用只读 query 口）；若无法改底层，则对 `with` 语句做强制约束——`WITH` 必须以 `SELECT`/`VALUES` 结束（正则拒绝 `\b(insert|update|delete|replace|drop|alter|create)\b`），并保留 `explain` 只读路径。
+
+- [ ] **反馈生成链路对 LLM 输出零清洗零校验** — 构造 `src/xdf/feedbackPrompt.ts:4-20,44-71`；调用 `src/xdf/tools.ts:441-474`；落盘装配 `src/xdf/tools.ts:1191-1211`；写入清洗 `src/xdf/markdown.ts:26-40`
+  - 现象：`chatComplete`（441-474 行）直接返回 `choices[0].message.content.trim()`；`generate_daily_feedback`（1191-1211 行）把该文本原样作为 `content` 传给 `write_feedback`；`upsertAiBlock`（26-40 行）只做 `content.trim()`（27、35、39 行），无围栏剥离、无前言过滤、无长度/空壳校验。
+  - 影响：模型可能输出“好的，以下是反馈：”、``` 代码围栏、思考过程、英文解释句，会原样写入学生可见的 `<!-- AI_GENERATED_* -->` 块；模型输出空壳（如仅“（无）”）时仍静默落盘，且 `NOW` 无任何“失败不落盘”保护。
+  - 修复方向：见文末「结构化输出改造」——优先用 `response_format` 结构化输出取 `feedback` 字段；过渡期做“去围栏 + 去首尾解释句 + 最小长度校验 + 空壳拒绝”；校验失败不写盘并返回 error。
+
+- [ ] **extract_raw / extract_feedback / extract_content 的“日期”入参失效** — `src/xdf/tools.ts:700-751`；`src/xdf/markdown.ts:181-196`
+  - 现象：三者统一走 `parseLessonRange(String(args.lesson))`（tools.ts:704-705）。`parseLessonRange`（markdown.ts:181-196）只认 `^(\d+)-(\d+)$` 区间和纯数字，日期字符串 `2026-07-01` 不匹配 `^\d+-\d+$`（`\d+` 不含前导 0 与多段），回退 `Number("2026-07-01")` 为 `NaN`，被 `Number.isFinite` 过滤，最终 `nums` 为空 → 循环不执行 → 返回空数组。
+  - 影响：Schema 明确声明 `lesson` 接受“课次号或日期 YYYY-MM-DD”（tools.ts:152/165/178），但传日期必然静默返回空，agent 无法取到原始记录/反馈/授课内容，且无任何报错提示。
+  - 修复方向：`parseLessonRange` 增加日期分支（匹配 `^\d{4}-\d{2}-\d{2}$` 后按 `substr(date,1,10)` 查 lessons 再转为课次号），或三个 extract 工具在 dates 分支单独处理；`nums` 为空时返回明确 error 而非空结果。
+
+### 高
+
+- [ ] **stop() 可能永久挂起，导致改端口/卸载无法重启** — `src/mcp/httpServer.ts:80-86,135-143`
+  - 现象：`stop()`（80-86 行）`await new Promise(resolve => srv.close(() => resolve()))`，`srv.close` 回调只会在所有连接结束后触发。而 `GET /mcp`（135-143 行）返回 `text/event-stream` 并只 `res.write("event: ping...")`，**从不 `res.end`、不保存句柄**，连接长期 keep-alive。
+  - 影响：只要有过一次 GET SSE 连接（如客户端探活），后续 `stop()` 永不 resolve → `restartServer()`（main.ts:104-124）卡死 → 改端口、切换“允许局域网”、插件卸载后端口不释放，无法重启。
+  - 修复方向：`stop()` 调 `srv.closeAllConnections?.()`（Node ≥18）或记录所有连接在 close 前主动 `destroy`；GET SSE 加超时/客户端断开监听，并在 `close` 上设兜底超时 resolve。
+
+- [ ] **读-改-写全程无并发保护（丢失更新）** — `src/xdf/tools.ts:809-849(write_feedback),850-888(write_raw),889-915(write_teaching_content),916-963(update_archive_index),964-1021(write_checkbox)`；`src/xdf/archiveCreate.ts:344-355(appendNextLink)`
+  - 现象：所有写入均为 `readFile` → 内存改写 → `writeFile`（如 824-826、832-847、864-886、902-913、921-961、983-1016 行），无文件级锁、无版本号、无前后校验；`appendNextLink`（344-355 行）同样 read-append-write nav 文件。
+  - 影响：并发调用（agent 并行写多学员、批量生成反馈 + 人工编辑）会相互覆盖，丢失更新；Obsidian 侧编辑与插件写入也会冲突。
+  - 修复方向：引入按路径的异步互斥队列（Map<path, Promise> 串行化）；`writeFile` 前用 `app.vault.process`（原子 read-modify-write）替代裸 read+modify；批量操作内按文件串行。
+
+- [ ] **bindLan 叠加空 token 时服务无鉴权** — `src/mcp/httpServer.ts:25-27,124-133`；`src/settings.ts:149-156`；`src/main.ts:22-25`
+  - 现象：`listenHost` 在 `bindLan=true` 时监听 `0.0.0.0`（25-27 行）。鉴权仅当 `settings.token` 非空才生效（124-133 行）。token 可由设置页清空（settings.ts:150-156，`v.trim()` 允许空串），而 `main.ts:22-25` 只在启动时补一次随机 token，运行中清空后不再补。
+  - 影响：用户“允许局域网 + 清空令牌”后，局域网内任意主机可无鉴权调用全部 MCP 工具（含写库/写文件），属可证实的高危暴露。
+  - 修复方向：`bindLan=true` 时强制要求非空 token（空则拒绝 `start()` 并提示）；设置页在 bindLan 开启且 token 为空时阻止保存或自动生成；服务端在 bindLan 下忽略空 token 的“跳过鉴权”。
+
+- [ ] **LLM 请求无超时、无 max_tokens** — `src/xdf/tools.ts:450-466`；`src/settings.ts:81-97`
+  - 现象：`chatComplete` 的 `requestUrl`（450-466 行）与 `chatJson`（81-97 行）都只传 `model/messages/temperature`，无 `max_tokens`，也无可中断的超时控制（`requestUrl` 无 timeout 参数）。
+  - 影响：模型卡住时同步工具（`generate_daily_feedback` 等）会长时间挂起，占住 MCP 请求；无 `max_tokens` 时输出不可控，可能超长写入反馈块。
+  - 修复方向：请求体加 `max_tokens`；用 `AbortController`/`Promise.race` 包一层超时（如 60s），超时抛错并由调用方“失败不落盘”。
+
+### 中
+
+- [ ] **query_db 先在内存全量取回再 JS 切片** — `src/xdf/tools.ts:803-805`
+  - 现象：`db.query(stripped)` 不带 limit，取回全部行后 `rows.slice(0, limit)`（805 行）才截断。
+  - 影响：大表（sections/lessons）全量进内存，可能 OOM/卡顿；`limit` 未下推到 SQL。
+  - 修复方向：在 SQL 末尾安全追加 `LIMIT n`（仅对已确认的 SELECT/WITH 语句、且未含 LIMIT 时），或至少对返回行数设硬上限。
+
+- [ ] **明显 N+1 查询** — `src/xdf/tools.ts:492-495,505-508,534-537,572-576,649-653`
+  - 现象：列表类工具在 `map`/`for` 中逐条再查（如 list_classes 每档案查 class_roster 计数 492-495；list_one_on_one 每档案查 lessons 505-508；list_all_students 每档案查 roster+lessons 534/537；list_lessons 每课次查 sections 572-576；list_student_lessons 每课次 COUNT sections 649-653）。
+  - 影响：档案/课次一多即 N+1，列表接口明显变慢。
+  - 修复方向：改用 JOIN + GROUP BY 一次性聚合（roster 计数、lessons 计数、sections 计数），或在应用层做一次批量查询后内存 join。
+
+- [ ] **参数未经 schema 校验，Number() 可能产生 NaN，enum 未校验** — `src/xdf/tools.ts:685,811,891`（另见 852、980、1130 等 `Number(args.lesson)` 处）
+  - 现象：`get_lesson_detail`（685）、`write_feedback`（811）、`write_teaching_content`（891）等直接 `Number(args.lesson)`；`write_checkbox` 的 `state`（968 行）、`feedback_type`（813 行）等 enum 值未校验；MCP 层（httpServer.ts:206-214）不校验 inputSchema，直接透传 args。
+  - 影响：`args.lesson` 缺省/非数字时 `lessonNum=NaN`，SQL 查不到 → 返回“课次不存在”或写入错位；非法 enum 静默走默认分支，行为不符预期。
+  - 修复方向：调用前统一做参数校验（lesson 必须为正整数，否则 `err`）；enum 用白名单校验并报错；可在 `callTool` 入口按 `TOOL_DEFS.inputSchema` 做一次轻量校验。
+
+- [ ] **路径未净化，可越界写入** — `src/xdf/tools.ts:70-73`；`src/xdf/archiveCreate.ts:227-229,256-258,490`
+  - 现象：`lessonFolder`（70-73 行）直接用 `folderPath`/拼 `archiveName`；`createClassArchive`（227-229）、`createVipArchive`（256-258）、`createTestFeedbackPage`（490）直接用用户输入的 `folder`/`class_name`/`student_name`/`test_name` 拼路径，未过滤 `../`、绝对路径、非法字符。
+  - 影响：构造 `folder` 含 `../` 或 `class_name` 含 `/` 时可写入 vault 内任意位置，属路径穿越风险。
+  - 修复方向：抽出统一的 `sanitizeVaultPath`（拒绝 `..`、盘符、`\0`，规范化分隔符并校验仍在预期根目录下），所有拼路径处调用。
+
+- [ ] **create_one_on_one 覆盖已有档案** — `src/xdf/archiveCreate.ts:274`（`createVipArchive` 用 `writeOrUpdate`）
+  - 现象：`createVipArchive` 调用 `writeOrUpdate`（274 行，定义于 209-213），文件已存在则整体覆盖。对比 `createClassArchive`（241 行）用 `writeIfNotExists`（203-207）。
+  - 影响：重复调用 `create_one_on_one` 会清空/覆盖既有学员档案页（frontmatter、课程索引、备注等），数据丢失。
+  - 修复方向：改为 `writeIfNotExists`，与班课一致；如需更新应走明确的 update 工具而非 create。
+
+- [ ] **total_lessons 用“最大课次号”而非课程数量** — `src/xdf/tools.ts:953-956`；`src/xdf/archiveCreate.ts:379`
+  - 现象：`update_archive_index` 里 `total = Math.max(...lessons.map(l => Number(l.lesson_number)), 0)`（953-956）后 `updateArchiveTimestamps(cur, total, ...)`；`updateArchiveAfterLesson`（379 行）传入的是 `opts.lesson_number`。`updateArchiveTimestamps`（templates.ts:354-357）直接把它写进 `total_lessons`。
+  - 影响：课次号有跳号（如删过课、从 5 开始）时，`total_lessons` 被写成最大号而非实际课程数，统计/展示错误。
+  - 修复方向：改为 `lessons.length`（或 `COUNT(*)`）；`archiveCreate` 侧改用写入后的实际课次数。
+
+- [ ] **HTTP 请求体无大小上限** — `src/mcp/httpServer.ts:151-153`
+  - 现象：`for await (const chunk of req) chunks.push(chunk)` 全量缓冲，无字节上限；`raw` 直接 `JSON.parse`。
+  - 影响：超大 body 可耗尽内存（本机 127.0.0.1 风险较低，bindLan 时局域网可达），属 DoS 面。
+  - 修复方向：累计字节超过阈值（如 1–2MB）即 `413` 并销毁连接；`res` 加 `Content-Type` 长度预检。
+
+- [ ] **API Key 明文存储/回显** — `src/settings.ts:179-186`；`src/main.ts:72-74`
+  - 现象：设置页以普通文本框显示并保存 `llmApiKey`（179-186）；`saveSettings` 直接把含 key 的 settings 写入 `data.json`（main.ts:72-74），无加密/掩码。
+  - 影响：data.json 明文存 key，设置页明文回显（肩窥/截图泄露）；`getServerStatus`（main.ts:76-86）虽未含 key，但 settings 整体被复制到客户端配置附近流程。
+  - 修复方向：设置页用 password 输入 + 掩码显示；评估用 Obsidian 加密/系统钥匙串存储；确认日志中不打印 key。[待确认：`getClientConfigSnippet` 仅拼入 MCP token，不含 llmApiKey，泄露面主要限本地 data.json 与设置页。]
+
+- [ ] **错误识别依赖字符串匹配** — `src/xdf/tools.ts:1203-1210`（实际 `err()` 定义 51-53，`"status":"error"` 闪烁点见 httpServer.ts:220）
+  - 现象：`err()` 返回 `JSON.stringify({status:"error",...})`（51-53 行）；httpServer 用 `text.includes('"status":"error"')` 判 `isError`（220 行）；`generate_daily_feedback` 内层 `JSON.parse(inner)` 再取结构（1210 行）。
+  - 影响：一旦错误文本里含该子串或 JSON 序列化格式变化（如空格），isError 判定即失真；工具间用 JSON 字符串通信放大该脆弱性。
+  - 修复方向：`callTool` 返回结构化对象（`{ok:boolean,data|error}`）而非 JSON 字符串，isError 由字段判定；见文末“内部调用改函数直调”。
+
+- [ ] **两份重复 LLM 调用实现** — `src/xdf/tools.ts:441-474`（`chatComplete`）与 `src/settings.ts:72-103`（`chatJson`）
+  - 现象：两处逻辑几乎一致（URL 拼接、Bearer、messages、temperature、错误 `slice(0,200)`、取 `content.trim()`），仅温度（0.4 vs 0.2）与提示不同。
+  - 影响：行为易漂移（超时、max_tokens、response_format 只改一处），维护成本高。
+  - 修复方向：合并为 `src/xdf/llm.ts`，参数化 `temperature`/`response_format`/`max_tokens`，两处调用点复用。
+
+- [ ] **学员名按子串匹配易串扰** — `src/xdf/tools.ts:1146-1157,1175-1188`
+  - 现象：`targets` 用 `heading_path.includes(student)`（1147 行）过滤；`names` 用 `includes("👤")` + 正则提名字（1148、1152-1157）；逐人再 `includes(nameStu)` 归集 raw/previous（1176、1186）。
+  - 影响：名字互为子串（“王伟”⊂“王伟强”）或 `heading_path` 含同名字样时命中他人记录，反馈串人。
+  - 修复方向：改为按 `## 👤 <name>` 精确匹配（复用 `findStudentBlock` 的标记语义）；提取名字用精确分隔（`👤\s*([^\s/]+)` 后做等值比较而非 `includes`）。
+
+### 低
+
+- [ ] **query_db 默认 limit 文档与实现不一致** — 文档 `src/xdf/tools.ts:214`（“默认 100”）vs 实现 `src/xdf/tools.ts:795`（`Number(args.limit ?? 200)`）
+  - 现象：inputSchema description 写“默认 100”，代码默认 200。
+  - 影响：agent 依据文档预期与实际不符。
+  - 修复方向：统一为同一数值（建议文档与实现都改 100，或都改 200）。
+
+- [ ] **write_checkbox 会把 CRLF 改成 LF** — `src/xdf/tools.ts:985,994,1016`
+  - 现象：`cur.split(/\n/)`（985）后 `lines.join("\n")`（994、1016）写回，CRLF 中的 `\r` 被并入行内容或丢弃，整体行尾变成 LF。
+  - 影响：触发 vault 内该文件的大范围 diff（全行变更），污染版本历史。
+  - 修复方向：检测原行尾（`\r\n` vs `\n`）并在 join 时还原；或改用按行保留分隔符的处理。
+
+- [ ] **token 非恒定时间比较** — `src/mcp/httpServer.ts:129`
+  - 现象：`token !== settings.token` 普通字符串比较，存在短路时序差异。
+  - 影响：理论上可被时序侧信道推断 token（本机/局域网场景实际危害低）。
+  - 修复方向：用 `crypto.timingSafeEqual`（先比较长度）做恒定时间比较。
+
+- [ ] **CORS 通配** — `src/mcp/httpServer.ts:97`
+  - 现象：`Access-Control-Allow-Origin: *` 对 `/mcp` 无条件返回。
+  - 影响：任意网页可对本地 27183 发起跨域请求（若有 token 且用户浏览器被诱导，风险上升）。
+  - 修复方向：默认仅允许必要来源或不开通配；bindLan 时尤其收紧。
+
+- [ ] **语气提取用贪婪正则 + JSON.parse（脆弱解析）** — `src/settings.ts:400-403`
+  - 现象：`const match = raw.match(/\{[\s\S]*\}/)`（401）再从首个 `{` 到**末个** `}` 贪婪截取后 `JSON.parse`（403）。模型一旦输出解释文字带花括号或额外 JSON 片段即解析失败/取错片段（400 行调用 `chatJson`，TONE_EXTRACT_SYSTEM 见 feedbackPrompt.ts:73-76）。
+  - 影响：提取语气不稳定；失败仅 Notice，不落盘尚可接受，但体验差。
+  - 修复方向：**强烈建议纳入结构化输出改造**——改用 `response_format`（字段 address/avoid/style）+ schema 校验（见文末）。
+
+- [ ] **`parseLessonRange` 对越界/超长区间无上限** — `src/xdf/markdown.ts:181-196`
+  - 现象：`^(\d+)-(\d+)$` 会展开 `1-999999` 为整段数字集合，无上限。
+  - 影响：恶意/误传大区间导致循环膨胀（配合 write_checkbox/extract 逐课次查询）。
+  - 修复方向：区间跨度设上限（如 ≤200）并报错。
+
+- [ ] **`loadArchiveInfo` 非 db 分支返回空对象，未读 md** — `src/xdf/archiveCreate.ts:137-140`
+  - 现象：db 不可用或无记录时，`loadArchiveInfo` 查到文件后仍 `return empty`（139 行），同步版本不解析 md；异步版 `loadArchiveInfoAsync`（143-201）才有 md fallback。
+  - 影响：`loadArchiveInfo` 被误用作同步读取时拿到 `found:false`，行为与预期不符（调用点主要走 async 版，实际影响有限）。
+  - 修复方向：明确二者职责或合并；至少修正同步版返回语义避免误用。
+
+### 结构化输出改造（重点）
+
+背景：产品方发现目标模型（v4.1 flash）支持结构化输出，希望把“数据清洗”改为“模型结构化输出”。以下两条链路为该改造的核心。
+
+#### 链路一：反馈生成（前置清洗 → JSON 字段）
+
+- 改造代码位置：
+  - 请求构造/调用 `src/xdf/tools.ts:441-474`（`chatComplete`）——在 467 行前的 `body`（457-464）内增加 `response_format`。
+  - 落盘装配 `src/xdf/tools.ts:1191-1211`——把 `const text = await chatComplete(...)`（1202）改为取结构化结果 `feedback` 字段后再交给 `write_feedback`（1203-1211）。
+  - 写入清洗 `src/xdf/markdown.ts:26-40`（`upsertAiBlock`）——保留为最后一道防线（去围栏/长度校验）。
+- 目标 schema（`response_format`，OpenAI 兼容）：
+  ```json
+  {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "daily_feedback",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": { "feedback": { "type": "string" } },
+        "required": ["feedback"],
+        "additionalProperties": false
+      }
+    }
+  }
+  ```
+- 收益：彻底消除“好的，以下是……”前言、``` 代码围栏、思考过程与字段错位——反馈正文只在 `feedback` 字段内，`JSON.parse(content).feedback` 即正文；空壳/缺字段可在解析处显式拒绝（失败不落盘）。
+- 兼容性/风险：需实测 v4.1 flash 对 `json_schema` 严格模式（`strict:true`+`additionalProperties:false`）的支持；不支持时降级 `{"type":"json_object"}` 并把字段约束写进 system prompt；注意 `max_tokens` 需留足 JSON 外壳 + 正文，`temperature` 与结构化一致性配合（结构化下可适当降温度）。
+
+#### 链路二：语气提取（贪婪正则 → schema 校验）
+
+- 改造代码位置：`src/settings.ts:400-403`（`raw.match(/\{[\s\S]*\}/)` + `JSON.parse`），调用方为“提取语气”按钮（391-422）；system prompt 见 `src/xdf/feedbackPrompt.ts:73-76`（`TONE_EXTRACT_SYSTEM`）。
+- 目标 schema（`response_format`）：
+  ```json
+  {
+    "type": "json_schema",
+    "json_schema": {
+      "name": "tone_extract",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "address": { "type": "string" },
+          "avoid":   { "type": "string" },
+          "style":   { "type": "string" }
+        },
+        "required": ["address", "avoid", "style"],
+        "additionalProperties": false
+      }
+    }
+  }
+  ```
+- 收益：去掉贪婪正则与“模型多说话即解析失败”的脆弱性；返回后按类型/schema 校验 `address/avoid/style`，非法则拒绝写入（现状 404-412 覆盖字段前无校验）。
+- 兼容性/风险：同样依赖 `json_schema` 支持；`chatJson`（settings.ts:72-103）当前温度 0.2，结构化下更稳定；字段应为短句，避免模型塞入多余字段（`additionalProperties:false` 强制拒绝额外字段）。
+
+#### 统一改造建议（两链路共用）
+
+- [ ] **合并两份 LLM 调用为 `src/xdf/llm.ts`，参数化 `response_format`** — 由 `src/xdf/tools.ts:441-474` 与 `src/settings.ts:72-103` 抽出统一函数，参数含 `system/user/temperature/max_tokens/responseFormat/timeout`，避免“只改一处、另一处漂移”。
+- [ ] **兜底策略（上游不支持结构化时）**：去代码围栏（去掉 ``` 包裹）→ 去首尾解释句（“好的/以下是/希望对你有帮助”等）→ 长度校验（最小句数/字符数、拒绝“（无）/待生成”空壳）→ **校验失败不落盘**并返回 error。
+- [ ] **兼容性实测项**：确认 v4.1 flash 是否支持 `json_schema` 严格模式与 `json_object`；确认 `max_tokens` 与 `temperature` 在结构化下的行为；确认服务端是否回显 `finish_reason=length`（截断）需重试。
+- [ ] **内部调用改函数直调**：现状工具间用 JSON 字符串传递（`ok()`/`err()` 于 tools.ts:48-53），且错误态靠 `text.includes('"status":"error"')` 判定（httpServer.ts:220）；`generate_daily_feedback` 内层 `callTool(...)` 再 `JSON.parse`（tools.ts:1203-1210）。结构化改造时建议把内部写盘改为直接调用函数（如 `writeFeedback()`），返回结构化对象，去掉 JSON 字符串往返与子串判定，一并解决“错误识别依赖字符串匹配”问题。
