@@ -2,3 +2,8 @@ node_modules/
 .DS_Store
 *.js.map
 data.json
+
+# test-grader 本地测试数据（图片/缓存/输出，不入库）
+test-grader/raw/
+test-grader/cache/
+test-grader/output/
