@@ -5,6 +5,11 @@
 
 ---
 
+## 2026-10-17 · 清理历史裸 tag `0.1.5`
+
+- 删除裸 tag `0.1.5` 及其 Release（非流水线产物，属旧 `tag-version-prefix: ""` 时代的遗留），仓库 tag 自此全部为 `v*`。
+- **为什么**：流水线只由 `v*` 触发，裸 tag 不触发构建；且非 `v` 前缀会搅乱「取最新 tag」类脚本的排序。
+
 ## 2026-10-17 · 抽取 LLM 传输层为 `src/model.ts`
 
 - 新建 `src/model.ts`：文本 / 视觉两套独立 provider（`resolveTextProvider` / `resolveVisionProvider`）→ 统一 `chatRequest` → `chatText` / `chatVision`。
