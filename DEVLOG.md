@@ -5,6 +5,11 @@
 
 ---
 
+## 2026-10-28 · A1 收尾：xdf-base 版本闸（≥1.4.14）
+
+- `src/xdf/db.ts`：`resolveQuery` 读取 base 的 `manifest.version`，新增 `MIN_BASE_VERSION = "1.4.14"` 与三位比较的 `versionLess`；`query()` 遇低版本 base 抛可读报错（"旧版 api.db 仍开放写入口，只读无保障，请升级"），`available()` 同步判版本。`query_db` 现有文本校验（去尾分号 + 多语句拒绝 + SELECT/WITH/EXPLAIN 首词白名单）**保留**作双保险。
+- **为什么**：A1（query_db 假只读）的根治在 base v1.4.14——api.db 门面删 exec/rebuild + 连接默认 `PRAGMA query_only=ON` 引擎级硬闸（见 base DEVLOG 同日条目）。本插件依赖该保护，低版本 base 下只读承诺不成立，必须在入口拒用。实测证实 CTE-DML（`WITH ... DELETE RETURNING`）在 SQLite 语法层即被拒、prepare 路径不执行分号堆叠的第二条语句——文本白名单因此不是唯一防线而是纵深防御，错误信息比引擎原生报错对用户/AI 更可读。
+
 ## 2026-10-24 · 安全整改批次一
 
 - `src/mcp/httpServer.ts`：token 校验改 `crypto.timingSafeEqual` 恒定时间比较；SSE 连接登记 + `closeAllConnections`（修 stop() 挂起，2 秒兜底）；`version` 改由构造参数传入（取 manifest.version）。

@@ -35,7 +35,7 @@ src/
 | `model.ts` | 唯一 LLM 传输层：`resolveTextProvider` / `resolveVisionProvider` → `chatRequest` → `chatText` / `chatVision` | OpenAI 兼容 `POST {baseUrl}/chat/completions`，Bearer 鉴权；无内建超时（超时归业务层） |
 | `mcp/httpServer.ts` | `http.createServer` + JSON-RPC：`initialize` / `tools/list` / `tools/call`；端口冲突自动 ±1 递增；Bearer 鉴权；`GET /mcp` 留 SSE 探活 | `listenHost` 由 `bindLan` 决定 `0.0.0.0` / `127.0.0.1` |
 | `xdf/tools.ts` | `TOOL_DEFS`（31 工具 schema）+ `callTool(name, args, ctx)` 分发 + `createXdfDb` | `ok()` / `err()` 返回 JSON 字符串；MCP 层用字符串匹配判错误 |
-| `xdf/db.ts` | 解析并调用 xdf-base 的查询口，兼容 `_xdfBase.getDBApi()` 与 `api.db.query` 两种挂法，规整返回行 | 无 xdf-base 时抛错 |
+| `xdf/db.ts` | 解析并调用 xdf-base 的查询口，兼容 `_xdfBase.getDBApi()` 与 `api.db.query` 两种挂法，规整返回行 | 无 xdf-base 时抛错；base 版本 < 1.4.14 拒用（旧版 api.db 仍开放写入口，只读无保障） |
 | `xdf/markdown.ts` | 读文件、解析 `## 👤` 学员块、按 section 提取、AI 块 upsert | 反馈正文写入 `<!-- AI_GENERATED_* -->` 块 |
 | `xdf/archiveCreate.ts` | 建档：班级 / VIP 档案页、课次页、测试反馈页，nav 链接追加 | — |
 | `xdf/templates.ts` | 档案/课次页 Markdown 模板、`updateArchiveTimestamps` 等 | — |
@@ -58,6 +58,7 @@ callTool(name, args, ctx)  (tools.ts)
 ```
 
 - **数据源优先级**：优先走 `.xdf/xdb.db`（由 xdf-base 建镜像）；DB 不可用时部分工具回退读 Markdown，部分直接报错。
+- **依赖 xdf-base ≥ 1.4.14**：该版本起 base 的 `api.db` 门面纯只读 + 连接默认 `PRAGMA query_only=ON` 引擎级硬闸。`db.ts` 在入口校验 base 版本，低版本拒用并报错；`query_db` 文本白名单保留作双保险。
 - **LLM 只在少数工具中使用**：`generate_daily_feedback`（文本）、设置页「提取语气」（文本）；视觉通道（`chatVision`）供后续识图能力使用。
 - **写盘模型**：全部为「read → 内存改写 → write」，当前无文件级锁（并发丢失更新为已知待办，见 PENDING）。
 
