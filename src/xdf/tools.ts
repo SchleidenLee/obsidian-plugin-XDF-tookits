@@ -24,6 +24,7 @@ import {
   upsertAiBlock,
   writeFile,
 } from "./markdown";
+import { validateToolArgs } from "./validateArgs";
 import {
   INDEX_HEADER,
   buildIndexLink,
@@ -211,7 +212,7 @@ export const TOOL_DEFS: ToolDef[] = [
       type: "object",
       properties: {
         sql: { type: "string", description: "SQL 语句" },
-        limit: { type: "number", description: "可选，最大返回行数，默认 100" },
+        limit: { type: "number", description: "可选，最大返回行数，默认 200" },
       },
       required: ["sql"],
     },
@@ -445,6 +446,12 @@ export async function callTool(
 ): Promise<string> {
   const { app, db } = ctx;
   try {
+    // 未知工具名不做校验，交给 default 分支处理
+    const def = TOOL_DEFS.find((d) => d.name === name);
+    if (def) {
+      const invalid = validateToolArgs(def.inputSchema, args);
+      if (invalid) return err(invalid);
+    }
     switch (name) {
       case "list_classes": {
         const archives = db.query(
@@ -668,6 +675,10 @@ export async function callTool(
         const target = requireTarget(args);
         const lessonKey = String(args.lesson);
         const nums = parseLessonRange(lessonKey);
+        // 传日期（如 2026-07-01）时 parseLessonRange 解析为空，给出明确指引
+        if (!nums.length && /^\d{4}-\d{2}-\d{2}/.test(lessonKey)) {
+          return err("lesson 请传课次号（如 3 或 1-5），暂不支持日期");
+        }
         const archive = archiveByName(db, target);
         if (!archive) return err(`目标 '${target}' 不存在`);
         const studentFilter = args.student ? String(args.student) : null;
@@ -833,7 +844,8 @@ export async function callTool(
         const scopeStart = studentRange ? studentRange.start : 0;
         const scopeEnd = studentRange ? studentRange.end : cur.length;
         const scopeText = cur.slice(scopeStart, scopeEnd);
-        const fieldRe = new RegExp(`^${escapeReg(field)}[：:].*$`, "m");
+        // \r? 保留 CRLF 行尾的 \r，避免 replace 时把行尾换行符吞掉
+        const fieldRe = new RegExp(`^${escapeReg(field)}[：:][^\n\r]*\r?$`, "m");
         if (fieldRe.test(scopeText)) {
           const updatedScope = scopeText.replace(fieldRe, line);
           cur = cur.slice(0, scopeStart) + updatedScope + cur.slice(scopeEnd);

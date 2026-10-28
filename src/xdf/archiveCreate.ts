@@ -271,7 +271,8 @@ export async function createVipArchive(
       archive_name: opts.student,
       course_type: opts.course_type,
     });
-  const action = await writeOrUpdate(app, path, md);
+  // 与班课建档一致：档案页已存在则跳过，避免把旧记录重置成空模板
+  const action = await writeIfNotExists(app, path, md);
   return { student_name: opts.student, folder_path: folder, archive_path: path, action };
 }
 

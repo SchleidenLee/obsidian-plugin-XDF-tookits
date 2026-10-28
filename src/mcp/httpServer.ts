@@ -1,3 +1,4 @@
+import * as crypto from "crypto";
 import * as http from "http";
 import type { App } from "obsidian";
 import type { XdfToolkitsSettings } from "../settings";
@@ -12,14 +13,31 @@ interface JsonRpc {
   error?: { code: number; message: string };
 }
 
+// 恒定时间比较两个 token,避免逐字符比较被计时探测;
+// 长度不等时也用等长的假数据比一遍,保证耗时恒定
+function timingSafeTokenEqual(a: string, b: string): boolean {
+  const bufA = Buffer.from(a, "utf8");
+  const bufB = Buffer.from(b, "utf8");
+  if (bufA.length === bufB.length) {
+    return crypto.timingSafeEqual(bufA, bufB);
+  }
+  const padded = Buffer.alloc(64);
+  bufA.copy(padded, 0, 0, Math.min(bufA.length, 64));
+  crypto.timingSafeEqual(padded, Buffer.alloc(64));
+  return false;
+}
+
 export class McpHttpServer {
   private server: http.Server | null = null;
   private actualPort: number | null = null;
+  // 长挂的 SSE 探活响应:close 前必须逐个销毁,否则 srv.close 永不回调
+  private sseResponses = new Set<http.ServerResponse>();
   running = false;
 
   constructor(
     private app: App,
     private getSettings: () => XdfToolkitsSettings,
+    private version: string,
   ) {}
 
   get listenHost(): string {
@@ -82,7 +100,16 @@ export class McpHttpServer {
     this.server = null;
     this.running = false;
     if (!srv) return;
-    await new Promise<void>((resolve) => srv.close(() => resolve()));
+    // 先销毁挂着的 SSE 连接,否则 srv.close 永不完成
+    for (const res of this.sseResponses) res.destroy();
+    this.sseResponses.clear();
+    // Node 18.2+ 提供,存在才调
+    srv.closeAllConnections?.();
+    // 兜底:close 回调 2 秒内不来就放行,避免永久挂死
+    await Promise.race([
+      new Promise<void>((resolve) => srv.close(() => resolve())),
+      new Promise<void>((resolve) => setTimeout(resolve, 2000)),
+    ]);
   }
 
   private unauthorized(res: http.ServerResponse) {
@@ -94,6 +121,8 @@ export class McpHttpServer {
     const settings = this.getSettings();
     const url = new URL(req.url || "/", "http://127.0.0.1");
 
+    // CORS:Obsidian 内页面(app://obsidian.md)用 fetch 连接,必须应答预检;
+    // 预检请求不带 Authorization,所以必须在 token 校验之前处理
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, MCP-Session-Id");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, DELETE");
@@ -126,7 +155,7 @@ export class McpHttpServer {
       const token = auth.toLowerCase().startsWith("bearer ")
         ? auth.slice(7).trim()
         : auth.trim();
-      if (token !== settings.token) {
+      if (!timingSafeTokenEqual(token, settings.token)) {
         this.unauthorized(res);
         return;
       }
@@ -139,6 +168,10 @@ export class McpHttpServer {
         Connection: "keep-alive",
       });
       res.write("event: ping\ndata: {}\n\n");
+      // 记录活跃 SSE,stop() 时统一销毁;连接断开或响应结束时移除
+      this.sseResponses.add(res);
+      res.on("close", () => this.sseResponses.delete(res));
+      res.on("end", () => this.sseResponses.delete(res));
       return;
     }
 
@@ -185,7 +218,7 @@ export class McpHttpServer {
           result: {
             protocolVersion: "2024-11-05",
             capabilities: { tools: { listChanged: false } },
-            serverInfo: { name: "xdf-toolkits", version: "0.1.0" },
+            serverInfo: { name: "xdf-toolkits", version: this.version },
           },
         };
       }

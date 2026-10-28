@@ -67,7 +67,8 @@ async function chatRequest(
       model: cfg.model,
       messages: opts.messages,
       temperature: opts.temperature ?? 0.3,
-      ...(opts.maxTokens ? { max_tokens: opts.maxTokens } : {}),
+      // 未指定时兜底 8000，保证长课次反馈能一次写完；显式传入则以调用方为准
+      max_tokens: opts.maxTokens ?? 8000,
     }),
     throw: false,
   });

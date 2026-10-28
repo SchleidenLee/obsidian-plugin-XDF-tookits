@@ -3,9 +3,15 @@ import type XdfToolkitsPlugin from "./main";
 import { TONE_EXTRACT_SYSTEM } from "./xdf/feedbackPrompt";
 import { chatText, chatVision } from "./model";
 
-// 1x1 透明 PNG，用于视觉模型连通性测试
+// 1x1 透明 PNG,用于视觉模型连通性测试
 const PIXEL_PNG_B64 =
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==";
+
+// 密钥在 SecretStorage 中的存储 ID(仅允许小写字母数字与连字符)
+export const SECRET_IDS = {
+  llmApiKey: "xdf-toolkits-llm-api-key",
+  visionApiKey: "xdf-toolkits-vision-api-key",
+} as const;
 
 export interface TonePreset {
   name: string;
@@ -154,12 +160,27 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
         }),
       );
 
+    const llmKeySaved = !!this.plugin.settings.llmApiKey;
     new Setting(containerEl)
       .setName("API Key")
-      .addText((t) =>
-        t.setValue(this.plugin.settings.llmApiKey).onChange(async (v) => {
-          this.plugin.settings.llmApiKey = v.trim();
-          await this.plugin.saveSettings();
+      .setDesc(
+        llmKeySaved
+          ? "已保存到系统密钥库，输入新值可覆盖"
+          : "未设置，输入后保存到系统密钥库",
+      )
+      .addText((t) => {
+        t.inputEl.type = "password";
+        t.setPlaceholder(llmKeySaved ? "已保存" : "sk-...");
+        t.onChange(async (v) => {
+          const trimmed = v.trim();
+          if (!trimmed) return; // 留空保持不变
+          await this.plugin.setSecretValue("llmApiKey", trimmed);
+        });
+      })
+      .addExtraButton((b) =>
+        b.setIcon("eraser").setTooltip("清除").onClick(async () => {
+          await this.plugin.setSecretValue("llmApiKey", "");
+          this.display();
         }),
       );
 
@@ -207,12 +228,27 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
         }),
       );
 
+    const visionKeySaved = !!this.plugin.settings.visionApiKey;
     new Setting(containerEl)
       .setName("API Key")
-      .addText((t) =>
-        t.setValue(this.plugin.settings.visionApiKey).onChange(async (v) => {
-          this.plugin.settings.visionApiKey = v.trim();
-          await this.plugin.saveSettings();
+      .setDesc(
+        visionKeySaved
+          ? "已保存到系统密钥库，输入新值可覆盖"
+          : "未设置，输入后保存到系统密钥库",
+      )
+      .addText((t) => {
+        t.inputEl.type = "password";
+        t.setPlaceholder(visionKeySaved ? "已保存" : "sk-...");
+        t.onChange(async (v) => {
+          const trimmed = v.trim();
+          if (!trimmed) return; // 留空保持不变
+          await this.plugin.setSecretValue("visionApiKey", trimmed);
+        });
+      })
+      .addExtraButton((b) =>
+        b.setIcon("eraser").setTooltip("清除").onClick(async () => {
+          await this.plugin.setSecretValue("visionApiKey", "");
+          this.display();
         }),
       );
 
@@ -462,6 +498,19 @@ export class XdfToolkitsSettingTab extends PluginSettingTab {
 
     new Setting(containerEl)
       .setName("复制 MCP 配置")
+      .addButton((b) =>
+        b.setButtonText("复制连接凭证").onClick(async () => {
+          await navigator.clipboard.writeText(this.plugin.settings.token);
+          new Notice("已复制连接凭证");
+        }),
+      )
+      .addButton((b) =>
+        b.setButtonText("重新生成 token").onClick(async () => {
+          await this.plugin.regenerateToken();
+          new Notice("已重新生成 token");
+          this.display();
+        }),
+      )
       .addButton((b) =>
         b.setButtonText("复制").onClick(async () => {
           await navigator.clipboard.writeText(this.plugin.getClientConfigSnippet());
