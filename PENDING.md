@@ -27,28 +27,15 @@
   - 影响：前言 / 代码围栏 / 思考过程可能写进学生可见块；空壳静默落盘。
   - 方案：改用 `response_format` 结构化输出取字段（见 B）；过渡期做「去围栏 + 去首尾解释句 + 最小长度校验 + 空壳拒绝」，**校验失败不落盘**并返回 error。
 
-- [ ] **extract_raw / extract_feedback / extract_content 的「日期」入参失效** — `src/xdf/tools.ts` / `src/xdf/markdown.ts`（`parseLessonRange`）
-  - 现象：三者统一走 `parseLessonRange`，该函数只认课次号/区间，日期字符串 `2026-07-01` 解析为 `NaN` 被过滤 → 返回空数组且无报错。
-  - 影响：Schema 声明接受日期，但传日期必然静默空结果。
-  - 方案：`parseLessonRange` 增加日期分支（`^\d{4}-\d{2}-\d{2}$` → 查 lessons 转课次号），或 extract 工具单独处理日期；`nums` 为空时返回明确 error。
-
 ### A. 代码审查整改（高）
-
-- [ ] **stop() 可能永久挂起，导致改端口/卸载无法重启** — `src/mcp/httpServer.ts`
-  - 现象：`GET /mcp` 返回 `text/event-stream` 且从不 `res.end`，连接长期 keep-alive；`stop()` 等 `srv.close` 回调 → 永不 resolve。
-  - 方案：`stop()` 调 `srv.closeAllConnections?.()` 或记录并主动 `destroy` 连接；SSE 加超时/断开监听，`close` 设兜底超时。
 
 - [ ] **读-改-写全程无并发保护（丢失更新）** — `src/xdf/tools.ts`（write_feedback / write_raw / write_teaching_content / update_archive_index / write_checkbox）、`src/xdf/archiveCreate.ts`（appendNextLink）
   - 现象：全部 `readFile` → 内存改写 → `writeFile`，无文件锁/版本校验。
   - 方案：引入按路径的异步互斥队列（`Map<path, Promise>` 串行化）；用 `app.vault.process`（原子 read-modify-write）替代裸 read+write。
 
-- [ ] **bindLan 叠加空 token 时服务无鉴权** — `src/mcp/httpServer.ts` / `src/settings.ts` / `src/main.ts`
-  - 现象：鉴权仅当 `token` 非空才生效；设置页可清空 token，运行中不再补。
-  - 方案：`bindLan=true` 时强制非空 token（空则拒绝启动）；设置页在 bindLan 开启且 token 为空时阻止保存或自动生成。
-
-- [ ] **LLM 请求无超时、无 max_tokens** — `src/model.ts` / 调用点
-  - 现象：请求体只传 `model/messages/temperature`，`requestUrl` 无 timeout。
-  - 方案：请求体加 `max_tokens`；用 `AbortController`/`Promise.race` 包超时（如 60s），超时抛错并由调用方「失败不落盘」。
+- [ ] **LLM 请求无超时** — `src/model.ts` / 调用点
+  - 现象：`requestUrl` 无 timeout（`max_tokens` 已于 2026-10-24 兜底 8000）。
+  - 方案：用 `AbortController`/`Promise.race` 包超时（如 60s），超时抛错并由调用方「失败不落盘」。
 
 ### A. 代码审查整改（中）
 
@@ -56,18 +43,12 @@
   - 方案：对已确认的 SELECT/WITH、且未含 LIMIT 时安全追加 `LIMIT n`；或对返回行数设硬上限。
 - [ ] **明显 N+1 查询** — `src/xdf/tools.ts`（list_classes / list_one_on_one / list_all_students / list_lessons / list_student_lessons）
   - 方案：JOIN + GROUP BY 一次性聚合，或批量查询后内存 join。
-- [ ] **参数未经 schema 校验，`Number()` 可能产生 NaN，enum 未校验** — `src/xdf/tools.ts` / `src/mcp/httpServer.ts`
-  - 方案：`callTool` 入口按 `TOOL_DEFS.inputSchema` 做轻量校验；lesson 必须正整数；enum 白名单校验并报错。
 - [ ] **路径未净化，可越界写入** — `src/xdf/tools.ts`（lessonFolder）/ `src/xdf/archiveCreate.ts`
   - 方案：抽出统一 `sanitizeVaultPath`（拒绝 `..`、盘符、`\0`，校验仍在预期根目录下），所有拼路径处调用。
-- [ ] **create_one_on_one 覆盖已有档案** — `src/xdf/archiveCreate.ts`（`createVipArchive` 用 `writeOrUpdate`）
-  - 方案：改为 `writeIfNotExists`，与班课一致；更新走明确的 update 工具。
 - [ ] **total_lessons 用「最大课次号」而非课程数量** — `src/xdf/tools.ts`（update_archive_index）/ `src/xdf/templates.ts`
   - 方案：改为 `lessons.length`（或 `COUNT(*)`）。
 - [ ] **HTTP 请求体无大小上限** — `src/mcp/httpServer.ts`
   - 方案：累计字节超阈值（1–2MB）即 `413` 并销毁连接。
-- [ ] **API Key 明文存储/回显** — `src/settings.ts` / `src/main.ts`
-  - 方案：设置页用 password 输入 + 掩码显示；评估加密/钥匙串存储；确认日志不打印 key。
 - [ ] **错误识别依赖字符串匹配** — `src/xdf/tools.ts`（`ok()`/`err()`）/ `src/mcp/httpServer.ts`
   - 方案：`callTool` 返回结构化对象（`{ok, data|error}`），isError 由字段判定（与 B 的「内部调用改函数直调」一并做）。
 - [ ] **两份重复 LLM 调用实现** — 已于 2026-10-17 抽取 `src/model.ts` 解决（残留的 `response_format`/超时参数化并入 B）。
@@ -76,10 +57,7 @@
 
 ### A. 代码审查整改（低）
 
-- [ ] **query_db 默认 limit 文档与实现不一致** — description 写「默认 100」，实现为 200 → 统一数值。
-- [ ] **write_checkbox 会把 CRLF 改成 LF** — `src/xdf/tools.ts` → 检测原行尾并还原。
-- [ ] **token 非恒定时间比较** — `src/mcp/httpServer.ts` → 用 `crypto.timingSafeEqual`。
-- [ ] **CORS 通配** — `src/mcp/httpServer.ts` → 收紧 `Access-Control-Allow-Origin`，bindLan 时尤其收紧。
+- [ ] **CORS 通配** — `src/mcp/httpServer.ts` → 收紧 `Access-Control-Allow-Origin`，bindLan 时尤其收紧。注：2026-10-24 曾直接删除 CORS，导致 Obsidian 内 chatbot（`app://obsidian.md` 源）预检失败断连，已回滚恢复通配；收紧需连同 Obsidian 内调用方的连接方式一并评估。
 - [ ] **语气提取用贪婪正则 + `JSON.parse`（脆弱解析）** — `src/settings.ts` → 纳入 B 的结构化输出改造。
 - [ ] **`parseLessonRange` 对越界/超长区间无上限** — `src/xdf/markdown.ts` → 区间跨度设上限（如 ≤200）并报错。
 - [ ] **`loadArchiveInfo` 非 db 分支返回空对象，未读 md** — `src/xdf/archiveCreate.ts` → 明确与 `loadArchiveInfoAsync` 的职责或合并。

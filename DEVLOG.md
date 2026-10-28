@@ -5,6 +5,24 @@
 
 ---
 
+## 2026-10-24 · 安全整改批次一
+
+- `src/mcp/httpServer.ts`：token 校验改 `crypto.timingSafeEqual` 恒定时间比较；SSE 连接登记 + `closeAllConnections`（修 stop() 挂起，2 秒兜底）；`version` 改由构造参数传入（取 manifest.version）。
+- `src/main.ts`：API Key 迁入 Obsidian SecretStorage（旧明文配置自动迁移），设置页剥离密钥明文；bindLan 且无 token 时拒绝启动服务。
+- 新增 `src/xdf/validateArgs.ts` 轻量入参校验，`callTool` 入口统一校验；lesson 传日期入参改为明确报错；write_checkbox 保留 CRLF；query_db limit 文档统一 200；`createVipArchive` 改 `writeIfNotExists` 防覆盖档案；LLM `max_tokens` 兜底 8000。
+- manifest `minAppVersion` 提至 1.11.0；设置页新增「复制连接凭证 / 重新生成 token」。
+- **为什么**：工具把教学数据经 HTTP 暴露给外部 agent，属敏感面；先堵「一眼就能被滥用」的问题（明文密钥、token 时序泄露、入参裸奔），修法全部走最小改动。
+
+## 2026-10-24 · 构建产物统一落盘 dist
+
+- `esbuild.config.mjs` 产出从根目录 `main.js` 改为 `dist/main.js`，manifest.json 与 styles.css 一并复制进 dist；`release.yml` 的 `ARTIFACT_DIR` 同步改 `dist`；`.gitignore` 补 `dist/`、`main.js`，删除历史根目录 main.js。
+- **为什么**：系统内其他插件（base / ClassTracker / gateway）产物均落 dist，tookits 是例外；统一后产物路径只有一种答案，release 收取目录不再特判。
+
+## 2026-10-24 · CORS 删除回滚（事故记录）
+
+- 上批安全整改误删 httpServer.ts 入口的 CORS 头与 OPTIONS 分支（净减 3 行），导致 AI Chatbot 插件页（`app://obsidian.md` 源）fetch 本服务全部被预检拦截而断连，已原样恢复并加注释。
+- **为什么**：Obsidian 内插件互连也是浏览器语境——带 Authorization 等自定义头的请求必先发预检，而预检不带 Authorization，故 CORS 应答必须位于 token 校验之前。教训：删代码前先确认每处行为谁在依赖。
+
 ## 2026-10-17 · 清理历史裸 tag `0.1.5`
 
 - 删除裸 tag `0.1.5` 及其 Release（非流水线产物，属旧 `tag-version-prefix: ""` 时代的遗留），仓库 tag 自此全部为 `v*`。

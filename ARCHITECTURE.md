@@ -89,5 +89,5 @@ callTool(name, args, ctx)  (tools.ts)
 
 - LLM 调用**一律**经 `src/model.ts`，不要在业务文件里另起 `requestUrl`。
 - 工具返回走 `ok()` / `err()`（JSON 字符串，历史约定）；错误态判定目前依赖字符串匹配（待改造）。
-- 构建：`npm run build` = `tsc -noEmit -skipLibCheck` + `esbuild` 产出 `main.js`。
+- 构建：`npm run build` = `tsc -noEmit -skipLibCheck` + `esbuild` 产出 `dist/main.js`（manifest.json 与 styles.css 一并复制进 dist）。
 - 版本号三处需一致：`package.json` / `manifest.json` / release tag。
