@@ -20,7 +20,7 @@
 - [ ] **query_db 的「只读」可被 CTE-DML 绕过** — `src/xdf/tools.ts`（`query_db` 实现）
   - 现象：仅取首关键字校验（`select`/`with`/`explain`）且仅拦「非末尾分号」；`WITH x AS (SELECT 1) DELETE FROM archives` 可通过校验并执行。
   - 影响：任意 MCP 客户端可改库，破坏只读承诺。
-  - 方案：改真正只读连接（`PRAGMA query_only=ON`）；无法改底层时，强制 `WITH` 必须以 `SELECT`/`VALUES` 结束，正则拒绝 `insert|update|delete|replace|drop|alter|create`。
+  - 方案（2026-10-24 更新）：toolkits 不持有连接——查询均经 xdf-base 的 `_xdfBase.getDBApi().query` 执行，只读闸须加在 **base 侧**：给 base 的 `getDBApi` 加可选参数（如 `{ readonly: true }`），本插件 `query_db` 调用时带上；先决条件：在 base 的 PENDING.md 立项。过渡期维持现有黑名单校验（强制 `WITH` 以 `SELECT`/`VALUES` 结束，正则拒绝 `insert|update|delete|replace|drop|alter|create`）。
 
 - [ ] **反馈生成链路对 LLM 输出零清洗零校验** — `src/xdf/feedbackPrompt.ts` / `src/xdf/tools.ts`（`generate_daily_feedback`）/ `src/xdf/markdown.ts`（`upsertAiBlock`）
   - 现象：模型输出原样作为 `content` 落盘；`upsertAiBlock` 只 `trim()`，无围栏剥离、无前言过滤、无空壳校验。
@@ -28,10 +28,6 @@
   - 方案：改用 `response_format` 结构化输出取字段（见 B）；过渡期做「去围栏 + 去首尾解释句 + 最小长度校验 + 空壳拒绝」，**校验失败不落盘**并返回 error。
 
 ### A. 代码审查整改（高）
-
-- [ ] **读-改-写全程无并发保护（丢失更新）** — `src/xdf/tools.ts`（write_feedback / write_raw / write_teaching_content / update_archive_index / write_checkbox）、`src/xdf/archiveCreate.ts`（appendNextLink）
-  - 现象：全部 `readFile` → 内存改写 → `writeFile`，无文件锁/版本校验。
-  - 方案：引入按路径的异步互斥队列（`Map<path, Promise>` 串行化）；用 `app.vault.process`（原子 read-modify-write）替代裸 read+write。
 
 - [ ] **LLM 请求无超时** — `src/model.ts` / 调用点
   - 现象：`requestUrl` 无 timeout（`max_tokens` 已于 2026-10-24 兜底 8000）。
@@ -43,17 +39,17 @@
   - 方案：对已确认的 SELECT/WITH、且未含 LIMIT 时安全追加 `LIMIT n`；或对返回行数设硬上限。
 - [ ] **明显 N+1 查询** — `src/xdf/tools.ts`（list_classes / list_one_on_one / list_all_students / list_lessons / list_student_lessons）
   - 方案：JOIN + GROUP BY 一次性聚合，或批量查询后内存 join。
+  - 注（2026-10-24）：list 类工具的课次区间目前为「穷举区间逐条验证」（原 19-4），一并改为直接 SQL 聚合。
 - [ ] **路径未净化，可越界写入** — `src/xdf/tools.ts`（lessonFolder）/ `src/xdf/archiveCreate.ts`
   - 方案：抽出统一 `sanitizeVaultPath`（拒绝 `..`、盘符、`\0`，校验仍在预期根目录下），所有拼路径处调用。
-- [ ] **total_lessons 用「最大课次号」而非课程数量** — `src/xdf/tools.ts`（update_archive_index）/ `src/xdf/templates.ts`
-  - 方案：改为 `lessons.length`（或 `COUNT(*)`）。
 - [ ] **HTTP 请求体无大小上限** — `src/mcp/httpServer.ts`
   - 方案：累计字节超阈值（1–2MB）即 `413` 并销毁连接。
 - [ ] **错误识别依赖字符串匹配** — `src/xdf/tools.ts`（`ok()`/`err()`）/ `src/mcp/httpServer.ts`
   - 方案：`callTool` 返回结构化对象（`{ok, data|error}`），isError 由字段判定（与 B 的「内部调用改函数直调」一并做）。
 - [ ] **两份重复 LLM 调用实现** — 已于 2026-10-17 抽取 `src/model.ts` 解决（残留的 `response_format`/超时参数化并入 B）。
-- [ ] **学员名按子串匹配易串扰** — `src/xdf/tools.ts`（generate_daily_feedback 内）
-  - 方案：改为按 `## 👤 <name>` 精确匹配（复用 `findStudentBlock` 语义），提名字后做等值比较而非 `includes`。
+- [ ] **学员名按子串匹配易串扰** — `src/xdf/tools.ts`（generate_daily_feedback / extract_raw / extract_feedback / extract_content 共 5 处 `includes(student)`；`list_student_lessons` 的 SQL `LIKE`）
+  - 方案：markdown.ts 加 `isStudentHeading`（`👤 名字` 后跟行尾或分隔符）替换 5 处 includes；SQL `LIKE` 改锚定模式；提名字后做等值比较而非 `includes`。
+  - 注：改严格后需配真实库回归验证（原查得到的可能查不到）。
 
 ### A. 代码审查整改（低）
 
@@ -61,6 +57,7 @@
 - [ ] **语气提取用贪婪正则 + `JSON.parse`（脆弱解析）** — `src/settings.ts` → 纳入 B 的结构化输出改造。
 - [ ] **`parseLessonRange` 对越界/超长区间无上限** — `src/xdf/markdown.ts` → 区间跨度设上限（如 ≤200）并报错。
 - [ ] **`loadArchiveInfo` 非 db 分支返回空对象，未读 md** — `src/xdf/archiveCreate.ts` → 明确与 `loadArchiveInfoAsync` 的职责或合并。
+- [ ] **双锁文件（npm + pnpm 并存易漂移）** — 待用户点头后删除 `package-lock.json`（留 `pnpm-lock.yaml`），并在 package.json 补 `packageManager` 字段对齐 Base（pnpm@10.32.1）。
 
 ### B. 结构化输出改造（重点）
 
@@ -94,7 +91,9 @@
 - [ ] **等待 DB 同步**：轮询 files 表 mtime，确保 Obsidian 插件写入完成。
 - [ ] **异步任务 + 进度**：后台执行 + 进度跟踪（依赖 F）。
 
-### E. 结班反馈 & OCR / 评分体系迁移（🟡 中优先）
+### E. 结班反馈 & OCR / 评分体系（🟡 中优先 · 走 n8n）
+
+> 方向更新（2026-10-24）：不再迁移进插件——执行放自有服务器 n8n，本插件 MCP 只负责传数据、拿结果。以下条目作为 n8n 侧所需能力备查。
 
 - [ ] 结班反馈 v2 工作流（`Grader` 路由器 + `BaseGrader` + 雅思学术类评分 + 初级教材评分）。
 - [ ] OCR / 图片处理脚本（答题卡识别、批改、图片压缩、缓存初始化）。
