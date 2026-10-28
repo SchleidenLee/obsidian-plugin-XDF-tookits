@@ -12,7 +12,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     env:
-      ARTIFACT_DIR: .
+      ARTIFACT_DIR: dist
     steps:
       - name: Checkout
         uses: actions/checkout@v5

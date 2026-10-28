@@ -1,5 +1,6 @@
 import esbuild from "esbuild";
 import process from "process";
+import { copyFileSync, mkdirSync } from "node:fs";
 import builtins from "builtin-modules";
 
 const banner = `/*
@@ -34,10 +35,15 @@ const context = await esbuild.context({
   logLevel: "info",
   sourcemap: prod ? false : "inline",
   treeShaking: true,
-  outfile: "main.js",
+  outfile: "dist/main.js",
   minify: prod,
   platform: "node",
 });
+
+// manifest/styles 复制进 dist，保证三件套齐全
+mkdirSync("dist", { recursive: true });
+copyFileSync("manifest.json", "dist/manifest.json");
+copyFileSync("styles.css", "dist/styles.css");
 
 if (prod) {
   await context.rebuild();
