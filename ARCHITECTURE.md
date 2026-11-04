@@ -58,7 +58,7 @@ callTool(name, args, ctx)  (tools.ts)
 ```
 
 - **数据源优先级**：优先走 `.xdf/xdb.db`（由 xdf-base 建镜像）；DB 不可用时部分工具回退读 Markdown，部分直接报错。
-- **依赖 xdf-base ≥ 1.4.14**：该版本起 base 的 `api.db` 门面纯只读 + 连接默认 `PRAGMA query_only=ON` 引擎级硬闸。`db.ts` 在入口校验 base 版本，低版本拒用并报错；`query_db` 文本白名单保留作双保险。
+- **依赖 xdf-base ≥ 1.5.1**：1.4.14 起 base 的 `api.db` 门面才纯只读 + `PRAGMA query_only=ON` 引擎级硬闸；1.5.1（schema v3）起才有 `student_profile` 表（学员画像）。`db.ts` 在入口校验 base 版本，低版本拒用并报错；`query_db` 文本白名单保留作双保险。`list_all_students` 返回 `school` / `english_level` / `target_score` / `exam_date` / `exam_score`（无画像时为 `null`）。
 - **LLM 只在少数工具中使用**：`generate_daily_feedback`（文本）、设置页「提取语气」（文本）；视觉通道（`chatVision`）供后续识图能力使用。
 - **写盘模型**：全部为「read → 内存改写 → write」，当前无文件级锁（并发丢失更新为已知待办，见 PENDING）。
 
@@ -68,11 +68,12 @@ callTool(name, args, ctx)  (tools.ts)
 - 鉴权：Header `Authorization: Bearer <token>`；`bindLan=false` 时监听 `127.0.0.1`，`true` 时监听 `0.0.0.0`。
 - 对外接口：`plugin.api.getStatus()` / `plugin.api.getConfig()`，同库 Agent 可自动探测。
 
-## 6. 工具分类（31）
+## 6. 工具分类（31 · 对外暴露 27）
 
 - **查询（13）**：`list_classes` `list_one_on_one` `list_all_students` `list_lessons` `list_lessons_by_date` `list_student_lessons` `find_lessons` `get_lesson_detail` `extract_raw` `extract_feedback` `extract_content` `check_feedback` `check_todo` `list_pending` `query_db`
 - **写入（5）**：`write_feedback` `write_raw` `write_teaching_content` `write_checkbox` `update_archive_index`
 - **建档（5）**：`create_class` `create_one_on_one` `create_class_lesson` `create_one_on_one_lesson` `create_test_feedback`
+  - 🟢 2026-11-04 起前 4 个**临时禁用**（不进 `tools/list`，调用直接报错）：仍在用旧模板（md 表格、无 duowei 学员表、Feedback 缺「学员状态面板」），与 xdf-base 脚本产出的档案不一致。对齐方案见 [PENDING.md](./PENDING.md) A0（复用 `00.SYSTEM/xdf_base/scripts/assets/ArchiveUtils.js`）。`create_test_feedback` 未禁用。
 - **生成（2）**：`generate_student_summary` `generate_daily_feedback`
 - **未实现桩（3）**：`generate_end_of_class_feedback` `generate_end_of_class_feedback_v2` `query_task_progress` `cancel_task`（明确拒绝 / 返回桩值）
 

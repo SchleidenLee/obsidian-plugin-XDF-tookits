@@ -14,6 +14,22 @@
 
 ## 🟡 已定待做
 
+### A0. 建档 / 建课工具与 base 模板对齐（🟢 已临时禁用）
+
+- [x] **临时禁用 4 个建档/建课工具** — `src/xdf/tools.ts`
+  - 白话：MCP 的 `create_class` / `create_one_on_one` / `create_class_lesson` / `create_one_on_one_lesson` 还在用 2026-11-03 之前的旧格式，建出来的档案和脚本建的不是同一种东西，先下架，避免污染 vault。
+- [ ] **改为复用 base 释放的 ArchiveUtils.js** — `src/xdf/archiveCreate.ts` / 新增 `src/xdf/baseUtils.ts`
+  - 白话：base 会把 `ArchiveUtils.js` 释放到 `00.SYSTEM/xdf_base/scripts/assets/`，它末尾是 `module.exports = {...}`（标准 CommonJS）。toolkits 直接读文件、`new Function("module","exports","require", code)` 求值，就能拿到 `U.buildArchiveBody` / `U.buildClassFeedback` / `U.buildNav` / `U.buildIndexLink` / `U.buildRosterDuoweiDoc` / `U.writeLessonPackage`，**不用再复制一份模板和 12 字段 schema**。
+  - 前提：base ≥ 1.5.1（duowei 相关函数在 1.5.0 起才有）；低于该版本或求值失败时回退现有硬编码实现。
+- [ ] **修掉 4 处格式分叉**（复用 base 后自动解决，回退分支仍需手改）
+  - 档案页正文：旧 md 九列表格 → `![[{archiveName}学员表.duowei]]` 嵌入
+  - 建档时补写 `{班号}学员表.duowei`（`buildRosterDuoweiDoc`，只建不覆）
+  - 班课 Feedback：补「## 🎯 学员状态面板」+ `^att-N` / `^hw-N` 块锚
+  - 课程索引链接：` Lesson N - date` → `📖 Lesson N - date`（否则 `update_archive_index` 判重失效，会重复插链接）
+- [ ] **确认 `create_test_feedback` 去留**
+  - 说明：它生成的是「测试反馈」清单页，base 没有对应脚本，格式本身没分叉；但结班测成绩现在存 duowei `f11`，这个页面不写分数，两条线没接上。当前**未禁用**。
+- 💬 回复：
+
 ### A. 代码审查整改
 
 #### A2. AI 写反馈没人把关 🔴严重

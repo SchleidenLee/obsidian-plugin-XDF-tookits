@@ -17,10 +17,12 @@ interface LoosePlugin {
 }
 
 /**
- * xdf-base 最低版本要求：1.4.14 起 api.db 门面纯只读 + query_only 引擎硬闸。
- * 低于此版本的 base 仍暴露 exec() 写入口，"只读"承诺不成立，直接拒用。
+ * xdf-base 最低版本要求：
+ * - 1.4.14 起 api.db 门面纯只读 + query_only 引擎硬闸；低于此版本仍暴露 exec() 写入口
+ * - 1.5.1 起 schema v3，新增 student_profile 表（学员画像）；低于此版本无该表
+ * 任一不满足都直接拒用，避免"只读"承诺或查询能力打折。
  */
-const MIN_BASE_VERSION = "1.4.14";
+const MIN_BASE_VERSION = "1.5.1";
 
 function versionLess(a: string, b: string): boolean {
   const pa = a.split(".").map(Number);
@@ -53,9 +55,9 @@ function resolveQuery(app: App): { query: QueryFn; source: string; version: stri
   return null;
 }
 
-/** 低于最低版本的 base 仍暴露写入口，只读承诺不成立 → 拒用并给出可读报错。 */
+/** 低于最低版本的 base 缺少只读硬闸 / student_profile 表 → 拒用并给出可读报错。 */
 function baseVersionError(version: string): string {
-  return `xdf-base 版本过低（当前 ${version}，需 ≥${MIN_BASE_VERSION}）。旧版 api.db 仍开放写入口，查询只读无保障，请升级 XDF-Base。`;
+  return `xdf-base 版本过低（当前 ${version}，需 ≥${MIN_BASE_VERSION}）。该版本起才有纯只读查询口与 student_profile（学员画像）表，请升级 XDF-Base。`;
 }
 
 function bindParams(sql: string, params: unknown[]): string {

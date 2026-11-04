@@ -68,6 +68,56 @@ function archiveByName(db: XdfDb, name: string) {
   return rows[0] ?? null;
 }
 
+/** 学员画像（duowei 学员表 → student_profile，与班课无关的全局属性） */
+interface StudentProfile {
+  school: string | null;
+  english_level: string | null;
+  target_score: number | null;
+  exam_date: string | null;
+  exam_score: number | null;
+}
+
+const EMPTY_PROFILE: StudentProfile = {
+  school: null,
+  english_level: null,
+  target_score: null,
+  exam_date: null,
+  exam_score: null,
+};
+
+/**
+ * 批量读学员画像（按姓名索引）
+ *
+ * student_profile 是 xdf-base 1.5.1 起才有的表：老库 / 尚未重建时查询失败，
+ * 这里静默返回空表，由 profileOf 用 null 兜底，不影响名单主体功能。
+ */
+function loadStudentProfiles(db: XdfDb): Map<string, StudentProfile> {
+  const map = new Map<string, StudentProfile>();
+  try {
+    const rows = db.query(
+      `SELECT s.name, p.school, p.english_level, p.target_score, p.exam_date, p.exam_score
+       FROM student_profile p JOIN students s ON s.id = p.student_id`,
+    );
+    for (const r of rows) {
+      map.set(String(r.name), {
+        school: r.school == null ? null : String(r.school),
+        english_level: r.english_level == null ? null : String(r.english_level),
+        target_score: r.target_score == null ? null : Number(r.target_score),
+        exam_date: dateOnly(r.exam_date),
+        exam_score: r.exam_score == null ? null : Number(r.exam_score),
+      });
+    }
+  } catch {
+    /* 老版本 base 没有 student_profile 表：降级为无画像 */
+  }
+  return map;
+}
+
+/** 取画像字段；查不到时给全套 null，保证每行字段形状一致 */
+function profileOf(map: Map<string, StudentProfile>, name: string): StudentProfile {
+  return map.get(name) ?? EMPTY_PROFILE;
+}
+
 function lessonFolder(archiveName: string, lessonNum: number, folderPath?: unknown) {
   if (folderPath) return String(folderPath).replace(/\\/g, "/").replace(/\/$/, "");
   return `Current Class/${archiveName}/${archiveName} Lesson ${lessonNum}`;
@@ -75,7 +125,7 @@ function lessonFolder(archiveName: string, lessonNum: number, folderPath?: unkno
 
 const TARGET_DESC = "班级名或一对一学员名（档案名）";
 
-export const TOOL_DEFS: ToolDef[] = [
+const ALL_TOOL_DEFS: ToolDef[] = [
   {
     name: "list_classes",
     description: "列出所有进行中的班课档案（kind=class）。",
@@ -207,7 +257,7 @@ export const TOOL_DEFS: ToolDef[] = [
   },
   {
     name: "query_db",
-    description: "只读 SQL。仅 SELECT/WITH/EXPLAIN。七表：archives/lessons/sections/checkboxes/class_roster/students/files。",
+    description: "只读 SQL。仅 SELECT/WITH/EXPLAIN。十表：archives / lessons / sections / checkboxes / class_roster / students / student_profile / files / attendance / homework。",
     inputSchema: {
       type: "object",
       properties: {
@@ -439,6 +489,20 @@ export const TOOL_DEFS: ToolDef[] = [
   },
 ];
 
+/**
+ * 临时禁用：建档/建课仍在用旧模板（md 表格、无 duowei、Feedback 缺学员状态面板），
+ * 生成的档案与 xdf-base 脚本不一致。对齐方案见 PENDING.md A0，完成后移出本集合。
+ */
+const DISABLED_TOOLS = new Set([
+  "create_class",
+  "create_one_on_one",
+  "create_class_lesson",
+  "create_one_on_one_lesson",
+]);
+
+/** 对外暴露的工具（被禁用项不出现在 tools/list） */
+export const TOOL_DEFS: ToolDef[] = ALL_TOOL_DEFS.filter((d) => !DISABLED_TOOLS.has(d.name));
+
 export async function callTool(
   ctx: ToolContext,
   name: string,
@@ -451,6 +515,12 @@ export async function callTool(
     if (def) {
       const invalid = validateToolArgs(def.inputSchema, args);
       if (invalid) return err(invalid);
+    }
+    // 已禁用工具：老客户端缓存了工具列表时仍可能调进来，明确拒绝而不是照旧执行
+    if (DISABLED_TOOLS.has(name)) {
+      return err(
+        `工具 ${name} 已临时禁用：建档/建课模板正在与 xdf-base 对齐。请先用 Obsidian 里的「班课建档 / 一对一建档 / 每课记录」脚本。`,
+      );
     }
     switch (name) {
       case "list_classes": {
@@ -499,6 +569,7 @@ export async function callTool(
         const allArchives = db.query(
           "SELECT * FROM archives WHERE status = 'active'",
         );
+        const profileMap = loadStudentProfiles(db);
         const studentMap = new Map<string, { sources: { type: string; target: string }[]; lessonCount: number; lastDate: string }>();
         for (const a of allArchives) {
           const isClass = a.kind === "class";
@@ -523,6 +594,7 @@ export async function callTool(
             sources: e.sources,
             lesson_count: e.lessonCount,
             last_lesson_date: e.lastDate || null,
+            ...profileOf(profileMap, name),
           }));
         return ok({ students, count: students.length });
       }

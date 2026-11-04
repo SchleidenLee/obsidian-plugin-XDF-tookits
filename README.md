@@ -29,7 +29,7 @@ BRAT 填仓库：`SchleidenLee/obsidian-plugin-XDF-tookits`
 
 写入：`write_feedback` `write_raw` `write_teaching_content` `write_checkbox` `update_archive_index`
 
-建档：`create_class` `create_one_on_one` `create_class_lesson` `create_one_on_one_lesson` `create_test_feedback`
+建档：`create_test_feedback`（可用）｜`create_class` `create_one_on_one` `create_class_lesson` `create_one_on_one_lesson`（**临时禁用**：模板待与 xdf-base 对齐，见 PENDING A0）
 
 生成：`generate_student_summary` `generate_daily_feedback`
 

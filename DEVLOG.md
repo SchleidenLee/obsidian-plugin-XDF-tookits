@@ -5,6 +5,23 @@
 
 ---
 
+## 2026-11-04 · 查询侧对齐 schema v3（十表 + 学员画像）
+
+- `src/xdf/tools.ts`：`query_db` 描述由「七表」改为「十表」，补 `attendance` / `homework` / `student_profile`；新增 `loadStudentProfiles` / `profileOf`，`list_all_students` 每行追加 `school` / `english_level` / `target_score` / `exam_date` / `exam_score`（无画像时统一 `null`，字段形状稳定）。
+- `src/xdf/db.ts`：`MIN_BASE_VERSION` `1.4.14` → `1.5.1`（1.5.1 / schema v3 才有 `student_profile`），报错文案同步说明原因。
+- **为什么**：duowei 学员表已全量入库（xdf-base v1.5.1），但 MCP 之前看不到学校/程度/目标分，AI 只能靠手写 SQL；描述里的表清单也早已过期，会误导模型。画像查询包了 try/catch 兜底，即使库未重建也不会拖垮名单主体。
+
+---
+
+## 2026-11-04 · 临时禁用建档/建课工具（模板与 xdf-base 分叉）
+
+- `src/xdf/tools.ts`：`TOOL_DEFS` 拆成 `ALL_TOOL_DEFS`（31 个）+ `DISABLED_TOOLS` 过滤后导出，对外暴露 27 个；`callTool` 入口对禁用工具直接返回可读错误（防老客户端缓存工具列表后仍能调进来）。
+- 禁用范围：`create_class` / `create_one_on_one` / `create_class_lesson` / `create_one_on_one_lesson`。`create_test_feedback` 保留。
+- **为什么**：这 4 个工具仍在用 2026-11-03 之前的硬编码模板——档案页写旧 md 九列表格、不生成 `{班号}学员表.duowei`、班课 Feedback 缺「🎯 学员状态面板」与 `^att-N`/`^hw-N` 锚、课程索引链接缺 `📖`（会让 `update_archive_index` 判重失效）。继续可用会产出与脚本不一致的档案，先下架。
+- 对齐方案见 [PENDING.md](./PENDING.md) A0：直接复用 base 释放的 `00.SYSTEM/xdf_base/scripts/assets/ArchiveUtils.js`（CommonJS，可 `new Function` 求值），拿 `buildArchiveBody` / `buildClassFeedback` / `buildNav` / `buildIndexLink` / `buildRosterDuoweiDoc`，不再复制模板与 12 字段 schema。
+
+---
+
 ## 2026-10-28 · A1 收尾：xdf-base 版本闸（≥1.4.14）
 
 - `src/xdf/db.ts`：`resolveQuery` 读取 base 的 `manifest.version`，新增 `MIN_BASE_VERSION = "1.4.14"` 与三位比较的 `versionLess`；`query()` 遇低版本 base 抛可读报错（"旧版 api.db 仍开放写入口，只读无保障，请升级"），`available()` 同步判版本。`query_db` 现有文本校验（去尾分号 + 多语句拒绝 + SELECT/WITH/EXPLAIN 首词白名单）**保留**作双保险。
