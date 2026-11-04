@@ -1,2 +1,0 @@
-# Grammar Note 1
-

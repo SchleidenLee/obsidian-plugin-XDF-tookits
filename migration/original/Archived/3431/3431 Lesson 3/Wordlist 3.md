@@ -1,2 +1,0 @@
-stressed
-stressful 
