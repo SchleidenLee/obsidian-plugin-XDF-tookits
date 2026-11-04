@@ -1,9 +1,9 @@
 {
   "id": "xdf-toolkits",
   "name": "XDF Toolkits",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "minAppVersion": "1.11.0",
-  "description": "XDF 教学档案 MCP 服务端：为本机 Agent 提供 HTTP 接口，支持查询课次、写反馈、建档",
+  "description": "XDF 教学档案 MCP 服务端：为本机 Agent 提供 HTTP 接口，支持查询课次、学员画像、写反馈",
   "author": "Schleiden",
   "authorUrl": "https://github.com/SchleidenLee",
   "isDesktopOnly": true
