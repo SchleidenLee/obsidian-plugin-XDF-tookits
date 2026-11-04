@@ -57,6 +57,41 @@ export function nextLessonNumber(app: App, parentFolder: string, name: string, d
   return maxNum + 1;
 }
 
+/**
+ * 从 duowei 文件内容提取学生姓名（f1 字段）
+ */
+function parseStudentsFromDuowei(content: string): string[] {
+  try {
+    const doc = JSON.parse(content);
+    const records = doc.records || [];
+    return records
+      .map((r: { values?: Record<string, string> }) => r.values?.f1)
+      .filter((name: string | undefined): name is string => !!name);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * 读学员名单：优先 duowei 文件，回退 md 表格解析
+ */
+async function loadStudents(app: App, archivePath: string, mdContent: string): Promise<string[]> {
+  // 尝试读 duowei 文件
+  const dir = archivePath.substring(0, archivePath.lastIndexOf("/"));
+  const archiveName = archivePath.split("/").pop()?.replace(/\.md$/, "") || "";
+  const duoweiPath = `${dir}/${archiveName}学员表.duowei`;
+  const duoweiContent = await readFile(app, duoweiPath);
+  if (duoweiContent) {
+    const students = parseStudentsFromDuowei(duoweiContent);
+    if (students.length) return students;
+  }
+  // 回退 md 表格
+  return parseStudentsTable(mdContent);
+}
+
+/**
+ * 从档案页正文「学员信息」表格提取学生姓名（回退兼容）
+ */
 function parseStudentsTable(content: string): string[] {
   const lines = content.split("\n");
   const out: string[] = [];
@@ -145,7 +180,7 @@ export async function loadArchiveInfoAsync(app: App, db: XdfDb, name: string): P
   if (info.found && app.vault.getAbstractFileByPath(info.archive_path)) {
     if (info.kind === "class" && info.students.length === 0) {
       const md = await readFile(app, info.archive_path);
-      if (md) info.students = parseStudentsTable(md);
+      if (md) info.students = await loadStudents(app, info.archive_path, md);
     }
     return info;
   }
@@ -193,7 +228,7 @@ export async function loadArchiveInfoAsync(app: App, db: XdfDb, name: string): P
     subject: fm.subject || null,
     schedule_type: fm.schedule_type || null,
     course_types: courseTypes.length ? courseTypes : fm.course_type ? [fm.course_type] : [],
-    students: kind === "class" ? parseStudentsTable(md) : [],
+    students: kind === "class" ? await loadStudents(app, path, md) : [],
     archive_path: path,
     parent_folder: `Current Class/${name}`,
     db_max_lesson: 0,
