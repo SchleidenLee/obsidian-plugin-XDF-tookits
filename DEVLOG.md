@@ -5,6 +5,35 @@
 
 ---
 
+## 2026-11-06 · 文档口径再收紧（未改 src、未发布）
+
+- `get_db_schema` 改为「源码已实现，Release `v0.1.18` 不含」。不再写会随一次提交立刻失效的「仅未提交」。
+- ARCHITECTURE 保留 Base ≥ 1.5.1、`.xdf/xdf.db`、pnpm 与 `dist/` 三件套。A9 仍是：忽略 npm 锁已完成，`packageManager` 未完成。
+- 明确真实库的日期格式、出勤枚举、一对一关联尚未核实。QA 的静态检查与内存测试不等于这三项已证实。
+- **为什么**：上一轮文档把发布差异和未核实的数据取值写得过满。
+- **未验证**：本条没有新测试，也不引用未在本仓复跑的测试结果。真实库日期、出勤枚举、一对一关联仍未核实。
+- 同日可见 `versions.json` 补了 `0.1.16`、`0.1.17`、`0.1.18`。这只是文件差，没有 Obsidian 安装器实测。
+
+---
+
+## 2026-11-06 · 文档与源码对齐（未改 src、未发布）
+
+- README / ARCHITECTURE：库文件名由错误的 `.xdf/xdb.db` 改为 `.xdf/xdf.db`；最低依赖明确为 Base ≥ 1.5.1；开发命令改为 pnpm，产物改为 `dist/` 三件套。
+- `get_db_schema` 保留为本地未提交能力，并标明不在 HEAD `v0.1.18`。
+- PENDING A9 拆开：忽略 npm 锁文件已完成；补 `packageManager` 仍未做。
+- **为什么**：文档把库名、包管理器和产物路径写错后，会让调用方和构建步骤对不上源码。
+- **未验证**：没有重跑构建或 MCP 调用。QA 尚未验收 Toolkits。
+
+---
+
+## 2026-11-05 · query_db 提示补全 + 新增 get_db_schema
+
+- `src/xdf/tools.ts`：`query_db` 描述从「十个表名」扩成速查——关键表列名、`lessons.date` 的 ISO 格式（用 `substr(date,1,10)` 比日期）、`kind=class|vip`、`status=active|archived`、出勤中文枚举、`checked/submitted` 0/1、`course_types` 为 JSON 串、JOIN 关系、不支持 `?` 占位符。`sql` 参数说明补「单条只读，值直接内联」。
+- 新增工具 `get_db_schema`（`table` 可选）：内部走 `sqlite_master` + `PRAGMA table_info`，返回表名、列名/类型/主键/非空与建表语句；表名先过标识符白名单再拼 PRAGMA。对外工具数 27 → **28**。
+- **为什么**：agent 知道有哪些表，但列名/取值/日期格式全靠猜，跨表查询要试错多轮。L1 补高频坑，L2 让它需要时自查完整结构；`query_db` 的白名单仍只放 SELECT/WITH/EXPLAIN，不因新工具放宽。
+
+---
+
 ## 2026-11-04 · 查询侧对齐 schema v3（十表 + 学员画像）
 
 - `src/xdf/tools.ts`：`query_db` 描述由「七表」改为「十表」，补 `attendance` / `homework` / `student_profile`；新增 `loadStudentProfiles` / `profileOf`，`list_all_students` 每行追加 `school` / `english_level` / `target_score` / `exam_date` / `exam_score`（无画像时统一 `null`，字段形状稳定）。

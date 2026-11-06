@@ -24,7 +24,7 @@ src/
     └── feedbackPrompt.ts 反馈生成的 system/user prompt 与语气提取 prompt
 ```
 
-配套资源：`migration/`（原始素材迁移脚本与数据）、`references/MCP-XDF-Assistant/`（上游 Python 源码，**真理来源**）、`test-grader/`（结班反馈实验脚本，未纳入插件）。
+配套资源：`references/MCP-XDF-Assistant/`（上游 Python 源码，本地参考，已 gitignore）、`test-grader/`（结班反馈实验脚本，未纳入插件）。`migration/` 已移出版本库。
 
 ## 3. 模块职责
 
@@ -34,7 +34,7 @@ src/
 | `settings.ts` | 设置接口 + 默认值 + 设置页 UI；文本模型组、视觉模型组、「提取语气」按钮与预设 | 视觉 provider 与文本 provider 独立配置 |
 | `model.ts` | 唯一 LLM 传输层：`resolveTextProvider` / `resolveVisionProvider` → `chatRequest` → `chatText` / `chatVision` | OpenAI 兼容 `POST {baseUrl}/chat/completions`，Bearer 鉴权；无内建超时（超时归业务层） |
 | `mcp/httpServer.ts` | `http.createServer` + JSON-RPC：`initialize` / `tools/list` / `tools/call`；端口冲突自动 ±1 递增；Bearer 鉴权；`GET /mcp` 留 SSE 探活 | `listenHost` 由 `bindLan` 决定 `0.0.0.0` / `127.0.0.1` |
-| `xdf/tools.ts` | `TOOL_DEFS`（31 工具 schema）+ `callTool(name, args, ctx)` 分发 + `createXdfDb` | `ok()` / `err()` 返回 JSON 字符串；MCP 层用字符串匹配判错误 |
+| `xdf/tools.ts` | `TOOL_DEFS` + `callTool(name, args, ctx)` 分发 + `createXdfDb`。HEAD 为 31 个定义、对外 27；本地未提交新增 `get_db_schema` 后为 32 / 对外 28 | `ok()` / `err()` 返回 JSON 字符串；MCP 层用字符串匹配判错误 |
 | `xdf/db.ts` | 解析并调用 xdf-base 的查询口，兼容 `_xdfBase.getDBApi()` 与 `api.db.query` 两种挂法，规整返回行 | 无 xdf-base 时抛错；base 版本 < 1.4.14 拒用（旧版 api.db 仍开放写入口，只读无保障） |
 | `xdf/markdown.ts` | 读文件、解析 `## 👤` 学员块、按 section 提取、AI 块 upsert | 反馈正文写入 `<!-- AI_GENERATED_* -->` 块 |
 | `xdf/archiveCreate.ts` | 建档：班级 / VIP 档案页、课次页、测试反馈页，nav 链接追加 | — |
@@ -51,14 +51,14 @@ McpHttpServer (httpServer.ts)  ── tools/list ──▶ TOOL_DEFS
    │  tools/call
    ▼
 callTool(name, args, ctx)  (tools.ts)
-   ├─ 读：ctx.db.query(...) ──▶ db.ts ──▶ xdf-base 插件 ──▶ vault/.xdf/xdb.db（SQLite）
+   ├─ 读：ctx.db.query(...) ──▶ db.ts ──▶ xdf-base 插件 ──▶ vault/.xdf/xdf.db（SQLite）
    ├─ 读：Vault API（app.vault）读 Markdown 原始记录 / 反馈块
    ├─ 写：read-modify-write Markdown 文件；建档写入档案页/课次页
    └─ 生成：model.ts → chatText / chatVision ──▶ 外部 LLM（NewAPI 兼容口）
 ```
 
-- **数据源优先级**：优先走 `.xdf/xdb.db`（由 xdf-base 建镜像）；DB 不可用时部分工具回退读 Markdown，部分直接报错。
-- **依赖 xdf-base ≥ 1.5.1**：1.4.14 起 base 的 `api.db` 门面才纯只读 + `PRAGMA query_only=ON` 引擎级硬闸；1.5.1（schema v3）起才有 `student_profile` 表（学员画像）。`db.ts` 在入口校验 base 版本，低版本拒用并报错；`query_db` 文本白名单保留作双保险。`list_all_students` 返回 `school` / `english_level` / `target_score` / `exam_date` / `exam_score`（无画像时为 `null`）。
+- **数据源优先级**：优先走 `.xdf/xdf.db`（由 xdf-base 建镜像）；DB 不可用时部分工具回退读 Markdown，部分直接报错。
+- **依赖 xdf-base ≥ 1.5.1**：`db.ts` 用该版本门槛拒用更低版本。1.4.14 起 base 的 `api.db` 门面才纯只读并有 `PRAGMA query_only=ON`；1.5.1 起 schema 为 v3 并有 `student_profile`。`query_db` 文本白名单保留作双保险。`list_all_students` 会返回画像字段；真实库里的日期格式、出勤枚举、一对一关联尚未核实，不要把工具描述里的这些取值当成已验证契约。
 - **LLM 只在少数工具中使用**：`generate_daily_feedback`（文本）、设置页「提取语气」（文本）；视觉通道（`chatVision`）供后续识图能力使用。
 - **写盘模型**：全部为「read → 内存改写 → write」，当前无文件级锁（并发丢失更新为已知待办，见 PENDING）。
 
@@ -68,9 +68,9 @@ callTool(name, args, ctx)  (tools.ts)
 - 鉴权：Header `Authorization: Bearer <token>`；`bindLan=false` 时监听 `127.0.0.1`，`true` 时监听 `0.0.0.0`。
 - 对外接口：`plugin.api.getStatus()` / `plugin.api.getConfig()`，同库 Agent 可自动探测。
 
-## 6. 工具分类（31 · 对外暴露 27）
+## 6. 工具分类（32 · 对外暴露 28）
 
-- **查询（13）**：`list_classes` `list_one_on_one` `list_all_students` `list_lessons` `list_lessons_by_date` `list_student_lessons` `find_lessons` `get_lesson_detail` `extract_raw` `extract_feedback` `extract_content` `check_feedback` `check_todo` `list_pending` `query_db`
+- **查询（16；`get_db_schema` 已在源码中，Release `v0.1.18` 不含）**：`list_classes` `list_one_on_one` `list_all_students` `list_lessons` `list_lessons_by_date` `list_student_lessons` `find_lessons` `get_lesson_detail` `extract_raw` `extract_feedback` `extract_content` `check_feedback` `check_todo` `list_pending` `query_db` `get_db_schema`
 - **写入（5）**：`write_feedback` `write_raw` `write_teaching_content` `write_checkbox` `update_archive_index`
 - **建档（5）**：`create_class` `create_one_on_one` `create_class_lesson` `create_one_on_one_lesson` `create_test_feedback`
   - 🟢 2026-11-04 起前 4 个**临时禁用**（不进 `tools/list`，调用直接报错）：仍在用旧模板（md 表格、无 duowei 学员表、Feedback 缺「学员状态面板」），与 xdf-base 脚本产出的档案不一致。对齐方案见 [PENDING.md](./PENDING.md) A0（复用 `00.SYSTEM/xdf_base/scripts/assets/ArchiveUtils.js`）。`create_test_feedback` 未禁用。
@@ -91,5 +91,5 @@ callTool(name, args, ctx)  (tools.ts)
 
 - LLM 调用**一律**经 `src/model.ts`，不要在业务文件里另起 `requestUrl`。
 - 工具返回走 `ok()` / `err()`（JSON 字符串，历史约定）；错误态判定目前依赖字符串匹配（待改造）。
-- 构建：`npm run build` = `tsc -noEmit -skipLibCheck` + `esbuild` 产出 `dist/main.js`（manifest.json 与 styles.css 一并复制进 dist）。
+- 构建：`pnpm run build` = `tsc -noEmit -skipLibCheck` + `esbuild`，产物为 `dist/main.js`、`dist/manifest.json`、`dist/styles.css`。`.gitignore` 已忽略 `package-lock.json`；`package.json` 仍未写 `packageManager`。
 - 版本号三处需一致：`package.json` / `manifest.json` / release tag。

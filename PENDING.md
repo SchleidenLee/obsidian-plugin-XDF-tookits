@@ -8,7 +8,12 @@
 
 ## 🟢 进行中
 
-（无）
+（无。DOC-SYNC 与 DOC-SYNC-2 已完成并移入 DEVLOG。A0、`packageManager` 与代码审查仍未做。）
+
+### 未验证（2026-11-06，保留）
+
+- 真实库的日期格式、出勤枚举、一对一关联尚未核实。静态检查和内存测试不能代替这三项。
+- `get_db_schema` 已在源码实现，不在 Release `v0.1.18`。提交状态看 git，不在这里写死「未提交」。
 
 ---
 
@@ -103,8 +108,9 @@
 - [ ] **`loadArchiveInfo` 非 db 分支返回空对象，未读 md** — `src/xdf/archiveCreate.ts` → 明确与 `loadArchiveInfoAsync` 的职责或合并。
   - 白话：这个函数有个分支只返回空壳不读文件，职责不清，理一理。
   - 💬 回复：
-- [ ] **双锁文件（npm + pnpm 并存易漂移）** — 待用户点头后删除 `package-lock.json`（留 `pnpm-lock.yaml`），并在 package.json 补 `packageManager` 字段对齐 Base（pnpm@10.32.1）。
-  - 白话：npm 和 pnpm 是两种"装依赖工具"，各留一份"版本清单"，两份并存容易打架。留 pnpm（工作区 Base 标准），删另一份。**等你点头。**
+- [x] **忽略 npm 锁文件** — `.gitignore` 已忽略 `package-lock.json` / `yarn.lock` / `bun.lock`，仓库只保留 `pnpm-lock.yaml`。2026-11-06 核对：工作区没有 `package-lock.json`。
+- [ ] **`package.json` 仍未声明 `packageManager`** — 对齐 Base 的 `pnpm@10.32.1` 尚未做。这是剩余项，不要和上一行一起勾掉。
+  - 白话：锁文件冲突已用忽略规则处理；缺的是 package.json 里的包管理器声明。
   - 💬 回复：
 
 ### B. 结构化输出改造（重点）

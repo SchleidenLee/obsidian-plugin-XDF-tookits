@@ -7,7 +7,7 @@
 ## 需要
 
 - Obsidian 桌面端（`isDesktopOnly`）
-- 建议同时启用 **XDF-Base**，查询走 vault 里的 `.xdf/xdf.db`
+- 建议同时启用 **XDF Base ≥ 1.5.1**。低于该版本直接拒用：1.4.14 起才有只读硬闸，1.5.1 起才有 `student_profile`。查询走 vault 里的 `.xdf/xdf.db`
 
 ## 安装
 
@@ -25,7 +25,9 @@ BRAT 填仓库：`SchleidenLee/obsidian-plugin-XDF-tookits`
 
 ## 工具
 
-查询：`list_classes` `list_one_on_one` `list_all_students` `list_lessons` `list_lessons_by_date` `list_student_lessons` `find_lessons` `get_lesson_detail` `extract_*` `check_feedback` `check_todo` `list_pending` `query_db`
+查询：`list_classes` `list_one_on_one` `list_all_students` `list_lessons` `list_lessons_by_date` `list_student_lessons` `find_lessons` `get_lesson_detail` `extract_*` `check_feedback` `check_todo` `list_pending` `query_db` `get_db_schema`
+
+`get_db_schema` 已在当前源码实现。已发布 Release `v0.1.18` 不含它。是否已随仓库提交，以 git 与 Release 为准，不要把「已实现」读成「已发布」。
 
 写入：`write_feedback` `write_raw` `write_teaching_content` `write_checkbox` `update_archive_index`
 
@@ -38,8 +40,8 @@ BRAT 填仓库：`SchleidenLee/obsidian-plugin-XDF-tookits`
 ## 开发
 
 ```bash
-npm install
-npm run build
+pnpm install
+pnpm run build
 ```
 
-产物：`main.js`。
+产物在 `dist/`：`main.js`、`manifest.json`、`styles.css`。仓库只用 pnpm；`package.json` 尚未声明 `packageManager`（见 PENDING）。

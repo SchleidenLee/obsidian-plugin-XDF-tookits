@@ -257,14 +257,36 @@ const ALL_TOOL_DEFS: ToolDef[] = [
   },
   {
     name: "query_db",
-    description: "只读 SQL。仅 SELECT/WITH/EXPLAIN。十表：archives / lessons / sections / checkboxes / class_roster / students / student_profile / files / attendance / homework。",
+    description:
+      "只读 SQL（单条，不支持 ? 占位符，值必须内联）。仅 SELECT/WITH/EXPLAIN。" +
+      "表：students(id,name)、archives(id,kind,name,status,vault_path)、lessons(id,archive_id,lesson_number,date,nav_path,folder_path)、" +
+      "class_roster(archive_id,student_id,student_name,row_order,final_exam_score)、" +
+      "student_profile(student_id,ielts_needed,target_score,exam_date,exam_score,education_level,education_status,school,english_level,notes)、" +
+      "attendance(student_id,lesson_id,status)、homework(student_id,lesson_id,submitted)、" +
+      "sections(file_path,lesson_id,student_id,heading_path,title,body)、checkboxes(file_path,section_path,student_id,item_text,checked,source)、" +
+      "files(path,kind,archive_id,lesson_id)。" +
+      "格式：date 形如 2026-11-03T10:00:00+08:00，比日期用 substr(date,1,10)；kind=class|vip；status=active|archived；" +
+      "attendance.status 为中文（正常/迟到/早退/线上课/请假）；checked/submitted 为 0/1；course_types 是 JSON 字符串。" +
+      "关联：lessons.archive_id→archives.id；sections.lesson_id→lessons.id；class_roster/attendance/homework.student_id→students.id；" +
+      "student_profile.student_id→students.id；一对一学员按 archives.name=students.name 关联；checkboxes 按 file_path 关联文件。" +
+      "需要完整列/DDL 时调 get_db_schema，或 SELECT sql FROM sqlite_master。",
     inputSchema: {
       type: "object",
       properties: {
-        sql: { type: "string", description: "SQL 语句" },
+        sql: { type: "string", description: "SQL 语句（单条只读，值直接内联）" },
         limit: { type: "number", description: "可选，最大返回行数，默认 200" },
       },
       required: ["sql"],
+    },
+  },
+  {
+    name: "get_db_schema",
+    description: "查询数据库结构：表名、列名/类型/主键/非空、建表语句。写 SQL 前可先调一次。",
+    inputSchema: {
+      type: "object",
+      properties: {
+        table: { type: "string", description: "可选，只看某张表；不传返回全部" },
+      },
     },
   },
   {
@@ -853,6 +875,35 @@ export async function callTool(
         const sliced = rows.slice(0, limit);
         const columns = sliced[0] ? Object.keys(sliced[0]) : [];
         return ok({ columns, rows: sliced, row_count: sliced.length, truncated });
+      }
+      case "get_db_schema": {
+        const only = args.table == null || String(args.table).trim() === ""
+          ? null
+          : String(args.table).trim();
+        // 表名会拼进 PRAGMA（无法参数绑定），先做标识符白名单校验
+        if (only && !/^[A-Za-z_][A-Za-z0-9_]*$/.test(only)) return err("table 只能是合法表名");
+        const tableRows = db.query(
+          only
+            ? "SELECT name, sql FROM sqlite_master WHERE type = 'table' AND name = ?"
+            : "SELECT name, sql FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
+          only ? [only] : undefined,
+        );
+        if (only && tableRows.length === 0) return err(`表 ${only} 不存在`);
+        const tables = tableRows.map((r) => {
+          const name = String(r.name);
+          const cols = db.query(`PRAGMA table_info("${name}")`);
+          return {
+            name,
+            ddl: r.sql == null ? null : String(r.sql),
+            columns: cols.map((c) => ({
+              name: String(c.name),
+              type: c.type == null ? "" : String(c.type),
+              notnull: Number(c.notnull) === 1,
+              pk: Number(c.pk) > 0,
+            })),
+          };
+        });
+        return ok({ tables, count: tables.length });
       }
       case "write_feedback": {
         const target = requireTarget(args);
