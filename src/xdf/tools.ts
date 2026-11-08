@@ -461,7 +461,7 @@ const ALL_TOOL_DEFS: ToolDef[] = [
   },
   {
     name: "generate_daily_feedback",
-    description: "日常反馈：按设置拼授课内容/此前原始记录 + 锁死去AI味提示，写 AI_GENERATED。",
+    description: "日常反馈：按设置拼授课内容/此前原始记录，写 AI_GENERATED。调用前，先使用其他查询工具确认目标课程的反馈情况及是否需要撰写反馈；部分课程无需反馈，不应直接调用本工具生成。",
     inputSchema: {
       type: "object",
       properties: {
